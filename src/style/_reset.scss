@@ -1,0 +1,53 @@
+@import './var';
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+body{
+    direction: rtl;
+    background-color: $white;
+    font-family:$samim;
+}
+p{
+    margin:0;
+    line-height: 1.5;
+    color: $text;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+    display: inline-block;
+    &:hover{
+        color:inherit ;
+    }
+}
+
+ul,ol{
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+img{
+    max-width: 100%;
+}
+input,button,textarea,input:focus,button:focus,textarea:focus{
+    border:none;
+    outline:none;
+}
+h1,h2,h3,h4,h5,h5{
+    font-family: $samim-bold;
+    color: $dark;
+    margin-bottom: 0;
+}
+h1{
+    font-size: $font-4xl;
+}
+h2{
+    font-size: $font-2xl;
+}
+h3{
+    font-size: $font-xl;
+}

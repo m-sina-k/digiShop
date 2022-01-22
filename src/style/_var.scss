@@ -1,0 +1,143 @@
+$dark:#4c5e60;
+$text:#868686;
+$light:#fbfbfb;
+$white:#ffffff;
+
+$yellow:#f8a503;
+$yellow-light:lighten($yellow,35%);
+
+$blue:#0984e3;
+$blue-light:lighten($blue,35%);
+
+$green:#2ecc71;
+$green-light:lighten($green,35%);
+
+$red:#EA2027;
+$red-light:lighten(#EA2027,35%);
+
+
+$phone-sm:320px;
+$phone-md:480px;
+$tablet-sm:570px;
+$tablet-lg:760px;
+$desktop-sm:992px;
+$desktop-lg: 1280px;
+
+$font-xs: 0.75rem;
+$font-sm: 0.875rem;
+$font-md: 1rem;
+$font-lg: 1.125rem;
+$font-xl: 1.25rem;
+$font-2xl: 1.5rem;
+$font-3xl: 1.875rem;
+$font-4xl: 2.25rem;
+$font-5xl: 3rem;
+
+$gap-xxs: 0.25rem;
+$gap-xs: 0.5rem;
+$gap-sm: 0.75rem;
+$gap-md: 1rem;
+$gap-lg: 1.5rem;
+$gap-xl: 2rem;
+$gap-2xl: 3rem;
+$gap-3xl: 4rem;
+
+
+$rounded-sm: 0.25rem;
+$rounded-md: 0.5rem;
+$rounded-lg: 0.75rem;
+$rounded-xl: 1rem;
+$rounded-2xl: 2rem;
+$rounded-full: 9999px;
+
+$z-10: 10;
+$z-20: 20;
+$z-50: 50;
+$z-max: 99999;
+
+// @mixin transition($property:all,$time:0.3s,$mode:ease){
+//   -webkit-transition: $property $time $mode;
+// -moz-transition: $property $time $mode;
+// -ms-transition: $property $time $mode;
+// -o-transition: $property $time $mode;
+// transition: $property $time $mode;
+// }
+
+@mixin text-shorten {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin flex($jc:center, $ai:center, $dir:row) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: $ai;
+  justify-content: $jc;
+}
+
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin full-size {
+  width: 100%;
+  height: 100%;
+}
+
+
+@mixin phone-sm {
+  @media only screen and (max-width: $phone-sm) {
+    @content;
+  }
+}
+
+@mixin phone-md {
+  @media only screen and (max-width: $phone-md) {
+    @content;
+  }
+}
+
+@mixin tablet-sm {
+  @media only screen and (max-width: $tablet-sm) {
+    @content;
+  }
+}
+
+@mixin tablet-lg {
+  @media only screen and (max-width: $tablet-lg) {
+    @content;
+  }
+}
+
+@mixin desktop-sm {
+  @media only screen and (max-width: $desktop-sm) {
+    @content;
+  }
+}
+
+@mixin desktop-lg {
+  @media only screen and (max-width: $desktop-lg) {
+    @content;
+  }
+}
+
+@font-face {
+  font-family: 'Samim';
+  src: url(../assets/fonts/samim/Samim.ttf);
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Samim-Bold';
+  src: url(../assets/fonts/samim/Samim-Bold.ttf);
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+$samim : 'Samim', Arial, Helvetica, sans-serif;
+$samim-bold : 'Samim-Bold', Arial, Helvetica, sans-serif;
