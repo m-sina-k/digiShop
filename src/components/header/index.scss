@@ -1,0 +1,14 @@
+@import '../../style/var';
+
+.header{
+    background-color: $white;
+    position:relative;
+    padding: $gap-md 0 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+@include desktop-sm{
+    .header{
+        padding: $gap-md 0;
+    }
+}

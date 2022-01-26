@@ -1,0 +1,188 @@
+@import "../../style/var";
+
+.top-header {
+  &__row {
+    @include flex(space-between, center);
+
+    /* ------------------------------- header logo ------------------------------ */
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+
+      .logo {
+        width: 45px;
+        height: 45px;
+        margin-left: $gap-xxs;
+      }
+      .logo-text {
+        font: $font-3xl $logo-font;
+      }
+    }
+    /* ---------------------------- header searchbar ---------------------------- */
+    .searchbar-container {
+      position: relative;
+      max-width: 450px;
+      width: 100%;
+      overflow: hidden;
+      border-radius: $rounded-lg;
+      -webkit-border-radius: $rounded-lg;
+      -moz-border-radius: $rounded-lg;
+      -ms-border-radius: $rounded-lg;
+      -o-border-radius: $rounded-lg;
+      .searchbar-form {
+        #search-input {
+          background-color: $light;
+          height: 45px;
+          width: 100%;
+          padding: 0 15px;
+          font-size: $font-sm;
+        }
+      }
+      .searchbar-button {
+        @include flex();
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        padding: 0 15px;
+        cursor: pointer;
+        background-color: transparent;
+
+        .search-icon {
+          font-size: $font-lg;
+          color: $blue;
+        }
+      }
+    }
+    /* ----------------------------- header widgets ----------------------------- */
+    .widgets-container {
+      display: flex;
+      align-items: center;
+      .contact-info {
+        font-size: 14px;
+        text-align: center;
+        margin: 0 $gap-xs;
+        &__text {
+          color: $text;
+          display: block;
+          .phone-icon {
+            font-size: $font-lg;
+            margin-left: $gap-xxs;
+          }
+        }
+        .phone-link__text {
+          font: 12px $yekan;
+          font-weight: bold;
+
+          margin-top: $gap-xxs;
+          display: block;
+          text-align: center;
+          direction: ltr;
+        }
+      }
+      .widget-button {
+        @include flex;
+        background-color: $white-shade;
+        padding: $gap-xxs;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        width: 35px;
+        height: 35px;
+        border-radius: $rounded-lg;
+        -webkit-border-radius: $rounded-lg;
+        -moz-border-radius: $rounded-lg;
+        -ms-border-radius: $rounded-lg;
+        -o-border-radius: $rounded-lg;
+        margin: 0 $gap-xs;
+      }
+      .cart-button {
+        position: relative;
+        &__amount {
+          @include flex();
+          background-color: $yellow;
+          color: $black;
+          font-size: 13px;
+          width: 14px;
+          height: 14px;
+          border-radius: $rounded-full;
+          position: absolute;
+          top: -3px;
+          right: -3px;
+          -webkit-border-radius: $rounded-full;
+          -moz-border-radius: $rounded-full;
+          -ms-border-radius: $rounded-full;
+          -o-border-radius: $rounded-full;
+        }
+      }
+      .search-button--r,
+      .menu-button--r {
+        width: 35px;
+        height: 35px;
+        padding: $gap-xxs;
+        cursor: pointer;
+        margin: 0 $gap-xxs;
+        background-color: transparent;
+        font-size: $font-lg;
+        border-radius: $rounded-md;
+        -webkit-border-radius: $rounded-md;
+        -moz-border-radius: $rounded-md;
+        -ms-border-radius: $rounded-md;
+        -o-border-radius: $rounded-md;
+        transition: background-color 0.3s ease;
+        -webkit-transition: background-color 0.3s ease;
+        -moz-transition: background-color 0.3s ease;
+        -ms-transition: background-color 0.3s ease;
+        -o-transition: background-color 0.3s ease;
+        display: none;
+        &:hover {
+          background-color: $light;
+        }
+      }
+    }
+  }
+}
+
+/* ------------------------------- responsive ------------------------------- */
+
+@include desktop-sm {
+  .top-header {
+    .searchbar-container {
+      display: none;
+    }
+    .widgets-container{
+      .search-button--r,
+      .menu-button--r{
+        display: block;
+      }
+      .contact-info{
+        display: none;
+      }
+    }
+  }
+}
+
+@include phone-md{
+  .top-header{
+    .logo-container {
+      .logo {
+        width: 37px;
+        height: 37px;
+      }
+      .logo-text {
+        font: $font-xl $logo-font;
+      }
+    }
+    .widgets-container{
+      .widget-button{
+        width: 30px;
+        height: 30px;
+        font-size: $font-sm;
+        border-radius: $rounded-md;
+        -webkit-border-radius: $rounded-md;
+        -moz-border-radius: $rounded-md;
+        -ms-border-radius: $rounded-md;
+        -o-border-radius: $rounded-md;
+}
+    }
+  }
+}

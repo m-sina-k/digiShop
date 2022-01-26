@@ -1,0 +1,114 @@
+@import "../../../style/var";
+
+.mobile-navigation__mega-dropdown {
+  background-color: $white-shade;
+  padding: 0 $gap-xl;
+
+  // category links
+  &__item {
+    cursor: pointer;
+    padding: $gap-md 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid lightgray;
+
+    &::before {
+      content: "";
+      margin-left: $gap-sm;
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background-color: $primary-shade;
+      border-radius: $rounded-md;
+      -webkit-border-radius: $rounded-md;
+      -moz-border-radius: $rounded-md;
+      -ms-border-radius: $rounded-md;
+      -o-border-radius: $rounded-md;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  // category titles
+  .category-links__container {
+    padding: 0 $gap-2xl;
+
+    .category__title {
+      padding: $gap-md 0;
+      margin-bottom: $gap-sm;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid lightgray;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        margin-left: $gap-sm;
+        display: inline-block;
+        width: 10px;
+        height: 2px;
+        background-color: $primary;
+      }
+    }
+    // category link container
+    .category__links {
+      background-color: $white;
+      padding: 0 $gap-md;
+    }
+
+    // category link
+    .dropdown-item {
+      padding: $gap-sm 0;
+      transition: color 0.4s ease;
+      -webkit-transition: color 0.4s ease;
+      -moz-transition: color 0.4s ease;
+      -ms-transition: color 0.4s ease;
+      -o-transition: color 0.4s ease;
+      .dropdown-link {
+        display: block;
+
+        &::before {
+          content: "";
+          margin-left: $gap-sm;
+          display: inline-block;
+          width: 5px;
+          height: 5px;
+          background-color: $primary-shade;
+        }
+      }
+
+      &:hover {
+        background-color: unset;
+        color: $primary;
+      }
+    }
+  }
+}
+
+.dropdown-icon {
+  margin-right: auto;
+  transition: transform 0.4s ease;
+  -webkit-transition: transform 0.4s ease;
+  -moz-transition: transform 0.4s ease;
+  -ms-transition: transform 0.4s ease;
+  -o-transition: transform 0.4s ease;
+
+  &--rotated {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+  }
+}
+
+@include tablet-sm {
+  .mobile-navigation__mega-dropdown {
+    padding: 0 $gap-lg;
+    .category-links__container {
+      padding: 0 $gap-md;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@import "../../../style/var";
+
+.mega-dropdown {
+  border-top: 1px solid $light;
+  z-index: $z-max;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 100%;
+  border-radius: 0 0 $gap-sm $gap-sm;
+  -webkit-border-radius: 0 0 $gap-sm $gap-sm;
+  -moz-border-radius: 0 0 $gap-sm $gap-sm;
+  -ms-border-radius: 0 0 $gap-sm $gap-sm;
+  -o-border-radius: 0 0 $gap-sm $gap-sm;
+  overflow: hidden;
+  background-color: $white;
+
+  /* ------------------------ mega dropdown right side ------------------------ */
+  &__category-container {
+    height: 100%;
+    background-color: $light;
+    padding: $gap-md $gap-2xl $gap-md 0;
+
+    .category-link {
+      cursor: pointer;
+      font-size: $font-sm;
+      padding: $gap-sm $gap-md;
+      margin-bottom: $gap-sm;
+      border-radius: 0 $rounded-md $rounded-md 0;
+      -webkit-border-radius: 0 $rounded-md $rounded-md 0;
+      -moz-border-radius: 0 $rounded-md $rounded-md 0;
+      -ms-border-radius: 0 $rounded-md $rounded-md 0;
+      -o-border-radius: 0 $rounded-md $rounded-md 0;
+      transition: background-color 0.3s ease;
+      -webkit-transition: background-color 0.3s ease;
+      -moz-transition: background-color 0.3s ease;
+      -ms-transition: background-color 0.3s ease;
+      -o-transition: background-color 0.3s ease;
+
+      /* ------------------------------ dropleft icon ----------------------------- */
+      &__icon {
+        margin-right: $gap-sm;
+        transition: transform 0.3s ease;
+        -webkit-transition: transform 0.3s ease;
+        -moz-transition: transform 0.3s ease;
+        -ms-transition: transform 0.3s ease;
+        -o-transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        background-color: $white;
+        .category-link__icon {
+          transform: translateX(-10px);
+          -webkit-transform: translateX(-10px);
+          -moz-transform: translateX(-10px);
+          -ms-transform: translateX(-10px);
+          -o-transform: translateX(-10px);
+        }
+      }
+    }
+  }
+
+  /* ------------------------- mega dropdown left side ------------------------ */
+
+  &__content-container {
+    height: 100%;
+    padding: $gap-md $gap-xl $gap-md 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-column-gap: 10px;
+  }
+
+  &__list {
+    padding: 0 $gap-sm;
+
+    .list__title {
+      margin-bottom: $gap-sm;
+      display: inline-block;
+
+      &::after {
+        content: "";
+        display: block;
+        margin-top: $gap-xs;
+        height: 2px;
+        background-color: $primary;
+      }
+    }
+
+    .list__link {
+      display: inline-flex;
+      color: $text;
+      margin-bottom: $gap-xs;
+    }
+  }
+}

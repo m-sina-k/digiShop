@@ -1,7 +1,9 @@
-$dark:#4c5e60;
-$text:#868686;
-$light:#fbfbfb;
+$text:#4c5e60;
+$light:#ebebeb;
+$white-shade:#f9f9f9;
 $white:#ffffff;
+$black:#000000;
+$shadow:rgba($color: $black, $alpha: 0.5);
 
 $yellow:#f8a503;
 $yellow-light:lighten($yellow,35%);
@@ -15,6 +17,10 @@ $green-light:lighten($green,35%);
 $red:#EA2027;
 $red-light:lighten(#EA2027,35%);
 
+$primary-tint:#E42F1B;
+$primary:#CA251A;
+$primary-shade:#A41619;
+
 
 $phone-sm:320px;
 $phone-md:480px;
@@ -23,8 +29,8 @@ $tablet-lg:760px;
 $desktop-sm:992px;
 $desktop-lg: 1280px;
 
-$font-xs: 0.75rem;
-$font-sm: 0.875rem;
+$font-xs: 0.70rem;
+$font-sm: 0.85rem;
 $font-md: 1rem;
 $font-lg: 1.125rem;
 $font-xl: 1.25rem;
@@ -55,13 +61,6 @@ $z-20: 20;
 $z-50: 50;
 $z-max: 99999;
 
-// @mixin transition($property:all,$time:0.3s,$mode:ease){
-//   -webkit-transition: $property $time $mode;
-// -moz-transition: $property $time $mode;
-// -ms-transition: $property $time $mode;
-// -o-transition: $property $time $mode;
-// transition: $property $time $mode;
-// }
 
 @mixin text-shorten {
   overflow: hidden;
@@ -125,19 +124,19 @@ $z-max: 99999;
 }
 
 @font-face {
-  font-family: 'Samim';
-  src: url(../assets/fonts/samim/Samim.ttf);
-  font-weight: bold;
+  font-family: 'Yekan';
+  src: url(../assets/fonts/yekan/Yekan.ttf);
+  font-weight: normal;
   font-style: normal;
 }
+
 
 @font-face {
-  font-family: 'Samim-Bold';
-  src: url(../assets/fonts/samim/Samim-Bold.ttf);
+  font-family: 'SOGAND';
+  src: url(../assets/fonts/SOGAND.ttf);
   font-weight: bold;
   font-style: normal;
 }
 
-
-$samim : 'Samim', Arial, Helvetica, sans-serif;
-$samim-bold : 'Samim-Bold', Arial, Helvetica, sans-serif;
+$logo-font : 'SOGAND';
+$yekan : 'Yekan', Arial, Helvetica, sans-serif;

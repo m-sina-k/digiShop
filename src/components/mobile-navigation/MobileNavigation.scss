@@ -1,0 +1,46 @@
+@import "../../style/var";
+
+.mobile-navigation {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $white;
+  padding: $gap-xl;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    .close-icon {
+      font-size: $font-3xl;
+      color: $red;
+      cursor: pointer;
+    }
+  }
+  &__links-container{
+    margin-top: $gap-xl;
+    .mobile-navigation__link{
+      @include flex(space-between,center);
+      padding:$gap-sm 0;
+      font-weight: bold;
+      border-bottom: 1px solid lightgray;
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+  }
+  &--active {
+    opacity: 1;
+    z-index: $z-max;
+    visibility: visible;
+  }
+}

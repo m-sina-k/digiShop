@@ -1,0 +1,68 @@
+@import "../../style/var";
+
+.mobile-searchbar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $white;
+  padding: $gap-xl;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    .close-icon {
+      font-size: $font-3xl;
+      color: $red;
+      cursor: pointer;
+    }
+  }
+  &__form {
+    margin-top: $gap-2xl;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: $rounded-lg;
+    -webkit-border-radius: $rounded-lg;
+    -moz-border-radius: $rounded-lg;
+    -ms-border-radius: $rounded-lg;
+    -o-border-radius: $rounded-lg;
+    #mobile-search {
+      background-color: $light;
+      height: 45px;
+      width: 100%;
+      padding: 0 15px;
+      font-size: $font-sm;
+    }
+    .searchbar-button {
+      @include flex();
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      margin: auto;
+      padding: 0 15px;
+      cursor: pointer;
+      background-color: transparent;
+
+      .search-icon {
+        font-size: $font-lg;
+        color: $blue;
+      }
+    }
+  }
+  &--active {
+    opacity: 1;
+    z-index: $z-max;
+    visibility: visible;
+  }
+}
+
