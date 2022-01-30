@@ -1,0 +1,31 @@
+@import "../../style/var";
+
+.loading {
+  @include flex();
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $shadow;
+  z-index: $z-max;
+
+  &__container {
+    overflow: hidden;
+    background-color: $white;
+    border-radius: $rounded-md;
+    -webkit-border-radius: $rounded-md;
+    -moz-border-radius: $rounded-md;
+    -ms-border-radius: $rounded-md;
+    -o-border-radius: $rounded-md;
+    .gif-container {
+      max-width: 250px;
+      max-width: 250px;
+    }
+    .text {
+      padding: 0 $gap-sm $gap-md;
+      text-align: center;
+      color: $black;
+    }
+  }
+}

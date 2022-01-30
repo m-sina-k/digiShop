@@ -1,6 +1,6 @@
 import React, { useState,Fragment } from "react";
 import { Link } from "react-router-dom";
-import { navigationLink } from "./../../assets/data/navigationLinks";
+import { navigationLink } from "../../../assets/data/navigationLinks";
 import { MdClose } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import MobileMegaDropdown from "./mobile-mega-dropdown/MobileMegaDropdown";

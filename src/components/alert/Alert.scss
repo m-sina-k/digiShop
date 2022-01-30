@@ -1,0 +1,68 @@
+@import "../../style/var";
+
+.alert {
+  position: relative;
+  width: 450px;
+  max-width: 95%;
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: $rounded-lg;
+  -webkit-border-radius: $rounded-lg;
+  -moz-border-radius: $rounded-lg;
+  -ms-border-radius: $rounded-lg;
+  -o-border-radius: $rounded-lg;
+  padding: $gap-sm $gap-md;
+  
+  &__icon-container {
+    .alert-icon {
+      font-size: $font-4xl;
+      margin-left: $gap-sm;
+      &--warning {
+        color: $yellow;
+      }
+      &--error {
+        color: $red;
+      }
+      &--info {
+        color: $blue;
+      }
+      &--success {
+        color: $green;
+      }
+    }
+  }
+
+  .alert__text-container {
+    .alert__title {
+      display: block;
+      color: $black;
+      font-size: $font-lg;
+    }
+
+    .alert__message {
+      color: $text;
+    }
+  }
+  &__close-button {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    font-size: $font-xl;
+    cursor: pointer;
+  }
+}
+
+.alert--warning {
+  border-right: 7px solid $yellow !important;
+}
+.alert--success {
+  border-right: 7px solid $green !important;
+}
+.alert--info {
+  border-right: 7px solid $blue !important;
+}
+.alert--error {
+  border-right: 7px solid $red !important;
+}

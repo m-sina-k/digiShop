@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import { BiSearch, BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import { MdMenu } from "react-icons/md";
-import logo from "../../assets/images/logo.png";
+import { HiOutlineLogin } from "react-icons/hi";
+import logo from "../../../assets/images/logo.png";
+import { useSelector } from "react-redux";
 import "./TopHeader.scss";
 
-const TopHeader = ({setShowMobileSearchbar,setShowMobileNavigation}) => {
+const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
+  const { userToken } = useSelector((state) => state.authState);
+
   return (
     <div className="top-header">
       <div className="container">
@@ -42,14 +46,26 @@ const TopHeader = ({setShowMobileSearchbar,setShowMobileNavigation}) => {
               <span className="cart-button__amount">0</span>
             </Link>
 
-            <Link to="/login" className="widget-button login-button">
-              <BiUser className="login-icon widget-button__icon" />
-            </Link>
+            {userToken ? (
+              <Link to="/dashbord" className="widget-button login-button">
+                <BiUser className="login-icon widget-button__icon" />
+              </Link>
+            ) : (
+              <Link to="/login" className="widget-button login-button">
+                <HiOutlineLogin className="login-icon widget-button__icon" />
+              </Link>
+            )}
 
-            <button className="search-button--r" onClick={()=>setShowMobileSearchbar(true)}>
+            <button
+              className="search-button--r"
+              onClick={() => setShowMobileSearchbar(true)}
+            >
               <BiSearch className="search-icon" />
             </button>
-            <button className="menu-button--r" onClick={()=>setShowMobileNavigation(true)}>
+            <button
+              className="menu-button--r"
+              onClick={() => setShowMobileNavigation(true)}
+            >
               <MdMenu className="menu-icon" />
             </button>
           </div>

@@ -1,41 +1,44 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { navigationLink } from "../../assets/data/navigationLinks";
+import { navigationLink } from "../../../assets/data/navigationLinks";
 import { IoIosArrowDown } from "react-icons/io";
 import MegaDropdown from "./megaDropdown/MegaDropdown";
 import Dropdown from './dropdown/Dropdown'
 import "./Navigation.scss";
 
 
-const Navigation = () => {
+const Navigation = ({setShowBackdrop}) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeMegaDropdown, setActiveMegaDropdown] = useState(null);
   
   return (
-    <>
-      {activeMegaDropdown && <div className="backdrop"></div>}
+    
       <div className="navigation">
         <div className="container">
           <div className="navigation__row">
             {navigationLink.map((link) => {
               const { url, text, id, megaDropdownID,dropdownID } = link;
               return link.megaDropdown ? (
-                <Link
-                  to={url}
+                <span
                   key={id}
                   className="navigation__link navigation__link--mega"
-                  onMouseEnter={() => setActiveMegaDropdown(megaDropdownID)}
-                  onMouseLeave={() => setActiveMegaDropdown(null)}
+                  onMouseEnter={() => {
+                    setActiveMegaDropdown(megaDropdownID)
+                    setShowBackdrop(true)
+                  }}
+                  onMouseLeave={() => {
+                    setActiveMegaDropdown(null)
+                    setShowBackdrop(false)
+                  }}
                 >
                   {text}
                   {link.megaDropdown.id === activeMegaDropdown && (
                     <MegaDropdown link={link} />
                   )}
                   <IoIosArrowDown className="dropdown-icon" />
-                </Link>
+                </span>
               ) : link.dropdown ? (
-                <Link
-                  to={url}
+                <span
                   key={id}
                   className="navigation__link navigation__link--dropdown"
                   onMouseEnter={() => setActiveDropdown(dropdownID)}
@@ -46,7 +49,7 @@ const Navigation = () => {
                   {link.dropdown.id === activeDropdown && (
                     <Dropdown link={link}/>
                   )}
-                </Link>
+                </span>
               ) : (
                 <Link to={url} key={id} className="navigation__link">
                   {text}
@@ -56,7 +59,6 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

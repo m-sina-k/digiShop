@@ -1,8 +1,8 @@
-@import "../../../style/var";
+@import "../../../../style/var";
 
 .dropdown-container {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    position: absolute;
   top: 100%;
   right: 0;
   padding: $gap-sm $gap-md;
@@ -12,6 +12,8 @@
   -moz-border-radius: 0 0 $rounded-md $rounded-md;
   -ms-border-radius: 0 0 $rounded-md $rounded-md;
   -o-border-radius: 0 0 $rounded-md $rounded-md;
+  z-index: $z-max;
+  
   .dropdown-list {
     width: max-content;
     padding: 0 $gap-md;

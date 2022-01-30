@@ -1,0 +1,33 @@
+@import "../../../style/var";
+
+.navigation {
+  margin-top: $gap-lg;
+
+  &__link {
+    height: 35px;
+    color: $text;
+    margin-left: $gap-lg;
+    font-size: $font-sm;
+    display: inline-flex;
+    align-items: center;
+
+    .dropdown-icon {
+      font-size: $font-xs;
+      margin-right: $gap-xxs;
+      line-height: 35px;
+    }
+    &--mega {
+      cursor: default;
+    }
+    &--dropdown {
+      cursor: default;
+      position: relative;
+    }
+  }
+}
+
+@include desktop-sm {
+  .navigation {
+    display: none;
+  }
+}

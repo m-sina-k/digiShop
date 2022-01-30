@@ -3,14 +3,24 @@
 .backdrop {
   position: fixed;
   top: 0;
-  bottom: 0;
   right: 0;
   left: 0;
-  background: $shadow;
-  z-index: -1;
+  bottom: 0;
+  background-color: $shadow;
+  opacity: 0;
+  transition: opacity 0.3 ease;
+  -webkit-transition: opacity 0.3 ease;
+  -moz-transition: opacity 0.3 ease;
+  -ms-transition: opacity 0.3 ease;
+  -o-transition: opacity 0.3 ease;
+  &--active {
+    opacity: 1;
+    z-index: $z-50;
+  }
 }
 
-.slide-down--deactive{
+// dropdown animation
+.slide-down--deactive {
   overflow: hidden;
   max-height: 0;
   transition: max-height 1s cubic-bezier(0, 1, 0, 1);
@@ -19,12 +29,16 @@
   -ms-transition: max-height 1s cubic-bezier(0, 1, 0, 1);
   -o-transition: max-height 1s cubic-bezier(0, 1, 0, 1);
 }
-
-.slide-down--active{
+.slide-down--active {
   max-height: 2000px;
   transition: max-height 1s ease-in-out;
   -webkit-transition: max-height 1s ease-in-out;
   -moz-transition: max-height 1s ease-in-out;
   -ms-transition: max-height 1s ease-in-out;
   -o-transition: max-height 1s ease-in-out;
+}
+
+// react toastify style
+.Toastify__toast {
+  font-family: $yekan;
 }
