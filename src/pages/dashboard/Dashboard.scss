@@ -1,5 +1,30 @@
-@import '../../style/var';
+@import "../../style/var";
 
-.dashboard{
-    
+.dashboard {
+  padding: $gap-3xl 0;
+  &__block {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    background-color: $white;
+    padding: $gap-md;
+    border-radius: $rounded-md;
+    -webkit-border-radius: $rounded-md;
+    -moz-border-radius: $rounded-md;
+    -ms-border-radius: $rounded-md;
+    -o-border-radius: $rounded-md;
+    height: 100%;
+
+    &__heading {
+      display: inline-block;
+      margin-bottom: $gap-sm;
+
+      &::after {
+        content: "";
+        display: block;
+        margin-top: $gap-xs;
+        width: 70%;
+        height: 2.5px;
+        background-color: $primary;
+      }
+    }
+  }
 }

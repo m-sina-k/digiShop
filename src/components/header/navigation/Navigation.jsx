@@ -4,10 +4,13 @@ import { navigationLink } from "../../../assets/data/navigationLinks";
 import { IoIosArrowDown } from "react-icons/io";
 import MegaDropdown from "./megaDropdown/MegaDropdown";
 import Dropdown from './dropdown/Dropdown'
+import { useDispatch } from "react-redux";
+import { setShowMegaDropdownBackdrop } from "../../../features/slices/uiSlice";
 import "./Navigation.scss";
 
 
-const Navigation = ({setShowBackdrop}) => {
+const Navigation = () => {
+  const dispatch = useDispatch()
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeMegaDropdown, setActiveMegaDropdown] = useState(null);
   
@@ -24,11 +27,11 @@ const Navigation = ({setShowBackdrop}) => {
                   className="navigation__link navigation__link--mega"
                   onMouseEnter={() => {
                     setActiveMegaDropdown(megaDropdownID)
-                    setShowBackdrop(true)
+                    dispatch(setShowMegaDropdownBackdrop(true))
                   }}
                   onMouseLeave={() => {
                     setActiveMegaDropdown(null)
-                    setShowBackdrop(false)
+                    dispatch(setShowMegaDropdownBackdrop(false))
                   }}
                 >
                   {text}

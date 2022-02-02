@@ -5,7 +5,7 @@ import MobileNavigation from "../header/mobile-navigation/MobileNavigation";
 import MobileSearchbar from "../header/mobile-searchbar/MobileSearchbar";
 import "./index.scss";
 
-const Index = ({setShowBackdrop}) => {
+const Index = () => {
   const [showMobileSearchbar, setShowMobileSearchbar] = useState(false);
   const [showMobileNavigation, setShowMobileNavigation] = useState(false);
   return (
@@ -15,7 +15,7 @@ const Index = ({setShowBackdrop}) => {
           setShowMobileSearchbar={setShowMobileSearchbar}
           setShowMobileNavigation={setShowMobileNavigation}
         />
-        <Navigation setShowBackdrop={setShowBackdrop} />
+        <Navigation />
       </header>
 
       <MobileNavigation

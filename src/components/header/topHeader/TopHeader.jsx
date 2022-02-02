@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiSearch, BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import { MdMenu } from "react-icons/md";
+// import { BiUser } from "react-icons/bi";
 import { HiOutlineLogin } from "react-icons/hi";
 import logo from "../../../assets/images/logo.png";
 import { useSelector } from "react-redux";
+import DashboardDropdown from "./DashboardDropdown";
 import "./TopHeader.scss";
 
 const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
   const { userToken } = useSelector((state) => state.authState);
+  const [showDashboardDropdown, setShowDashboardDropdown] = useState(false);
 
   return (
     <div className="top-header">
@@ -47,9 +50,18 @@ const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
             </Link>
 
             {userToken ? (
-              <Link to="/dashbord" className="widget-button login-button">
+              <section
+                className="widget-button login-button login-button--dashboard"
+              >
+                <span onClick={() => setShowDashboardDropdown(!showDashboardDropdown)}>
                 <BiUser className="login-icon widget-button__icon" />
-              </Link>
+                </span>
+                {showDashboardDropdown && (
+                  <DashboardDropdown
+                    setShowDashboardDropdown={setShowDashboardDropdown}
+                  />
+                )}
+              </section>
             ) : (
               <Link to="/login" className="widget-button login-button">
                 <HiOutlineLogin className="login-icon widget-button__icon" />

@@ -44,12 +44,11 @@ const SignUp = () => {
   const signUpUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password)
-      .then((res) => {
+      .then(() => {
         setLoading(false);
-        navigate("/login", { state: { justSignedUp: true } });
+        navigate("/login");
       })
       .catch((error) => {
-
         setLoading(false);
         switch (error.message) {
           case "Firebase: Error (auth/email-already-in-use).":

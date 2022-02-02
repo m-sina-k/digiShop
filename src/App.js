@@ -6,22 +6,29 @@ import Login from "./pages/register/Login";
 import SignUp from "./pages/register/SignUp";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
+import { useSelector } from "react-redux";
+
 function App() {
-  const [showBackdrop, setShowBackdrop] = useState(false);
+  const { showBackdrop, showMegaDropdownBackdrop } = useSelector(
+    (state) => state.uiState
+  );
 
   return (
     <React.Fragment>
       <div
+        className={`backdrop ${
+          showMegaDropdownBackdrop ? "backdrop--mega-dropdown" : ""
+        }`}
+      ></div>
+      <div
         className={`backdrop ${showBackdrop ? "backdrop--active" : ""}`}
       ></div>
-      <Header setShowBackdrop={setShowBackdrop} />
+      <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
+        <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />}/>
       </Routes>
     </React.Fragment>
   );

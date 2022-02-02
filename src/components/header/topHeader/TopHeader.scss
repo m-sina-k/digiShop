@@ -85,7 +85,8 @@
         @include flex;
         background-color: $white-shade;
         padding: $gap-xxs;
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
+          rgba(0, 0, 0, 0.24) 0px 1px 2px;
         width: 35px;
         height: 35px;
         border-radius: $rounded-lg;
@@ -114,6 +115,69 @@
           -o-border-radius: $rounded-full;
         }
       }
+
+      .login-button--dashboard {
+        position: relative;
+        cursor: pointer;
+
+        .dashboard-dropdown__container {
+          width: max-content;
+          background-color: $white-shade;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+          padding: $gap-sm $gap-md;
+          position: absolute;
+          top: 130%;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          border-radius: $rounded-md;
+          -webkit-border-radius: $rounded-md;
+          -moz-border-radius: $rounded-md;
+          -ms-border-radius: $rounded-md;
+          -o-border-radius: $rounded-md;
+          z-index: $z-max;
+          cursor: default;
+          .dashboard-dropdown__item {
+            display: flex;
+            align-items: center;
+            padding: $gap-xxs;
+            margin-bottom: $gap-xxs;
+            font-size: $font-sm;
+            border-radius: $rounded-sm;
+            -webkit-border-radius: $rounded-sm;
+            -moz-border-radius: $rounded-sm;
+            -ms-border-radius: $rounded-sm;
+            -o-border-radius: $rounded-sm;
+            transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            .icon {
+              font-size: $font-lg;
+              margin-left: $gap-xs;
+            }
+            &:hover {
+              color: $blue;
+              background-color: $light;
+            }
+          }
+
+          .logout-button {
+            cursor: pointer;
+            color: $red;
+
+            &:hover {
+              color: $red;
+              background-color: lighten($red-light, 7%);
+            }
+          }
+        }
+      }
+
       .search-button--r,
       .menu-button--r {
         width: 35px;
@@ -149,20 +213,20 @@
     .searchbar-container {
       display: none;
     }
-    .widgets-container{
+    .widgets-container {
       .search-button--r,
-      .menu-button--r{
+      .menu-button--r {
         display: block;
       }
-      .contact-info{
+      .contact-info {
         display: none;
       }
     }
   }
 }
 
-@include phone-md{
-  .top-header{
+@include phone-md {
+  .top-header {
     .logo-container {
       .logo {
         width: 37px;
@@ -172,8 +236,8 @@
         font: $font-xl $logo-font;
       }
     }
-    .widgets-container{
-      .widget-button{
+    .widgets-container {
+      .widget-button {
         width: 30px;
         height: 30px;
         font-size: $font-sm;
@@ -182,7 +246,7 @@
         -moz-border-radius: $rounded-md;
         -ms-border-radius: $rounded-md;
         -o-border-radius: $rounded-md;
-}
+      }
     }
   }
 }

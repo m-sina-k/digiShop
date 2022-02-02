@@ -1,0 +1,7 @@
+@import '../../../style/var';
+
+.recent-visits{
+    &--empty{
+        @include flex(unset,center,column);
+    }
+}

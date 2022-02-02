@@ -1,0 +1,77 @@
+@import "../../../style/var";
+
+.personal-info {
+  
+  .info-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .info__block {
+      @include flex(space-between, center);
+      padding: $gap-sm;
+
+      .info__text {
+        .info__title {
+          display: block;
+          color: $black;
+        }
+
+        .info__value {
+          display: block;
+          max-width: 90%;
+          text-align: justify;
+        }
+      }
+
+      .info__edit-button {
+        @include flex();
+        background-color: $light;
+        padding: $gap-xs;
+        border-radius: $rounded-sm;
+        -webkit-border-radius: $rounded-sm;
+        -moz-border-radius: $rounded-sm;
+        -ms-border-radius: $rounded-sm;
+        -o-border-radius: $rounded-sm;
+
+        .edit-icon{
+          font-size: $font-sm;
+        }
+        
+      }
+
+      &:nth-child(even){
+        border-right: 1px solid silver;
+      }
+      
+      &:last-child{
+        grid-column: 1 / -1;
+      }
+      &--border-top{
+        border-top: 1px solid silver;
+      }
+    }
+  }
+}
+
+
+@include phone-md{
+  .personal-info {
+    .info-container {
+      grid-template-columns: 1fr;
+      .info__block{
+        border: none;
+        border-bottom: 1px solid silver;
+       
+        &:nth-child(even){
+          border-right: none;
+        }
+        &:last-child{
+          border-bottom: none;
+        }
+        &--border-top{
+          border-top: none;
+        }
+      }
+    }
+}
+}

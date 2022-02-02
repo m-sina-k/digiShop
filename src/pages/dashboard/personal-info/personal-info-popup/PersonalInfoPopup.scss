@@ -1,0 +1,82 @@
+@import "../../../../style/var";
+
+.personal-info__popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: $white;
+  z-index: $z-max;
+  padding: $gap-lg;
+  border-radius: $rounded-md;
+  -webkit-border-radius: $rounded-md;
+  -moz-border-radius: $rounded-md;
+  -ms-border-radius: $rounded-md;
+  -o-border-radius: $rounded-md;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  width: 400px;
+  max-width: 95%;
+  .popup__heading {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $gap-xs;
+    border-bottom: 1px solid silver;
+
+    .popup__close-button {
+      cursor: pointer;
+      font-size: $font-xl;
+      color: $black;
+    }
+  }
+
+  .popup__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: $gap-md;
+    .popup__input {
+      font: $font-sm Arial, Helvetica, sans-serif;
+      width: 100%;
+      background-color: $light;
+      padding: $gap-sm $gap-sm;
+      border-radius: $rounded-sm;
+      -webkit-border-radius: $rounded-sm;
+      -moz-border-radius: $rounded-sm;
+      -ms-border-radius: $rounded-sm;
+      -o-border-radius: $rounded-sm;
+    }
+
+    .form__submit-button {
+      border-radius: $rounded-md;
+      -webkit-border-radius: $rounded-md;
+      -moz-border-radius: $rounded-md;
+      -ms-border-radius: $rounded-md;
+      -o-border-radius: $rounded-md;
+      padding: $gap-xs $gap-md;
+      margin-top: $gap-md;
+      align-self: flex-end;
+      background-color: $green;
+      color: $white;
+      transition: background-color 0.3s ease;
+      -webkit-transition: background-color 0.3s ease;
+      -moz-transition: background-color 0.3s ease;
+      -ms-transition: background-color 0.3s ease;
+      -o-transition: background-color 0.3s ease;
+
+      &:disabled {
+        background-color: silver;
+        cursor: not-allowed;
+        color: $black;
+        &:hover {
+          background-color: silver;
+        }
+      }
+
+      &:hover {
+        background-color: darken($green, 10%);
+      }
+    }
+  }
+}
