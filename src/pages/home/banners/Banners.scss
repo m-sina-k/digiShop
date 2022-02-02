@@ -1,0 +1,110 @@
+@import "../../../style/var";
+
+.banners {
+  margin-top: $gap-xl;
+  &__row {
+    display: grid;
+    grid-template-columns: 66% 33%;
+    grid-gap: 15px;
+    .banner {
+      overflow: hidden;
+      box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+        rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+      border-radius: $rounded-lg;
+      -webkit-border-radius: $rounded-lg;
+      -moz-border-radius: $rounded-lg;
+      -ms-border-radius: $rounded-lg;
+      -o-border-radius: $rounded-lg;
+      &__image-contaier {
+        width: 100%;
+        height: 100%;
+        .banner__image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .small-banners__container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 15px;
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 45px;
+    height: 45px;
+    color: rgba($color: $light, $alpha: 0.8);
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    &::after {
+      font-size: $font-2xl;
+    }
+  }
+  .swiper-button-prev {
+    transform: translateX(-7px);
+    -webkit-transform: translateX(-7px);
+    -moz-transform: translateX(-7px);
+    -ms-transform: translateX(-7px);
+    -o-transform: translateX(-7px);
+    &:hover {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+      color: $white;
+    }
+  }
+  .swiper-button-next {
+    transform: translateX(7px);
+    -webkit-transform: translateX(7px);
+    -moz-transform: translateX(7px);
+    -ms-transform: translateX(7px);
+    -o-transform: translateX(7px);
+    &:hover {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+      color: $white;
+    }
+  }
+  .swiper-pagination-bullet {
+    background-color: $white;
+  }
+}
+
+@include desktop-sm {
+  .banners {
+    &__row {
+      grid-template-columns: 1fr;
+      .small-banners__container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
+
+@include phone-md {
+  .banners {
+    &__row {
+      .small-banners__container {
+        grid-template-columns: 1fr;
+      }
+      .swiper-button-prev,
+  .swiper-button-next{
+    width: 25px;
+    height: 25px;
+    &::after{
+      font-size: $font-lg;
+    }
+  }
+    }
+  }
+}

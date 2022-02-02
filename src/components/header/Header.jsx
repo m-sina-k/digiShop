@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import TopHeader from "../header/topHeader/TopHeader";
-import Navigation from "../header/navigation/Navigation";
-import MobileNavigation from "../header/mobile-navigation/MobileNavigation";
-import MobileSearchbar from "../header/mobile-searchbar/MobileSearchbar";
-import "./index.scss";
+import TopHeader from "./topHeader/TopHeader";
+import Navigation from "./navigation/Navigation";
+import MobileNavigation from "./mobile-navigation/MobileNavigation";
+import MobileSearchbar from "./mobile-searchbar/MobileSearchbar";
+import "./Header.scss";
 
-const Index = () => {
+const Header = () => {
   const [showMobileSearchbar, setShowMobileSearchbar] = useState(false);
   const [showMobileNavigation, setShowMobileNavigation] = useState(false);
   return (
@@ -31,4 +31,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Header;

@@ -1,10 +1,12 @@
-import React from 'react';
-
+import React from "react";
+import Banners from "./banners/Banners";
 
 const Home = () => {
-  return <div className='bg-light'>
-    
-  </div>;
+  return (
+    <main className="main-container">
+      <Banners />
+    </main>
+  );
 };
 
 export default Home;
