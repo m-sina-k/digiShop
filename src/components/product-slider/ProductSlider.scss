@@ -1,0 +1,74 @@
+@import "../../style/var";
+
+.product-slider {
+  margin: $gap-2xl 0;
+  &__heading {
+    display: flex;
+    align-items: center;
+    padding: $gap-md;
+    .product-slider__title {
+      color: $black;
+      display: inline-block;
+     .icon-container{
+       .title-icon{
+         font-size: $font-2xl;
+         margin-left:$gap-xs ;
+         &--gold{
+           color: $yellow;
+         }
+       }
+     }
+    }
+  }
+  .container {
+    padding: $gap-xxs;
+    background-color: $white;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+      rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    border-radius: $rounded-lg;
+    -webkit-border-radius: $rounded-lg;
+    -moz-border-radius: $rounded-lg;
+    -ms-border-radius: $rounded-lg;
+    -o-border-radius: $rounded-lg;
+  }
+  .swiper-container {
+    .swiper-slide {
+      height: auto;
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 45px;
+    height: 65px;
+   top: 40%;
+    background-color: $light;
+    color: $text;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    &::after {
+      font-size: $font-2xl;
+    }
+    &:hover{
+      color: $black;
+    }
+  }
+  .swiper-button-prev{
+    right: 0;
+    border-radius: $rounded-md 0 0 $rounded-md;
+    -webkit-border-radius: $rounded-md 0 0 $rounded-md;
+    -moz-border-radius: $rounded-md 0 0 $rounded-md;
+    -ms-border-radius: $rounded-md 0 0 $rounded-md;
+    -o-border-radius: $rounded-md 0 0 $rounded-md;
+}
+  .swiper-button-next{
+    left: 0;
+    border-radius: 0 $rounded-md $rounded-md 0;
+    -webkit-border-radius: 0 $rounded-md $rounded-md 0;
+    -moz-border-radius: 0 $rounded-md $rounded-md 0;
+    -ms-border-radius: 0 $rounded-md $rounded-md 0;
+    -o-border-radius: 0 $rounded-md $rounded-md 0;
+}
+}

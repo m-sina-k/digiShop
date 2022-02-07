@@ -38,8 +38,8 @@ const sliderImages = [bannerBig1,bannerBig2];
               //   disableOnInteraction: true,
               // }}
             >
-              {sliderImages.map(image=>(
-                <SwiperSlide>
+              {sliderImages.map((image,index)=>(
+                <SwiperSlide key={index}>
                 <Link to="/" className="banner__image-contaier">
                   <img
                     src={image}
