@@ -1,0 +1,60 @@
+@import "../../../style/var";
+
+.categories {
+  background-color: $white;
+  padding: $gap-md 0;
+
+  &__heading {
+    justify-content: center;
+    margin-bottom: $gap-md;
+  }
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 15px;
+
+    .category-item {
+      @include flex(unset, center, column);
+      border-left: 1px solid rgba($color: $text, $alpha: 0.2);
+
+        .category__image {
+          width: 70px;
+          height: 70px;
+        }
+      
+      .category__title {
+          text-align: center;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+      }
+      &:hover .category__title {
+        color: $primary;
+      }
+    }
+  }
+}
+
+@include desktop-sm{
+    .categories{
+        &__row{
+            grid-template-columns: repeat(4,1fr);
+        }
+    }
+}
+
+@include phone-md{
+    .categories{
+        &__row{
+           grid-gap: 8px;
+           .category-item{
+               .category__image{
+                   width: 50px;
+                   height: 50px;
+               }
+           }
+        }
+    }
+}

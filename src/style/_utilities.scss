@@ -14,10 +14,10 @@
   -moz-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
-&--mega-dropdown{
-  z-index: $z-20;
-  opacity: 1;
-}
+  &--mega-dropdown {
+    z-index: $z-20;
+    opacity: 1;
+  }
   &--active {
     opacity: 1;
     z-index: $z-max;
@@ -46,4 +46,32 @@
 // react toastify style
 .Toastify__toast {
   font-family: $yekan;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  padding: $gap-md;
+  &__title {
+    color: $black;
+    display: inline-block;
+  }
+}
+
+.heading-icon {
+  font-size: $font-2xl;
+  margin-left: $gap-xs;
+  &--gold {
+    color: $yellow;
+  }
+  &--blue {
+    color: $blue;
+  }
+}
+
+// gif animation while fetching data from server
+.fetch-loading-gif {
+  max-width: 160px;
+  display: block;
+  margin: 0 auto;
 }

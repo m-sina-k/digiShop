@@ -2,24 +2,7 @@
 
 .product-slider {
   margin: $gap-2xl 0;
-  &__heading {
-    display: flex;
-    align-items: center;
-    padding: $gap-md;
-    .product-slider__title {
-      color: $black;
-      display: inline-block;
-     .icon-container{
-       .title-icon{
-         font-size: $font-2xl;
-         margin-left:$gap-xs ;
-         &--gold{
-           color: $yellow;
-         }
-       }
-     }
-    }
-  }
+ 
   .container {
     padding: $gap-xxs;
     background-color: $white;

@@ -1,5 +1,6 @@
 import React from "react";
 import ProductCard from "../product-card/ProductCard";
+import loadingGif from '../../assets/images/utilities/loading.gif'
 import "./ProductSlider.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,18 +8,18 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const ProductSlider = ({ products, title, titleIcon, fullWidth }) => {
+const ProductSlider = ({ products, title, titleIcon, fullWidth, loading }) => {
   return (
     <div className="product-slider">
       <div className={fullWidth ? "container-fluid" : "container"}>
-        <div className="product-slider__heading">
-          <h5 className="product-slider__title">
-            <span className="icon-container">{titleIcon}</span>
-            {title}
-          </h5>
+        <div className="heading">
+          <span className="icon-container">{titleIcon}</span>
+          <h5 className="heading__title">{title}</h5>
         </div>
         <div className="product-slider__row">
-          {
+          {loading ? (
+            <img src={loadingGif} alt="loading" className="fetch-loading-gif" />
+          ) : (
             <Swiper
               slidesPerView={4}
               spaceBetween={15}
@@ -55,7 +56,7 @@ const ProductSlider = ({ products, title, titleIcon, fullWidth }) => {
                 );
               })}
             </Swiper>
-          }
+          )}
         </div>
       </div>
     </div>
