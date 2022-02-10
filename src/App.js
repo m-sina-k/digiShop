@@ -6,6 +6,7 @@ import Login from "./pages/register/Login";
 import SignUp from "./pages/register/SignUp";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -28,8 +29,12 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/dashboard" element={<ProtectedRoute component={Dashboard} />}/>
+        <Route
+          path="/dashboard"
+          element={<ProtectedRoute component={Dashboard} />}
+        />
       </Routes>
+      <Footer />
     </React.Fragment>
   );
 }

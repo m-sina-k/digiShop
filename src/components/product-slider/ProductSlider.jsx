@@ -1,6 +1,6 @@
 import React from "react";
 import ProductCard from "../product-card/ProductCard";
-import loadingGif from '../../assets/images/utilities/loading.gif'
+import loadingGif from "../../assets/images/utilities/loading.gif";
 import "./ProductSlider.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,13 +8,48 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const ProductSlider = ({ products, title, titleIcon, fullWidth, loading }) => {
+const ProductSlider = ({
+  products,
+  title,
+  titleIcon,
+  loading,
+  additionalClass,
+  filterOptions,
+  activeFilter,
+  setActiveFilter
+}) => {
+ 
+  
+  const changeFilter = (e) => {
+    setActiveFilter(e.target.dataset.filter);
+  };
+  
   return (
     <div className="product-slider">
-      <div className={fullWidth ? "container-fluid" : "container"}>
+      <div className={`container ${additionalClass} ? additionalClass : ''`}>
         <div className="heading">
-          <span className="icon-container">{titleIcon}</span>
-          <h5 className="heading__title">{title}</h5>
+          <section className="heading-container">
+            <span className="icon-container">{titleIcon}</span>
+            <h5 className="heading__title">{title}</h5>
+          </section>
+          {filterOptions ? (
+            <section className="filter-options">
+              {filterOptions.map((option, index) => (
+                <button
+                  key={index}
+                  className={`filter-options__item ${
+                    activeFilter === option
+                      ? "filter-options__item--active"
+                      : ""
+                  }`}
+                  data-filter={option}
+                  onClick={(e) => changeFilter(e)}
+                >
+                  {option}
+                </button>
+              ))}
+            </section>
+          ) : null}
         </div>
         <div className="product-slider__row">
           {loading ? (
@@ -26,10 +61,10 @@ const ProductSlider = ({ products, title, titleIcon, fullWidth, loading }) => {
               modules={[Navigation]}
               navigation
               loop
-              className="swiper-container pb-3"
+              className="swiper-container py-2"
               breakpoints={{
                 120: {
-                  slidesPerView: 2,
+                  slidesPerView: 1.5,
                 },
                 480: {
                   slidesPerView: 2,

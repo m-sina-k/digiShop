@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { BiSearch, BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import { MdMenu } from "react-icons/md";
-// import { BiUser } from "react-icons/bi";
 import { HiOutlineLogin } from "react-icons/hi";
 import logo from "../../../assets/images/logo.png";
 import { useSelector } from "react-redux";
@@ -20,7 +19,6 @@ const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
         <div className="top-header__row">
           <Link to="/" className="logo-container">
             <img src={logo} alt="main-logo" className="logo" />
-            <span className="logo-text">دیجی شاپ</span>
           </Link>
 
           <div className="searchbar-container">

@@ -5,19 +5,7 @@
     @include flex(space-between, center);
 
     /* ------------------------------- header logo ------------------------------ */
-    .logo-container {
-      display: inline-flex;
-      align-items: center;
-
-      .logo {
-        width: 45px;
-        height: 45px;
-        margin-left: $gap-xxs;
-      }
-      .logo-text {
-        font: $font-3xl $logo-font;
-      }
-    }
+   
     /* ---------------------------- header searchbar ---------------------------- */
     .searchbar-container {
       position: relative;
@@ -227,15 +215,7 @@
 
 @include phone-md {
   .top-header {
-    .logo-container {
-      .logo {
-        width: 37px;
-        height: 37px;
-      }
-      .logo-text {
-        font: $font-xl $logo-font;
-      }
-    }
+   
     .widgets-container {
       .widget-button {
         width: 30px;

@@ -1,6 +1,7 @@
 @import "../../style/var";
 
 .product-card {
+  background-color: $white;
   padding: $gap-sm;
   height: 100%;
   border: 0.5px solid rgba($color: $text, $alpha: 0.1);
@@ -17,7 +18,9 @@
 
   .product__image-container {
     position: relative;
-
+.product__image{
+  min-height: 245px;
+}
     .product__discount-badge {
       position: absolute;
       background-color: $green;

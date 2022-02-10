@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BiCategory } from "react-icons/bi";
+import { autoID } from "./../../../helpers/autoID";
 import "./Categories.scss";
 
 // images
@@ -14,9 +15,60 @@ import monitorImage from "../../../assets/images/categories/monitor.png";
 import watchImage from "../../../assets/images/categories/smartwatch.png";
 
 const Categories = () => {
+  const categories = [
+    {
+      id: autoID(),
+      name: "گوشی موبایل",
+      image: phoneImage,
+      url: "#",
+    },
+    {
+      id: autoID(),
+      name: "تبلت",
+      image: ipadImage,
+      url: "#",
+    },
+    {
+      id: autoID(),
+      name: "لپتاپ",
+      image: laptopImage,
+      url: "#",
+    },
+    {
+      id: autoID(),
+      name: "تجهیزات گیمینگ",
+      image: gameImage,
+      url: "#",
+    },
+    {
+      id: autoID(),
+      name: "دوربین عکاسی",
+      image: cameraImage,
+      url: "#",
+    },
+    {
+      id: autoID(),
+      name: "هدست و هدفون",
+      image: headphoneImage,
+      url: "#",
+    },
+    {
+      id: autoID(),
+      name: "مانیتور",
+      image: monitorImage,
+      url: "#",
+    },
+    {
+      id: autoID(),
+      name: "ساعت هوشمند",
+      image: watchImage,
+      url: "#",
+    },
+  ];
+
   return (
     <div className="categories">
-      <div className="caontainer-fluid">
+      <div className="container">
         <div className="heading categories__heading">
           <span className="icon-container">
             <BiCategory className="heading-icon heading-icon--blue" />
@@ -24,30 +76,21 @@ const Categories = () => {
           <h5 className="heading__title">دسته بندی ها</h5>
         </div>
         <div className="categories__row">
-          <CategoryItem image={phoneImage} title="گوشی موبایل" />
-          <CategoryItem image={ipadImage} title="تبلت" />
-          <CategoryItem image={laptopImage} title="لپتاپ" />
-          <CategoryItem image={gameImage} title="تجهیزات گیمینگ" />
-          <CategoryItem image={cameraImage} title="دوربین عکاسی" />
-          <CategoryItem image={headphoneImage} title="هدست و هدفون" />
-          <CategoryItem image={monitorImage} title="مانیتور" />
-          <CategoryItem image={watchImage} title="ساعت هوشمند" />
+          {categories.map((item) => (
+            <Link to={item.url} key={item.id} className="category-item">
+              <figure className="category__image-container">
+                <img
+                  src={item.image}
+                  alt="category-image"
+                  className="category__image"
+                />
+              </figure>
+              <h6 className="category__title">{item.name}</h6>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
-  );
-};
-
-const CategoryItem = ({ image, title }) => {
-  return (
-    <Link to="#">
-      <div className="category-item">
-        <figure className="category__image-container">
-          <img src={image} alt="category-image" className="category__image" />
-        </figure>
-        <h6 className="category__title">{title}</h6>
-      </div>
-    </Link>
   );
 };
 

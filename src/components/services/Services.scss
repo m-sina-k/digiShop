@@ -1,0 +1,34 @@
+@import "../../style/var";
+
+.services {
+  padding: $gap-sm;
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+
+    .services__item {
+      @include flex(unset, center, column);
+      .service__image {
+        width: 45px;
+        height: 45px;
+        object-fit: cover;
+      }
+
+      .service__name {
+        color: $black;
+        margin-top: $gap-sm;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@include phone-md{
+    .services{
+        &__row{
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 30px 8px;
+        }
+    }
+}
