@@ -2,18 +2,18 @@
 
 .dropdown-container {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    position: absolute;
+  position: absolute;
   top: 100%;
-  right: 0;
+  left: 50%;
   padding: $gap-sm $gap-md;
   background-color: $white;
-  border-radius: 0 0 $rounded-md $rounded-md;
-  -webkit-border-radius: 0 0 $rounded-md $rounded-md;
-  -moz-border-radius: 0 0 $rounded-md $rounded-md;
-  -ms-border-radius: 0 0 $rounded-md $rounded-md;
-  -o-border-radius: 0 0 $rounded-md $rounded-md;
-  z-index: $z-max;
+  border-radius: $rounded-sm;
+  -webkit-border-radius: $rounded-sm;
+  -moz-border-radius: $rounded-sm;
+  -ms-border-radius: $rounded-sm;
+  -o-border-radius: $rounded-sm;
   
+
   .dropdown-list {
     width: max-content;
     padding: 0 $gap-md;

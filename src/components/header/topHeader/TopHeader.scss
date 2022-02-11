@@ -1,11 +1,11 @@
 @import "../../../style/var";
 
 .top-header {
+  padding: $gap-md 0;
+ 
   &__row {
     @include flex(space-between, center);
 
-    /* ------------------------------- header logo ------------------------------ */
-   
     /* ---------------------------- header searchbar ---------------------------- */
     .searchbar-container {
       position: relative;
@@ -47,6 +47,7 @@
     .widgets-container {
       display: flex;
       align-items: center;
+
       .contact-info {
         font-size: 14px;
         text-align: center;
@@ -106,7 +107,6 @@
 
       .login-button--dashboard {
         position: relative;
-        cursor: pointer;
 
         .dashboard-dropdown__container {
           width: max-content;
@@ -116,11 +116,6 @@
           position: absolute;
           top: 130%;
           left: 50%;
-          transform: translateX(-50%);
-          -webkit-transform: translateX(-50%);
-          -moz-transform: translateX(-50%);
-          -ms-transform: translateX(-50%);
-          -o-transform: translateX(-50%);
           border-radius: $rounded-md;
           -webkit-border-radius: $rounded-md;
           -moz-border-radius: $rounded-md;
@@ -128,6 +123,12 @@
           -o-border-radius: $rounded-md;
           z-index: $z-max;
           cursor: default;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+
           .dashboard-dropdown__item {
             display: flex;
             align-items: center;
@@ -215,7 +216,6 @@
 
 @include phone-md {
   .top-header {
-   
     .widgets-container {
       .widget-button {
         width: 30px;

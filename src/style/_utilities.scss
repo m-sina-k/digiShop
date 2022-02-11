@@ -26,21 +26,46 @@
 
 // dropdown animation
 .slide-down--deactive {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 1s cubic-bezier(0, 1, 0, 1);
-  -webkit-transition: max-height 1s cubic-bezier(0, 1, 0, 1);
-  -moz-transition: max-height 1s cubic-bezier(0, 1, 0, 1);
-  -ms-transition: max-height 1s cubic-bezier(0, 1, 0, 1);
-  -o-transition: max-height 1s cubic-bezier(0, 1, 0, 1);
+ max-height: 0;
+ overflow: hidden;
+ transition: all 0.6s;
+ -webkit-transition: all 0.6s;
+ -moz-transition: all 0.6s;
+ -ms-transition: all 0.6s;
+ -o-transition: all 0.6s;
 }
 .slide-down--active {
-  max-height: 2000px;
-  transition: max-height 1s ease-in-out;
-  -webkit-transition: max-height 1s ease-in-out;
-  -moz-transition: max-height 1s ease-in-out;
-  -ms-transition: max-height 1s ease-in-out;
-  -o-transition: max-height 1s ease-in-out;
+ max-height: 9999px;
+ overflow: visible;
+
+}
+
+// slide-up animation
+.slide-up--deactive {
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transform: translate(-50%, 15px);
+  -webkit-transform: translate(-50%, 15px);
+  -moz-transform: translate(-50%, 15px);
+  -ms-transform: translate(-50%, 15px);
+  -o-transform: translate(-50%, 15px);
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.slide-up--active {
+  z-index: $z-10;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
 }
 
 // react toastify style
@@ -67,13 +92,13 @@
   &--blue {
     color: $blue;
   }
-  &--green{
+  &--green {
     color: $green;
   }
-  &--white{
+  &--white {
     color: $white;
   }
-  &--red{
+  &--red {
     color: $red;
   }
 }
@@ -83,4 +108,11 @@
   max-width: 160px;
   display: block;
   margin: 0 auto;
+  border-radius: $rounded-md;
+  -webkit-border-radius: $rounded-md;
+  -moz-border-radius: $rounded-md;
+  -ms-border-radius: $rounded-md;
+  -o-border-radius: $rounded-md;
 }
+
+

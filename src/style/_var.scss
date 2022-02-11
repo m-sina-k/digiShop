@@ -17,9 +17,9 @@ $green-light:lighten($green,35%);
 $red:#EA2027;
 $red-light:lighten(#EA2027,35%);
 
-$primary-tint:#E42F1B;
-$primary:#CA251A;
-$primary-shade:#A41619;
+$primary:#f53b57;
+$primary-tint:lighten($primary,5%);
+$primary-shade:darken($primary,5%);
 
 
 $phone-sm:320px;

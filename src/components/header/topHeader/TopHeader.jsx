@@ -48,18 +48,22 @@ const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
             </Link>
 
             {userToken ? (
-              <section
-                className="widget-button login-button login-button--dashboard"
-              >
-                <span onClick={() => setShowDashboardDropdown(!showDashboardDropdown)}>
-                <BiUser className="login-icon widget-button__icon" />
-                </span>
-                {showDashboardDropdown && (
-                  <DashboardDropdown
-                    setShowDashboardDropdown={setShowDashboardDropdown}
-                  />
-                )}
-              </section>
+              
+                <button className="widget-button login-button login-button--dashboard">
+                  <span
+                    onClick={() =>
+                      setShowDashboardDropdown(!showDashboardDropdown)
+                    }
+                  >
+                    <BiUser className="login-icon widget-button__icon" />
+                  </span>
+
+                  {showDashboardDropdown && (
+                    <DashboardDropdown
+                      setShowDashboardDropdown={setShowDashboardDropdown}
+                    />
+                  )}
+                </button>
             ) : (
               <Link to="/login" className="widget-button login-button">
                 <HiOutlineLogin className="login-icon widget-button__icon" />

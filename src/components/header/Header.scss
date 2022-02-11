@@ -1,15 +1,21 @@
-@import '../../style/var';
+@import "../../style/var";
 
-.header{
-    background-color: $white;
-    position:relative;
-    padding: $gap-md 0 0;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    z-index: $z-50;
+.header {
+  background-color: $white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  z-index: $z-50;
+  position: relative;
+
+  &--sticky {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 }
 
-@include desktop-sm{
-    .header{
-        padding: $gap-md 0;
-    }
+@include desktop-sm {
+  .header {
+    padding: $gap-md 0;
+  }
 }
