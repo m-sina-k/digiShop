@@ -1,5 +1,5 @@
 import React from "react";
-
+import {FaRegQuestionCircle} from 'react-icons/fa'
 // images
 import deliveryImage from "../../assets/images/services/package.png";
 import coinImage from "../../assets/images/services/coin.png";
@@ -34,7 +34,13 @@ const Services = () => {
 
   return (
     <div className="services">
-      <div className="container">
+      <div className="container px-2">
+      <div className="heading services__heading">
+          <span className="icon-container">
+            <FaRegQuestionCircle className="heading-icon heading-icon--primary" />
+          </span>
+          <h5 className="heading__title">چرا دیجی شاپ؟</h5>
+        </div>
         <div className="services__row">
           {servicesList.map((service) => (
             <section className="services__item" key={service.id}>

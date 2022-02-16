@@ -26,18 +26,22 @@
 
 // dropdown animation
 .slide-down--deactive {
- max-height: 0;
- overflow: hidden;
- transition: all 0.6s;
- -webkit-transition: all 0.6s;
- -moz-transition: all 0.6s;
- -ms-transition: all 0.6s;
- -o-transition: all 0.6s;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
 }
 .slide-down--active {
- max-height: 9999px;
- overflow: visible;
-
+  transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  max-height: 9999px;
+  overflow: visible;
 }
 
 // slide-up animation
@@ -101,6 +105,9 @@
   &--red {
     color: $red;
   }
+  &--primary {
+    color: $primary;
+  }
 }
 
 // gif animation while fetching data from server
@@ -114,5 +121,3 @@
   -ms-border-radius: $rounded-md;
   -o-border-radius: $rounded-md;
 }
-
-

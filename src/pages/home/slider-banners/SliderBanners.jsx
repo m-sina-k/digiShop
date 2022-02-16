@@ -21,7 +21,7 @@ const sliderImages = [bannerBig1,bannerBig2];
 
   return (
     <div className="slider-banners">
-      <div className="container">
+      <div className="container px-2 px-md-0">
         <div className="slider-banners__row">
           <div className="banner banner--big">
             <Swiper
@@ -32,7 +32,7 @@ const sliderImages = [bannerBig1,bannerBig2];
               className="h-100"
               loop
               lazy
-              effect={"fade"}
+              effect="fade"
               // autoplay={{
               //   delay: 1500,
               //   disableOnInteraction: true,

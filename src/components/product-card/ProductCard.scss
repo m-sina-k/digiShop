@@ -18,9 +18,9 @@
 
   .product__image-container {
     position: relative;
-.product__image{
-  min-height: 245px;
-}
+    .product__image {
+      min-height: 245px;
+    }
     .product__discount-badge {
       position: absolute;
       background-color: $green;
@@ -61,12 +61,13 @@
   }
 
   &:hover {
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
-      rgba(17, 17, 26, 0.05) 0px 8px 32px;
-    transform: translateY(-3px);
-    -webkit-transform: translateY(-3px);
-    -moz-transform: translateY(-3px);
-    -ms-transform: translateY(-3px);
-    -o-transform: translateY(-3px);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transform: translateY(-5px);
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
   }
 }
+
+

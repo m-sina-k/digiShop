@@ -94,9 +94,6 @@
 @include phone-md {
   .slider-banners {
     &__row {
-      .small-banners__container {
-        grid-template-columns: 1fr;
-      }
       .swiper-button-prev,
       .swiper-button-next {
         width: 25px;

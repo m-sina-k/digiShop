@@ -18,7 +18,8 @@ const Navigation = () => {
 
   // navigation link's hover indicator
   const moveIndicator = (e) => {
-    if (indicatorRef.current) {
+   
+    if (indicatorRef.current && e.classList.contains('navigation__link')) {
       indicatorRef.current.style.opacity = 1;
       indicatorRef.current.style.left = e.offsetLeft + "px";
       indicatorRef.current.style.width = e.offsetWidth + "px";
@@ -74,9 +75,13 @@ const Navigation = () => {
                 }}
               >
                 {text}
+
                 {link.megaDropdown.id === activeMegaDropdown && (
                   <MegaDropdown link={link} />
                 )}
+
+
+
                 <IoIosArrowDown className="dropdown-icon" />
               </span>
             ) : link.dropdown ? (

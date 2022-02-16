@@ -26,7 +26,7 @@ const ProductSlider = ({
   
   return (
     <div className="product-slider">
-      <div className={`container ${additionalClass} ? additionalClass : ''`}>
+      <div className={`container py-2 px-2 px-md-0 ${additionalClass} ? additionalClass : ''`}>
         <div className="heading">
           <section className="heading-container">
             <span className="icon-container">{titleIcon}</span>
@@ -37,6 +37,7 @@ const ProductSlider = ({
               {filterOptions.map((option, index) => (
                 <button
                   key={index}
+                  data-hover={option}
                   className={`filter-options__item ${
                     activeFilter === option
                       ? "filter-options__item--active"
@@ -70,13 +71,16 @@ const ProductSlider = ({
                   slidesPerView: 2,
                 },
                 570: {
-                  slidesPerView: 3,
+                  slidesPerView: 2.5,
                 },
                 760: {
                   slidesPerView: 3,
                 },
                 990: {
                   slidesPerView: 4,
+                },
+                1150:{
+                  slidesPerView:4.5,
                 },
                 1280: {
                   slidesPerView: 5,

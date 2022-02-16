@@ -5,18 +5,18 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  padding: $gap-sm $gap-md;
+  padding: $gap-sm $gap-xs 0;
   background-color: $white;
   border-radius: $rounded-sm;
   -webkit-border-radius: $rounded-sm;
   -moz-border-radius: $rounded-sm;
   -ms-border-radius: $rounded-sm;
   -o-border-radius: $rounded-sm;
-  
 
   .dropdown-list {
     width: max-content;
     padding: 0 $gap-md;
+
     .dropdown-item {
       padding: $gap-xxs 0;
       margin-bottom: $gap-xs;
@@ -25,6 +25,16 @@
       -moz-transition: color 0.3s ease;
       -ms-transition: color 0.3s ease;
       -o-transition: color 0.3s ease;
+      font-size: $font-sm;
+
+      &:first-child {
+        padding-top: 0;
+      }
+  
+      &:last-child {
+        padding-bottom: 0;
+      }
+
       &:hover {
         color: $primary;
         background: unset;

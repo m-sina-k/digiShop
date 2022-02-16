@@ -68,7 +68,7 @@ const Categories = () => {
 
   return (
     <div className="categories">
-      <div className="container">
+      <div className="container px-2 px-md-0">
         <div className="heading categories__heading">
           <span className="icon-container">
             <BiCategory className="heading-icon heading-icon--blue" />
@@ -78,7 +78,7 @@ const Categories = () => {
         <div className="categories__row">
           {categories.map((item) => (
             <Link to={item.url} key={item.id} className="category-item">
-              <figure className="category__image-container">
+              <figure className="category__image-container mb-2">
                 <img
                   src={item.image}
                   alt="category-image"

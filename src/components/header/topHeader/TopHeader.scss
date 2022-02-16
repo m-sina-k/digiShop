@@ -2,7 +2,7 @@
 
 .top-header {
   padding: $gap-md 0;
- 
+
   &__row {
     @include flex(space-between, center);
 
@@ -39,7 +39,7 @@
 
         .search-icon {
           font-size: $font-lg;
-          color: $blue;
+          color: $text;
         }
       }
     }
@@ -61,7 +61,7 @@
           }
         }
         .phone-link__text {
-          font: 12px $yekan;
+          font: 14px $yekan;
           font-weight: bold;
 
           margin-top: $gap-xxs;
@@ -71,19 +71,27 @@
         }
       }
       .widget-button {
-        @include flex;
+        @include flex();
         background-color: $white-shade;
         padding: $gap-xxs;
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
-          rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        border: 1px solid lighten($text, 50%);
         width: 35px;
         height: 35px;
-        border-radius: $rounded-lg;
-        -webkit-border-radius: $rounded-lg;
-        -moz-border-radius: $rounded-lg;
-        -ms-border-radius: $rounded-lg;
-        -o-border-radius: $rounded-lg;
-        margin: 0 $gap-xs;
+        border-radius: $rounded-md;
+        -webkit-border-radius: $rounded-md;
+        -moz-border-radius: $rounded-md;
+        -ms-border-radius: $rounded-md;
+        -o-border-radius: $rounded-md;
+        margin: 0 $gap-xxs;
+        transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        color: $text;
+        &:hover {
+          box-shadow: 0 0 5px lighten($black, 85%);
+        }
       }
       .cart-button {
         position: relative;
@@ -91,17 +99,17 @@
           @include flex();
           background-color: $yellow;
           color: $black;
-          font-size: 13px;
+          font-size: 10px;
           width: 14px;
           height: 14px;
-          border-radius: $rounded-full;
           position: absolute;
           top: -3px;
           right: -3px;
-          -webkit-border-radius: $rounded-full;
-          -moz-border-radius: $rounded-full;
-          -ms-border-radius: $rounded-full;
-          -o-border-radius: $rounded-full;
+          border-radius: 3px;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          -ms-border-radius: 3px;
+          -o-border-radius: 3px;
         }
       }
 
@@ -145,6 +153,7 @@
             -moz-transition: all 0.3s ease;
             -ms-transition: all 0.3s ease;
             -o-transition: all 0.3s ease;
+
             .icon {
               font-size: $font-lg;
               margin-left: $gap-xs;
@@ -171,11 +180,10 @@
       .menu-button--r {
         width: 35px;
         height: 35px;
-        padding: $gap-xxs;
         cursor: pointer;
         margin: 0 $gap-xxs;
         background-color: transparent;
-        font-size: $font-lg;
+        font-size: $font-sm;
         border-radius: $rounded-md;
         -webkit-border-radius: $rounded-md;
         -moz-border-radius: $rounded-md;
@@ -187,8 +195,10 @@
         -ms-transition: background-color 0.3s ease;
         -o-transition: background-color 0.3s ease;
         display: none;
+        background-color: $white-shade;
+        border: 1px solid darken($light, 10%);
         &:hover {
-          background-color: $light;
+          box-shadow: 0 0 5px lighten($black, 85%);
         }
       }
     }
@@ -216,17 +226,9 @@
 
 @include phone-md {
   .top-header {
-    .widgets-container {
-      .widget-button {
-        width: 30px;
-        height: 30px;
-        font-size: $font-sm;
-        border-radius: $rounded-md;
-        -webkit-border-radius: $rounded-md;
-        -moz-border-radius: $rounded-md;
-        -ms-border-radius: $rounded-md;
-        -o-border-radius: $rounded-md;
-      }
+    .logo-container {
+      max-width: 90px;
     }
   }
 }
+

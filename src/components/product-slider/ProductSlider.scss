@@ -20,6 +20,8 @@
       display: flex;
       margin-right: auto;
       &__item {
+        color: $text;
+        position: relative;
         margin: 0 $gap-xxs;
         padding: $gap-xxs;
         background-color: transparent;
@@ -28,32 +30,40 @@
         -moz-transition: all 0.3s ease;
         -ms-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
-        
-        &::before {
+
+        &::after {
+          height: 2.5px;
+          width: 50%;
+          background-color: $primary-shade;
           content: "";
-          width: 7px;
-          height: 7px;
-          border-radius: 20px;
-          -webkit-border-radius: 20px;
-          -moz-border-radius: 20px;
-          -ms-border-radius: 20px;
-          -o-border-radius: 20px;
-          background-color: $primary;
-          display: inline-block;
-          margin-left: 5px;
-          opacity: 0;
+          position: absolute;
+          left: 50%;
+          bottom: -2px;
           transition: all 0.3s ease;
           -webkit-transition: all 0.3s ease;
           -moz-transition: all 0.3s ease;
           -ms-transition: all 0.3s ease;
           -o-transition: all 0.3s ease;
+          transform: scale(0);
+          -webkit-transform: scale(0);
+          -moz-transform: scale(0);
+          -ms-transform: scale(0);
+          -o-transform: scale(0);
+          border-radius: 5px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          -ms-border-radius: 5px;
+          -o-border-radius: 5px;
         }
 
         &--active {
-          color: $primary;
-
-          &::before {
-            opacity: 1;
+          color: $black;
+          &::after {
+            transform: scale(1) translateX(-50%);
+            -webkit-transform: scale(1) translateX(-50%);
+            -moz-transform: scale(1) translateX(-50%);
+            -ms-transform: scale(1) translateX(-50%);
+            -o-transform: scale(1) translateX(-50%);
           }
         }
       }
@@ -67,6 +77,8 @@
   }
   .swiper-button-prev,
   .swiper-button-next {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+      rgb(209, 213, 219) 0px 0px 0px 1px inset;
     width: 45px;
     height: 65px;
     top: 40%;
@@ -85,20 +97,20 @@
     }
   }
   .swiper-button-prev {
-    right: 0;
-    border-radius: $rounded-md 0 0 $rounded-md;
-    -webkit-border-radius: $rounded-md 0 0 $rounded-md;
-    -moz-border-radius: $rounded-md 0 0 $rounded-md;
-    -ms-border-radius: $rounded-md 0 0 $rounded-md;
-    -o-border-radius: $rounded-md 0 0 $rounded-md;
+    right: 0px;
+    border-radius: $rounded-lg 0 0 $rounded-lg;
+    -webkit-border-radius: $rounded-lg 0 0 $rounded-lg;
+    -moz-border-radius: $rounded-lg 0 0 $rounded-lg;
+    -ms-border-radius: $rounded-lg 0 0 $rounded-lg;
+    -o-border-radius: $rounded-lg 0 0 $rounded-lg;
   }
   .swiper-button-next {
     left: 0;
-    border-radius: 0 $rounded-md $rounded-md 0;
-    -webkit-border-radius: 0 $rounded-md $rounded-md 0;
-    -moz-border-radius: 0 $rounded-md $rounded-md 0;
-    -ms-border-radius: 0 $rounded-md $rounded-md 0;
-    -o-border-radius: 0 $rounded-md $rounded-md 0;
+    border-radius: 0 $rounded-lg $rounded-lg 0;
+    -webkit-border-radius: 0 $rounded-lg $rounded-lg 0;
+    -moz-border-radius: 0 $rounded-lg $rounded-lg 0;
+    -ms-border-radius: 0 $rounded-lg $rounded-lg 0;
+    -o-border-radius: 0 $rounded-lg $rounded-lg 0;
   }
 
   &--sale {

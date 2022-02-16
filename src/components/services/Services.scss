@@ -1,11 +1,29 @@
 @import "../../style/var";
 
 .services {
-  padding: $gap-sm;
+  padding: $gap-sm 0;
+
+  .container{
+    background-color: $white;
+    border-radius: $rounded-md;
+    -webkit-border-radius: $rounded-md;
+    -moz-border-radius: $rounded-md;
+    -ms-border-radius: $rounded-md;
+    -o-border-radius: $rounded-md;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+      rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  }
+
+  &__heading{
+    justify-content: center;
+  }
+
   &__row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 15px;
+    padding: $gap-md 0;
+    
 
     .services__item {
       @include flex(unset, center, column);
@@ -24,11 +42,11 @@
   }
 }
 
-@include phone-md{
-    .services{
-        &__row{
-            grid-template-columns: repeat(2,1fr);
-            grid-gap: 30px 8px;
-        }
+@include phone-md {
+  .services {
+    &__row {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px 8px;
     }
+  }
 }

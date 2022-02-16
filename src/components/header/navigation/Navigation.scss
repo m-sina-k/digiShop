@@ -23,7 +23,7 @@
     height: 35px;
     color: $text;
     margin-left: $gap-lg;
-    font-size: $font-sm;
+    font-size: 15px;
     display: inline-flex;
     align-items: center;
 
@@ -39,18 +39,21 @@
       &::after{
         content: '';
         width: 1.5px;
-        height: 40%;
+        height: 45%;
         background-color: silver;
         margin-right: $gap-lg;
       }
     }
+
     &--dropdown {
-      position: relative;
       cursor: default;
+      position: relative;
     }
+    
   }
 
   #indicator {
+    pointer-events: none;
     position: absolute;
     opacity: 0;
     bottom: 0;

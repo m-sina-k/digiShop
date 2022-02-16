@@ -28,9 +28,9 @@ const DashboardDropdown = ({ setShowDashboardDropdown }) => {
     return signOut(auth);
   };
 
+
   return (
- 
-       <div className="dashboard-dropdown__container" ref={ref}> 
+    <div className="dashboard-dropdown__container" ref={ref}>
       <Link
         to="/dashboard"
         className="dashboard-dropdown__item"
