@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDetectClickOutside } from "react-detect-click-outside";
 import { Link } from "react-router-dom";
 import { BiSearch, BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
@@ -12,6 +13,10 @@ import "./TopHeader.scss";
 const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
   const { userToken } = useSelector((state) => state.authState);
   const [showDashboardDropdown, setShowDashboardDropdown] = useState(false);
+  const closeDropdown = () => {
+    setShowDashboardDropdown(false);
+  };
+  const ref = useDetectClickOutside({ onTriggered: closeDropdown });
 
   return (
     <div className="top-header">
@@ -48,16 +53,24 @@ const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
             </Link>
 
             {userToken ? (
-              <button className="widget-button login-button login-button--dashboard">
+              <button className="widget-button login-button login-button--dashboard" ref={ref}>
                 <span onClick={()=>setShowDashboardDropdown(!showDashboardDropdown)}>
                   <BiUser className="login-icon widget-button__icon" />
                 </span>
 
-                {showDashboardDropdown && (
+                
+                <DashboardDropdown
+                      setShowDashboardDropdown={setShowDashboardDropdown}
+                      showDashboardDropdown={showDashboardDropdown}
+                    />
+                
+
+                  {/* {showDashboardDropdown && (
                     <DashboardDropdown
                       setShowDashboardDropdown={setShowDashboardDropdown}
+                      showDashboardDropdown={showDashboardDropdown}
                     />
-                  )}
+                  )} */}
                   
               </button>
             ) : (

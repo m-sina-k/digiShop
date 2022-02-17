@@ -20,7 +20,7 @@
     margin-bottom: $gap-md;
   }
   &__row {
-    padding:$gap-xs 0;
+    padding:$gap-xs;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
 

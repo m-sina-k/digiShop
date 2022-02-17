@@ -8,6 +8,7 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
+
 const ProductSlider = ({
   products,
   title,
@@ -16,17 +17,17 @@ const ProductSlider = ({
   additionalClass,
   filterOptions,
   activeFilter,
-  setActiveFilter
+  setActiveFilter,
 }) => {
- 
-  
   const changeFilter = (e) => {
     setActiveFilter(e.target.dataset.filter);
   };
-  
+
   return (
     <div className="product-slider">
-      <div className={`container py-2 px-2 px-md-0 ${additionalClass} ? additionalClass : ''`}>
+      <div
+        className={`container py-2 px-2 px-md-0 ${additionalClass} ? additionalClass : ''`}
+      >
         <div className="heading">
           <section className="heading-container">
             <span className="icon-container">{titleIcon}</span>
@@ -79,8 +80,8 @@ const ProductSlider = ({
                 990: {
                   slidesPerView: 4,
                 },
-                1150:{
-                  slidesPerView:4.5,
+                1150: {
+                  slidesPerView: 4.5,
                 },
                 1280: {
                   slidesPerView: 5,
@@ -90,7 +91,11 @@ const ProductSlider = ({
               {products.map((product, index) => {
                 return (
                   <SwiperSlide key={index + 1} className="swiper-slide">
-                    <ProductCard key={index} product={product} />
+                    <ProductCard
+                      key={index}
+                      product={product}
+                      activeFilter={activeFilter}
+                    />
                   </SwiperSlide>
                 );
               })}
