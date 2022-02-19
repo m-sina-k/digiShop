@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../features/slices/productsSlice";
+
 import { WiStars } from "react-icons/wi";
 import { MdOutlineSell, MdOutlineFiberNew } from "react-icons/md";
 
-import SliderBanners from "./slider-banners/SliderBanners";
-import ProductSlider from "../../components/product-slider/ProductSlider";
-import Categories from "./categories/Categories";
-
-import Banners from "./banners/Banners";
-import bannerImage1 from "../../assets/images/banner-images/banner-small-03.jpg";
-import bannerImage2 from "../../assets/images/banner-images/banner-small-04.jpg";
-
 import Services from "../../components/services/Services";
+import ErrorFallback from "../../components/ErrorFallback";
+const ProductSlider = lazy(()=>import("../../components/product-slider/ProductSlider"));
+const SliderBanners = lazy(()=>import("./slider-banners/SliderBanners"));
+const Categories = lazy(()=>import("./categories/Categories"));
+const Banners = lazy(() => import("./banners/Banners"));
 
 const Home = () => {
+  document.title = "دیجی شاپ | صفحه اصلی";
+
   const { products, discountedProducts, featuredProducts, loading } =
     useSelector((state) => state.productsState);
 
@@ -28,6 +29,7 @@ const Home = () => {
   const [filteredProducts, setFilteredProducts] = useState(products);
   const filterOptions = ["گوشی موبایل", "لپتاپ"];
   const [activeFilter, setActiveFilter] = useState(filterOptions[0]);
+
   useEffect(() => {
     if (!loading) {
       setFilteredProducts(
@@ -40,40 +42,64 @@ const Home = () => {
 
   return (
     <main className="main-container">
-      <SliderBanners />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Suspense fallback={null}>
+          <SliderBanners />
+        </Suspense>
+      </ErrorBoundary>
 
-      <ProductSlider
-        products={discountedProducts}
-        title="فروش فوق العاده"
-        loading={loading}
-        additionalClass="product-slider--sale"
-        titleIcon={
-          <MdOutlineSell className="heading-icon heading-icon--white" />
-        }
-      />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Suspense fallback={null}>
+          <ProductSlider
+            products={discountedProducts}
+            title="فروش فوق العاده"
+            loading={loading}
+            additionalClass="product-slider--sale"
+            titleIcon={
+              <MdOutlineSell className="heading-icon heading-icon--white" />
+            }
+          />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Categories />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Suspense fallback={null}>
+          <Categories />
+        </Suspense>
+      </ErrorBoundary>
 
-      <ProductSlider
-        products={featuredProducts}
-        title="محصولات پرفروش"
-        loading={loading}
-        titleIcon={<WiStars className="heading-icon heading-icon--gold" />}
-      />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Suspense fallback={null}>
+          <ProductSlider
+            products={featuredProducts}
+            title="محصولات پرفروش"
+            loading={loading}
+            titleIcon={<WiStars className="heading-icon heading-icon--gold" />}
+          />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Banners image1={bannerImage1} image2={bannerImage2} url1="#" url2="#" />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Suspense fallback={null}>
+          <Banners />
+        </Suspense>
+      </ErrorBoundary>
 
-      <ProductSlider
-        products={filteredProducts}
-        title="جدید ترین ها"
-        loading={loading}
-        filterOptions={filterOptions}
-        activeFilter={activeFilter}
-        setActiveFilter={setActiveFilter}
-        titleIcon={
-          <MdOutlineFiberNew className="heading-icon heading-icon--red" />
-        }
-      />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <Suspense fallback={null}>
+          <ProductSlider
+            products={filteredProducts}
+            title="جدید ترین ها"
+            loading={loading}
+            filterOptions={filterOptions}
+            activeFilter={activeFilter}
+            setActiveFilter={setActiveFilter}
+            titleIcon={
+              <MdOutlineFiberNew className="heading-icon heading-icon--red" />
+            }
+          />
+        </Suspense>
+      </ErrorBoundary>
 
       <Services />
     </main>

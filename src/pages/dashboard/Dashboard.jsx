@@ -5,6 +5,8 @@ import OrdersHistory from "./orders-history/OrdersHistory";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
+document.title='دیجی شاپ | داشبورد'
+
   return (
     <div className="dashboard">
       <div className="container">

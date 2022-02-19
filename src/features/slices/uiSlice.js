@@ -18,6 +18,6 @@ const uiSlice = createSlice({
   },
 });
 
-export const {setShowBackdrop,setShowMegaDropdownBackdrop} = uiSlice.actions;
+export const { setShowBackdrop, setShowMegaDropdownBackdrop } = uiSlice.actions;
 
-export default uiSlice.reducer
+export default uiSlice.reducer;

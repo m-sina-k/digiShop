@@ -11,6 +11,9 @@
   z-index: $z-max;
 
   &__container {
+    width: 280px;
+    height: max-content;
+    max-width: 95%;
     overflow: hidden;
     background-color: $white;
     border-radius: $rounded-md;
@@ -18,10 +21,7 @@
     -moz-border-radius: $rounded-md;
     -ms-border-radius: $rounded-md;
     -o-border-radius: $rounded-md;
-    .gif-container {
-      max-width: 250px;
-      max-width: 250px;
-    }
+ 
     .text {
       padding: 0 $gap-sm $gap-md;
       text-align: center;

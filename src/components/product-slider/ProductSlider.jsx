@@ -1,6 +1,5 @@
 import React from "react";
 import ProductCard from "../product-card/ProductCard";
-import loadingGif from "../../assets/images/utilities/loading.gif";
 import "./ProductSlider.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,6 +7,7 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import {BeatLoader} from 'react-spinners'
 
 const ProductSlider = ({
   products,
@@ -55,7 +55,9 @@ const ProductSlider = ({
         </div>
         <div className="product-slider__row">
           {loading ? (
-            <img src={loadingGif} alt="loading" className="fetch-loading-gif" />
+           <div className="loading-container">
+              <BeatLoader color="#f53b57" size={10} margin={5}/>
+           </div>
           ) : (
             <Swiper
               slidesPerView={4}

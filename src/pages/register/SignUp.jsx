@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 import "./registerForm.scss";
 
 const SignUp = () => {
+document.title="دیجی شاپ | ساخت حساب"
+
   const { userToken } = useSelector((state) => state.authState);
 
   const navigate = useNavigate();

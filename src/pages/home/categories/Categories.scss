@@ -4,7 +4,7 @@
   padding: $gap-md 0;
   margin: $gap-lg 0;
 
-  .container{
+  .container {
     background-color: $white;
     border-radius: $rounded-md;
     -webkit-border-radius: $rounded-md;
@@ -12,17 +12,43 @@
     -ms-border-radius: $rounded-md;
     -o-border-radius: $rounded-md;
     box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
-    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
-}
+      rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  }
 
   &__heading {
     justify-content: center;
     margin-bottom: $gap-md;
   }
   &__row {
-    padding:$gap-xs;
+    padding: $gap-xs;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+
+    .category-skeleton {
+      @include flex(unset, center, column);
+      .skeleton-image,
+      .skeleton-text {
+        border-radius: $rounded-sm;
+        -webkit-border-radius: $rounded-sm;
+        -moz-border-radius: $rounded-sm;
+        -ms-border-radius: $rounded-sm;
+        -o-border-radius: $rounded-sm;
+        background-color: $skeleton;
+        animation: skeleton 1s infinite alternate;
+        -webkit-animation: skeleton 1s infinite alternate;
+}
+
+      .skeleton-image {
+        width: 80px;
+        height: 80px;
+        margin-bottom: $gap-sm;
+      }
+
+      .skeleton-text {
+        height: 10px;
+        width: 60px;
+      }
+    }
 
     .category-item {
       @include flex(unset, center, column);
@@ -47,7 +73,7 @@
         -moz-border-radius: $rounded-sm;
         -ms-border-radius: $rounded-sm;
         -o-border-radius: $rounded-sm;
-        background-color: lighten($light,3%);
+        background-color: lighten($light, 3%);
         display: flex;
         justify-content: center;
 
@@ -72,7 +98,7 @@
       }
 
       &:hover {
-        background-color: lighten($light,3%);
+        background-color: lighten($light, 3%);
 
         .category__title {
           color: $black;

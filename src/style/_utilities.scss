@@ -115,14 +115,16 @@
   }
 }
 
-// gif animation while fetching data from server
-.fetch-loading-gif {
-  max-height: 100px;
-  display: block;
-  margin: 0 auto;
-  border-radius: $rounded-md;
-  -webkit-border-radius: $rounded-md;
-  -moz-border-radius: $rounded-md;
-  -ms-border-radius: $rounded-md;
-  -o-border-radius: $rounded-md;
+// gif animation while connecting server
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: $gap-lg 0;
+}
+
+
+@keyframes skeleton {
+  to{
+    opacity: 0.5;
+  }
 }

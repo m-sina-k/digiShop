@@ -4,17 +4,29 @@ import { AiFillWarning, AiFillCloseCircle } from "react-icons/ai";
 import { GrFormClose } from "react-icons/gr";
 import "./Alert.scss";
 
-const Alert = ({ title, text, variant, canClose }) => {
+const Alert = ({
+  title,
+  text,
+  variant,
+  canClose,
+  additionalClass,
+  callBack,
+  callBackText,
+}) => {
   const removeAlert = (e) => {
     const alert = e.target.parentElement.parentElement;
     alert.remove();
   };
 
   return (
-    <div className={`alert alert--${variant}`}>
+    <div
+      className={`alert alert--${variant} ${
+        additionalClass ? additionalClass : ""
+      }`}
+    >
       {canClose ? (
         <span className="alert__close-button">
-          <GrFormClose className="close-icon" onClick={(e) => removeAlert(e)}/>
+          <GrFormClose className="close-icon" onClick={(e) => removeAlert(e)} />
         </span>
       ) : null}
       <span className="alert__icon-container">
@@ -32,6 +44,11 @@ const Alert = ({ title, text, variant, canClose }) => {
         <h6 className="alert__title">{title}</h6>
         <p className="alert__message">{text}</p>
       </section>
+      {callBack ? (
+        <button className="alert__button" onClick={callBack}>
+          {callBackText}
+        </button>
+      ) : null}
     </div>
   );
 };

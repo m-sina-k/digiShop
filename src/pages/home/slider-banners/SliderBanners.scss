@@ -6,10 +6,27 @@
     display: grid;
     grid-template-columns: 66% 33%;
     grid-gap: 15px;
+
+    .slider-skeleton,.slider-banner-skeleton{
+      border-radius: $rounded-lg;
+      -webkit-border-radius: $rounded-lg;
+      -moz-border-radius: $rounded-lg;
+      -ms-border-radius: $rounded-lg;
+      -o-border-radius: $rounded-lg;
+      min-height: 355px;
+      background-color: $skeleton;
+      animation: skeleton 1s infinite alternate;
+      -webkit-animation: skeleton 1s infinite alternate;
+    }
+
+    .slider-banner-skeleton{
+      min-height: 170px;
+    }
+
     .banner {
-      overflow: hidden;
       box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
-        rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+      overflow: hidden;
       border-radius: $rounded-lg;
       -webkit-border-radius: $rounded-lg;
       -moz-border-radius: $rounded-lg;

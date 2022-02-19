@@ -10,6 +10,8 @@ import { setUser, saveUserToken } from "../../features/slices/authSlice";
 import "./registerForm.scss";
 
 const Login = () => {
+document.title = 'دیجی شاپ | ورود'
+
   const { userToken } = useSelector((state) => state.authState);
 
   const navigate = useNavigate();

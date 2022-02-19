@@ -1,7 +1,7 @@
 @import "../../../style/var";
 
 .banners {
-    padding: $gap-md 0;
+  padding: $gap-md 0;
   &__row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -19,13 +19,25 @@
         width: 100%;
       }
     }
+
+    .banner-skeleton {
+      border-radius: $rounded-lg;
+      -webkit-border-radius: $rounded-lg;
+      -moz-border-radius: $rounded-lg;
+      -ms-border-radius: $rounded-lg;
+      -o-border-radius: $rounded-lg;
+      min-height: 270px;
+      background-color:$skeleton;
+      animation: skeleton 1s infinite alternate;
+      -webkit-animation: skeleton 1s infinite alternate;
+    }
   }
 }
 
-@include phone-md{
-    .banners{
-        &__row{
-            grid-template-columns: 1fr;
-        }
+@include phone-md {
+  .banners {
+    &__row {
+      grid-template-columns: 1fr;
     }
+  }
 }

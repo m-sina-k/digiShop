@@ -3,9 +3,9 @@
 .alert {
   position: relative;
   width: 450px;
-  max-width: 95%;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   background-color: $white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: $rounded-lg;
@@ -35,6 +35,7 @@
   }
 
   .alert__text-container {
+    margin: $gap-xs 0;
     .alert__title {
       display: block;
       color: $black;
@@ -52,6 +53,28 @@
     font-size: $font-xl;
     cursor: pointer;
   }
+
+  &__button{
+    // display: block;
+    margin-right: auto;
+    padding:$gap-xxs $gap-md;
+    border-radius: $rounded-sm;
+    -webkit-border-radius: $rounded-sm;
+    -moz-border-radius: $rounded-sm;
+    -ms-border-radius: $rounded-sm;
+    -o-border-radius: $rounded-sm;
+    background-color: $green;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    color: $white;
+
+    &:hover{
+      background-color: darken($green,10%);
+    }
+}
 }
 
 .alert--warning {
@@ -65,4 +88,10 @@
 }
 .alert--error {
   border-right: 7px solid $red !important;
+}
+
+@include phone-md{
+  .alert{
+    max-width: 95%;
+  }
 }
