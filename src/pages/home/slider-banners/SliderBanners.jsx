@@ -67,7 +67,6 @@ const [loading,setLoading] = useState(false)
                       alt="banner-slide"
                       className="banner__image banner__image"
                       loading="lazy"
-                      onLoad={()=>console.log('image fully loaded')}
                     />
                   </Link>
                 </SwiperSlide>

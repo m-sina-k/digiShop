@@ -134,16 +134,15 @@ document.title="دیجی شاپ | ساخت حساب"
             <form
               action="#"
               method="post"
-              className="register-form"
+              className="form"
               onSubmit={(e) => signUpFormSubmit(e)}
             >
               <section className="form-group">
-                <label htmlFor="register__email-input">ایمیل : </label>
+                <label htmlFor="signup__email-input">ایمیل : </label>
                 <input
                   type="text"
-                  name="register__email-input"
-                  id="register__email-input"
-                  className="register__input"
+                  name="signup__email-input"
+                  className="form-input"
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <small className="error-container register__email-error">
@@ -152,12 +151,11 @@ document.title="دیجی شاپ | ساخت حساب"
               </section>
 
               <section className="form-group form-group--password">
-                <label htmlFor="register__password-input">رمز عبور : </label>
+                <label htmlFor="signup__password-input">رمز عبور : </label>
                 <input
                   type={showPassword ? "text" : "password"}
-                  name="register__password-input"
-                  id="register__password-input"
-                  className="register__input"
+                  name="signup__password-input"
+                  className="form-input"
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <span
@@ -176,14 +174,13 @@ document.title="دیجی شاپ | ساخت حساب"
               </section>
 
               <section className="form-group form-group--password">
-                <label htmlFor="register__password-repeat-input">
+                <label htmlFor="signup__password-repeat-input">
                   تکرار رمز عبور :
                 </label>
                 <input
                   type={showPassword ? "text" : "password"}
-                  name="register__password-repeat-input"
-                  id="register__password-input"
-                  className="register__input"
+                  name="signup__password-repeat-input"
+                  className="form-input"
                   onChange={(e) => setPasswordRepeat(e.target.value)}
                 />
                 <span
@@ -201,7 +198,7 @@ document.title="دیجی شاپ | ساخت حساب"
                 </small>
               </section>
 
-              <button id="login__submit-button" type="submit">
+              <button id="login__submit-button" className="form-submit" type="submit">
                 ساخت حساب
               </button>
             </form>

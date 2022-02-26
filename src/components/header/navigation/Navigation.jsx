@@ -18,8 +18,7 @@ const Navigation = () => {
 
   // navigation link's hover indicator
   const moveIndicator = (e) => {
-   
-    if (indicatorRef.current && e.classList.contains('navigation__link')) {
+    if (indicatorRef.current && e.classList.contains("navigation__link")) {
       indicatorRef.current.style.opacity = 1;
       indicatorRef.current.style.left = e.offsetLeft + "px";
       indicatorRef.current.style.width = e.offsetWidth + "px";
@@ -27,34 +26,38 @@ const Navigation = () => {
   };
 
   const hideIndicator = () => {
-      indicatorRef.current.style.opacity = 0;
+    indicatorRef.current.style.opacity = 0;
   };
+
+  const [hideNav, setHideNav] = useState(false);
 
   // storing last offsetTop value to detect scroll direction
   let lastScrollTop;
 
   // slide-up navigation while scrolling down
-  // useEffect(()=>{
-  //   window.addEventListener('scroll',()=>{
-  //     let currentScrollTop = window.pageYOffset;
-  //     if (window.scrollY > 150) {
-  //       const nav = navigationRef.current;
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      let currentScrollTop = window.pageYOffset;
+      if (window.scrollY > 150) {
+        const nav = navigationRef.current;
 
-  //       if (currentScrollTop > lastScrollTop && nav) {
-  //         // scrolling down
-  //         nav.classList.add('navigation--hidden')
-
-  //       } else {
-  //         // scrollin up
-  //         nav.classList.remove('navigation--hidden')
-  //       }
-  //     }
-  //     lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-  //   })
-  // },[])
+        if (currentScrollTop > lastScrollTop && nav) {
+          // scrolling down
+          setHideNav(true);
+        } else {
+          // scrollin up
+          setHideNav(false);
+        }
+      }
+      lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+    });
+  }, []);
 
   return (
-    <div className="navigation" ref={navigationRef}>
+    <div
+      className={`navigation ${hideNav ? "navigation--hidden" : ''}`} 
+      ref={navigationRef}
+    >
       <div className="container">
         <div className="navigation__row">
           {navigationLink.map((link) => {
@@ -79,8 +82,6 @@ const Navigation = () => {
                 {link.megaDropdown.id === activeMegaDropdown && (
                   <MegaDropdown link={link} />
                 )}
-
-
 
                 <IoIosArrowDown className="dropdown-icon" />
               </span>

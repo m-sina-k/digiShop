@@ -320,8 +320,8 @@ export const navigationLink = [
   },
   {
     id: autoID(),
-    text: "راه های ارتباطی",
-    url: "#",
+    text: "تماس با ما",
+    url: "/contact-us",
     dropdown: null,
     megaDropdown: null,
   },

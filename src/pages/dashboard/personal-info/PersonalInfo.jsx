@@ -22,7 +22,7 @@ const PersonalInfo = () => {
 
   return (
     <div className="dashboard__block personal-info">
-      <h4 className="dashboard__block__heading">اطلاعات شخصی</h4>
+      <h4 className="dashboard__block__heading heading-after">اطلاعات شخصی</h4>
       <div className="info-container">
         <InfoBlock
           infoTitle="نام و نام خانوادگی"

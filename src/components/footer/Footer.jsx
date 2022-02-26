@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BsInstagram, BsFacebook, BsTwitter, BsWhatsapp } from "react-icons/bs";
-import {HiOutlineArrowCircleUp} from 'react-icons/hi'
+import { HiOutlineArrowCircleUp } from "react-icons/hi";
 import logo from "../../assets/images/logo.png";
 import { autoID } from "./../../helpers/autoID";
 import "./Footer.scss";
 
 const Footer = () => {
+  const [userEmail, setUserEmail] = useState("");
+
   const footerPagesLinks = [
     {
       id: autoID(),
@@ -90,10 +92,11 @@ const Footer = () => {
               استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
               در ستون و سطرآنچنان که
             </p>
-            <a href='#' id="back-to-top-button">بازگشت به بالا
-            <span className="top-icon">
-              <HiOutlineArrowCircleUp/>
-            </span>
+            <a href="#" id="back-to-top-button">
+              بازگشت به بالا
+              <span className="top-icon">
+                <HiOutlineArrowCircleUp />
+              </span>
             </a>
           </div>
 
@@ -149,8 +152,14 @@ const Footer = () => {
                   name="newsletter-input"
                   id="newsletter-input"
                   placeholder="ایمیل خود را وارد کنید..."
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
                 />
-                <button type="submit" id="newsletter__submit-button">
+                <button
+                  type="submit"
+                  id="newsletter__submit-button"
+                  disabled={userEmail.trim() == "" ? true : false}
+                >
                   عضویت
                 </button>
               </form>

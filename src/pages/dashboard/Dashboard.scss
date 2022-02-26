@@ -13,18 +13,8 @@
     -o-border-radius: $rounded-md;
     height: 100%;
 
-    &__heading {
-      display: inline-block;
-      margin-bottom: $gap-sm;
-
-      &::after {
-        content: "";
-        display: block;
-        margin-top: $gap-xs;
-        width: 70%;
-        height: 2.5px;
-        background-color: $primary;
-      }
+    &__heading{
+      color: $black;
     }
   }
 }

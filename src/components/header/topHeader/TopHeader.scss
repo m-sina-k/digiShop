@@ -88,7 +88,7 @@
         -moz-transition: all 0.3s ease;
         -ms-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
-        color: $text;
+        color: $black;
         &:hover {
           box-shadow: 0 0 5px lighten($black, 85%);
         }
@@ -198,6 +198,7 @@
         display: none;
         background-color: $white-shade;
         border: 1px solid darken($light, 10%);
+        color: $black;
         &:hover {
           box-shadow: 0 0 5px lighten($black, 85%);
         }

@@ -6,7 +6,7 @@ const Loading = () => {
   return (
     <div className="loading">
       <div className="loading__container">
-        <figure className="loading-container">
+        <figure className="loading-container mb-0">
         <BeatLoader color="#f53b57" size={12} margin={5}/>
         </figure>
         <p className="text">لطفا صبر کنید...</p>

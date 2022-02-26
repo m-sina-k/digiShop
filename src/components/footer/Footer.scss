@@ -115,7 +115,14 @@
         -ms-transition: background-color 0.3s ease;
         -o-transition: background-color 0.3s ease;
 
-        &:hover {
+        &:disabled {
+          cursor: not-allowed;
+          background-color: $shadow;
+          color: $white;
+          box-shadow: none;
+        }
+
+        &:hover:not(&:hover) {
           background-color: darken($blue, 10%);
         }
       }

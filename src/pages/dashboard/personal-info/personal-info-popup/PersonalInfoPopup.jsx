@@ -61,7 +61,6 @@ const PersonalInfoPopup = ({
           name={inputName}
           ref={inputRef}
           onChange={validateInput}
-          // value={personalInfo[]}
         />
         <button
           className="form__submit-button"

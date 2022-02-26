@@ -1,4 +1,4 @@
-import React, { useState,Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { navigationLink } from "../../../assets/data/navigationLinks";
 import { MdClose } from "react-icons/md";
@@ -61,7 +61,6 @@ const MobileNavigation = ({
             <Fragment key={id}>
               <Link
                 to={url}
-                
                 className="mobile-navigation__link mobile-navigation__link--mega"
                 onClick={() => toggleMegaDropdown(megaDropdownID)}
               >
@@ -82,10 +81,9 @@ const MobileNavigation = ({
               />
             </Fragment>
           ) : link.dropdown ? (
-            < Fragment  key={id}>
+            <Fragment key={id}>
               <Link
                 to={url}
-               
                 className="mobile-navigation__link mobile-navigation__linkmobile-navigation__link--dropdown"
                 onClick={() => toggleDropdown(dropdownID)}
               >
@@ -98,14 +96,19 @@ const MobileNavigation = ({
                   }`}
                 />
               </Link>
-              
+
               <MobileDropdown
                 isActive={link.dropdown.id === activeDropdown}
                 link={link}
               />
-            </ Fragment>
+            </Fragment>
           ) : (
-            <Link to={url} key={id} className="mobile-navigation__link">
+            <Link
+              to={url}
+              key={id}
+              className="mobile-navigation__link"
+              onClick={() => setShowMobileNavigation(false)}
+            >
               {text}
             </Link>
           );

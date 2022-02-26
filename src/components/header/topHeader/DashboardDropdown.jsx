@@ -7,6 +7,8 @@ import { auth } from "../../../auth/firebase";
 import { signOut } from "firebase/auth";
 import { logout } from "../../../features/slices/authSlice";
 
+import { toast } from "react-toastify";
+
 const DashboardDropdown = ({
   setShowDashboardDropdown,
   showDashboardDropdown,
@@ -15,11 +17,6 @@ const DashboardDropdown = ({
   const location = useLocation();
   const navigate = useNavigate();
 
-  // close the dropdown on click outside
-  const closeDropdown = () => {
-    setShowDashboardDropdown(false);
-  };
-
   const accSignOut = () => {
     setShowDashboardDropdown(false);
     dispatch(logout());
@@ -27,12 +24,16 @@ const DashboardDropdown = ({
     if (location.pathname === "/dashboard") {
       navigate("/");
     }
+    toast.error("از حساب کاربری خود خارج شدید");
     return signOut(auth);
   };
 
   return (
+    <React.Fragment>
       <div
-        className={`dashboard-dropdown__container ${showDashboardDropdown ? 'slide-up--active' : 'slide-up--deactive'}`}
+        className={`dashboard-dropdown__container ${
+          showDashboardDropdown ? "slide-up--active" : "slide-up--deactive"
+        }`}
       >
         <Link
           to="/dashboard"
@@ -50,6 +51,7 @@ const DashboardDropdown = ({
           خروج از حساب
         </span>
       </div>
+    </React.Fragment>
   );
 };
 

@@ -28,71 +28,7 @@
       margin-bottom: $gap-xl;
     }
 
-    .register-form {
-      width: 100%;
-
-      .form-group {
-        margin-bottom: $gap-lg;
-
-        label {
-          display: block;
-          margin-bottom: $gap-xs;
-        }
-
-        .register__input {
-          font: $font-sm Arial, Helvetica, sans-serif;
-          direction: ltr;
-          width: 100%;
-          background-color: $light;
-          padding: $gap-sm $gap-sm;
-          border-radius: $rounded-sm;
-          -webkit-border-radius: $rounded-sm;
-          -moz-border-radius: $rounded-sm;
-          -ms-border-radius: $rounded-sm;
-          -o-border-radius: $rounded-sm;
-        }
-
-        .error-container {
-          color: $red;
-          display: block;
-          margin-top: $gap-xs;
-        }
-
-        &--password {
-          position: relative;
-
-          .show-password-button {
-            font-size: $font-lg;
-            cursor: pointer;
-            position: absolute;
-            top: 38px;
-            right: 10px;
-          }
-        }
-      }
-
-      #login__submit-button {
-        width: 100%;
-        background-color: $primary-tint;
-        color: $white;
-        padding: $gap-xs $gap-sm;
-        margin-top: $gap-sm;
-        border-radius: $rounded-sm;
-        -webkit-border-radius: $rounded-sm;
-        -moz-border-radius: $rounded-sm;
-        -ms-border-radius: $rounded-sm;
-        -o-border-radius: $rounded-sm;
-        transition: background-color 0.4s ease;
-        -webkit-transition: background-color 0.4s ease;
-        -moz-transition: background-color 0.4s ease;
-        -ms-transition: background-color 0.4s ease;
-        -o-transition: background-color 0.4s ease;
-
-        &:hover {
-          background-color: $primary;
-        }
-      }
-    }
+    
 
     .form__links-container {
       padding-top: $gap-md;

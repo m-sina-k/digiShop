@@ -20,23 +20,22 @@
     &__category-container {
       height: 100%;
       background-color: $light;
-      padding: $gap-md $gap-2xl $gap-md 0;
 
       .category-link {
         cursor: pointer;
         font-size: $font-sm;
         padding: $gap-sm $gap-md;
         margin-bottom: $gap-sm;
-        border-radius: 0 $rounded-md $rounded-md 0;
-        -webkit-border-radius: 0 $rounded-md $rounded-md 0;
-        -moz-border-radius: 0 $rounded-md $rounded-md 0;
-        -ms-border-radius: 0 $rounded-md $rounded-md 0;
-        -o-border-radius: 0 $rounded-md $rounded-md 0;
+        
         transition: background-color 0.3s ease;
         -webkit-transition: background-color 0.3s ease;
         -moz-transition: background-color 0.3s ease;
         -ms-transition: background-color 0.3s ease;
         -o-transition: background-color 0.3s ease;
+
+        &:last-child{
+          margin-bottom: 0;
+        }
 
         /* ------------------------------ dropleft icon ----------------------------- */
         &__icon {
@@ -48,8 +47,10 @@
           -o-transition: transform 0.3s ease;
         }
 
-        &:hover {
+        &--active {
           background-color: $white;
+          border-right: 4px solid $primary-shade;
+          color: $primary;
           .category-link__icon {
             transform: translateX(-10px);
             -webkit-transform: translateX(-10px);

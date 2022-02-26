@@ -79,7 +79,7 @@
 
 // react toastify style
 .Toastify__toast {
-  font-family: $yekan;
+  font-family: $yekan !important;
 }
 
 .heading {
@@ -122,9 +122,117 @@
   padding: $gap-lg 0;
 }
 
+.ref-link {
+  margin: 0 2px;
+  color: $blue;
+  font-weight: bold;
+  padding: 1px 5px;
+  transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  -ms-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  border-radius: $rounded-sm;
+  -webkit-border-radius: $rounded-sm;
+  -moz-border-radius: $rounded-sm;
+  -ms-border-radius: $rounded-sm;
+  -o-border-radius: $rounded-sm;
+
+  &:hover {
+    color: $blue;
+    background-color: rgba($color: $blue-light, $alpha: 0.5);
+  }
+}
+
+.heading-after {
+  display: inline-block;
+  margin-bottom: $gap-sm;
+
+  &::after {
+    content: "";
+    display: block;
+    margin-top: $gap-xs;
+    width: 70%;
+    height: 2.5px;
+    background-color: $primary;
+  }
+}
+
+
+.form {
+  width: 100%;
+
+  .form-group {
+    margin-bottom: $gap-lg;
+
+    label {
+      display: block;
+      margin-bottom: $gap-xs;
+    }
+
+    .form-input {
+      font: $font-sm  $yekan;
+      width: 100%;
+      direction: ltr;
+      background-color: $light;
+      padding:$gap-sm;
+      border-radius: $rounded-sm;
+      -webkit-border-radius: $rounded-sm;
+      -moz-border-radius: $rounded-sm;
+      -ms-border-radius: $rounded-sm;
+      -o-border-radius: $rounded-sm;
+    }
+
+    .error-container {
+      color: $red;
+      display: block;
+      margin-top: $gap-xs;
+    }
+
+    &--password {
+      position: relative;
+
+      .show-password-button {
+        font-size: $font-lg;
+        cursor: pointer;
+        position: absolute;
+        top: 38px;
+        right: 10px;
+      }
+    }
+  }
+
+  .form-submit {
+    width: 100%;
+    background-color: $primary-tint;
+    color: $white;
+    padding: $gap-xs $gap-sm;
+    margin-top: $gap-sm;
+    border-radius: $rounded-sm;
+    -webkit-border-radius: $rounded-sm;
+    -moz-border-radius: $rounded-sm;
+    -ms-border-radius: $rounded-sm;
+    -o-border-radius: $rounded-sm;
+    transition: background-color 0.4s ease;
+    -webkit-transition: background-color 0.4s ease;
+    -moz-transition: background-color 0.4s ease;
+    -ms-transition: background-color 0.4s ease;
+    -o-transition: background-color 0.4s ease;
+
+    &:disabled{
+      background-color: $light;
+      color:$black;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(&:disabled) {
+      background-color: $primary;
+    }
+  }
+}
 
 @keyframes skeleton {
-  to{
+  to {
     opacity: 0.5;
   }
 }

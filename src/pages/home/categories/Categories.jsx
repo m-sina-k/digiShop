@@ -27,7 +27,7 @@ const Categories = () => {
       try {
         const response = await client.getEntries({
           content_type: "categories",
-          order: 'sys.createdAt'
+          order: "sys.createdAt",
         });
         const data = formatData(response.items);
         setCategories(data);
@@ -40,10 +40,6 @@ const Categories = () => {
     fetchCategories();
   }, []);
 
-  useEffect(() => {
-    console.log(categories);
-  }, [categories]);
-
   return (
     <div className="categories">
       <div className="container px-2 px-md-0">
@@ -55,12 +51,12 @@ const Categories = () => {
         </div>
         <div className="categories__row">
           {loading
-            ? Array(categoriesCount).fill(
-                <div className="category-skeleton">
+            ? Array.from({ length: 8 }, (_, index) => (
+                <div className="category-skeleton" key={index}>
                   <section className="skeleton-image"></section>
                   <p className="skeleton-text"></p>
                 </div>
-              )
+              ))
             : categories.map((item) => (
                 <Link to={item.url} key={item.id} className="category-item">
                   <figure className="category__image-container mb-2">

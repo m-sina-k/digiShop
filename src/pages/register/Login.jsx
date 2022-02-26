@@ -102,27 +102,25 @@ document.title = 'دیجی شاپ | ورود'
             <form
               action="#"
               method="post"
-              className="register-form"
+              className="form"
               onSubmit={(e) => loginFormSubmit(e)}
             >
               <section className="form-group">
-                <label htmlFor="register__email-input">ایمیل : </label>
+                <label htmlFor="login__email-input">ایمیل : </label>
                 <input
                   type="text"
-                  name="register__email-input"
-                  id="register__email-input"
-                  className="register__input"
+                  name="login__email-input"
+                  className="form-input"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </section>
 
               <section className="form-group form-group--password">
-                <label htmlFor="register__password-input">رمز عبور : </label>
+                <label htmlFor="login__password-input">رمز عبور : </label>
                 <input
                   type={showPassword ? "text" : "password"}
-                  name="register__password-input"
-                  id="register__password-input"
-                  className="register__input"
+                  name="login__password-input"
+                  className="form-input"
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <span
@@ -137,7 +135,7 @@ document.title = 'دیجی شاپ | ورود'
                 </span>
               </section>
 
-              <button id="login__submit-button" type="submit">
+              <button id="login__submit-button" className="form-submit" type="submit">
                 ورود
               </button>
             </form>

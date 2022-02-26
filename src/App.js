@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Backdrop from "./components/Backdrop";
 import Header from "./components/header/Header";
@@ -7,9 +7,12 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
 import Loading from "./components/loading/Loading";
-const Login = React.lazy(() => import("./pages/register/Login"));
-const SignUp = React.lazy(() => import("./pages/register/SignUp"));
-const Dashboard = React.lazy(() => import("./pages/dashboard/Dashboard"));
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const Login = lazy(() => import("./pages/register/Login"));
+const SignUp = lazy(() => import("./pages/register/SignUp"));
+const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
+const ContactUs = lazy(() => import("./pages/contact-us/ContactUs"));
 
 function App() {
   const { showBackdrop, showMegaDropdownBackdrop } = useSelector(
@@ -18,12 +21,31 @@ function App() {
 
   return (
     <React.Fragment>
+      <ToastContainer
+        position="top-center"
+        autoClose={3500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+
       <Backdrop
         additionalClass={
-          showMegaDropdownBackdrop ? "backdrop--mega-dropdown" : showBackdrop ? "backdrop--active" : ""
+          showMegaDropdownBackdrop
+            ? "backdrop--mega-dropdown"
+            : showBackdrop
+            ? "backdrop--active"
+            : ""
         }
       />
+
       <Header />
+
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -33,8 +55,10 @@ function App() {
             path="/dashboard"
             element={<ProtectedRoute component={Dashboard} />}
           />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
       </Suspense>
+
       <Footer />
     </React.Fragment>
   );

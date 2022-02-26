@@ -1,22 +1,8 @@
 @import "../../../style/var";
 
 .navigation {
-  overflow: visible;
-  max-height: 2000px;
-  transition: all 700ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  -webkit-transition: all 700ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  -moz-transition: all 700ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  -ms-transition: all 700ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-  -o-transition: all 700ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
-
   &--hidden {
-    max-height: 0;
-    overflow: hidden;
-    transition: all 700ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    -webkit-transition: all 700ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    -moz-transition: all 700ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    -ms-transition: all 700ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    -o-transition: all 700ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    display: none;
   }
 
   &__link {
@@ -36,8 +22,8 @@
       cursor: default;
       position: static;
 
-      &::after{
-        content: '';
+      &::after {
+        content: "";
         width: 1.5px;
         height: 45%;
         background-color: silver;
@@ -49,7 +35,6 @@
       cursor: default;
       position: relative;
     }
-    
   }
 
   #indicator {
