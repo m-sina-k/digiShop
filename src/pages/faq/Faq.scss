@@ -1,0 +1,183 @@
+@import "../../style/var";
+
+.faq {
+  // faq heading hero start
+  &__filters-section {
+    @include flex(unset, center, column);
+    padding: $gap-xl 0;
+
+    &__heading {
+      display: flex;
+      align-items: center;
+
+      .heading__icon {
+        margin-left: $gap-sm;
+        font-size: $font-5xl;
+        color: $green;
+      }
+
+      .heading__text {
+        &__title {
+          margin-bottom: $gap-xxs;
+        }
+      }
+    }
+
+    &__filters-conteiner {
+      margin-top: $gap-sm;
+      width: clamp(250px, 450px, 95%);
+
+      .faq__search-input {
+        padding: $gap-xs $gap-sm;
+        width: 100%;
+        border-radius: $rounded-sm;
+        -webkit-border-radius: $rounded-sm;
+        -moz-border-radius: $rounded-sm;
+        -ms-border-radius: $rounded-sm;
+        -o-border-radius: $rounded-sm;
+        border: 1px solid $text;
+
+        &:focus {
+          border: 2px solid $blue;
+        }
+      }
+
+      .faq__filters__buttons-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 10px;
+        padding: $gap-sm 0;
+
+        .faq__filter-button {
+          background-color: $blue-light;
+          font-size: $font-sm;
+          padding: $gap-xs $gap-md;
+          border-radius: $rounded-sm;
+          -webkit-border-radius: $rounded-sm;
+          -moz-border-radius: $rounded-sm;
+          -ms-border-radius: $rounded-sm;
+          -o-border-radius: $rounded-sm;
+          transition: all 0.3s ease;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -ms-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+
+          &:hover:not(.faq__filter-button--active) {
+            background-color: darken($blue-light, 15%);
+          }
+
+          &--active {
+            color: $white;
+            background-color: $blue;
+          }
+        }
+      }
+    }
+  }
+  // faq heading hero end
+
+  // faq heading hero start
+  &__search-results{
+    border-bottom: 2px dashed $text;
+  }
+
+  &__container,&__search-results {
+    .question-box {
+      width: 100%;
+      padding: $gap-sm $gap-sm;
+      background-color: $white;
+      border-radius: $rounded-sm;
+      -webkit-border-radius: $rounded-sm;
+      -moz-border-radius: $rounded-sm;
+      -ms-border-radius: $rounded-sm;
+      -o-border-radius: $rounded-sm;
+      margin-bottom: $gap-sm;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+      &__question-container {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        padding: $gap-xs 0;
+
+        .question {
+          color: $black;
+          max-width: 90%
+        }
+
+        .icon-container {
+          transition: all 0.3s ease;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -ms-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+
+          &--rotated {
+            transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+          }
+        }
+      }
+
+      &__answer-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        -webkit-transition: max-height 0.3s ease-in-out;
+        -moz-transition: max-height 0.3s ease-in-out;
+        -ms-transition: max-height 0.3s ease-in-out;
+        -o-transition: max-height 0.3s ease-in-out;
+        
+        .answer{
+          max-width: 98%;
+          border-top: 2px solid $light;
+          padding-top: $gap-sm;
+        }
+
+        &--active {
+          overflow: visible;
+          max-height: 500px;
+        }
+      }
+    }
+  }
+}
+
+
+@include phone-sm{
+  .faq{
+    &__filters-section{
+      &__heading{
+        padding: 0 $gap-sm;
+        .heading__icon{
+          font-size: $font-4xl;
+        }
+        .heading__text{
+          &__title{
+            font-size: $font-lg;
+          }
+          &__desc{
+            font-size: $font-sm;
+          }
+        }
+      }
+
+      .faq__filters__buttons-container{
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+      }
+    }
+
+    &__container,&__search-results{
+      .question-box{
+        .question,.answer{
+          font-size: $font-sm;
+        }
+      }
+    }
+  }
+}

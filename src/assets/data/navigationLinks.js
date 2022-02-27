@@ -307,7 +307,7 @@ export const navigationLink = [
   {
     id: autoID(),
     text: "سوالات متداول",
-    url: "#",
+    url: "/faq",
     dropdown: null,
     megaDropdown: null,
   },

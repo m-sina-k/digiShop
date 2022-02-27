@@ -12,19 +12,19 @@ const Header = () => {
   const headerRef = useRef();
  
 // fixing header if user scroll's
-  useEffect(()=>{
-    window.addEventListener("scroll", () => {
+  // useEffect(()=>{
+  //   window.addEventListener("scroll", () => {
    
-      if (window.scrollY > 0 && headerRef.current) {
-        const headerHeight = headerRef.current.offsetHeight;
-        document.body.style.paddingTop = headerHeight + "px";
-        headerRef.current.classList.add("header--sticky");
-      } else {
-        document.body.style.paddingTop = 0;
-        headerRef.current.classList.remove("header--sticky");
-      }
-    });
-  },[])
+  //     if (window.scrollY > 0 && headerRef.current) {
+  //       const headerHeight = headerRef.current.offsetHeight;
+  //       document.body.style.paddingTop = headerHeight + "px";
+  //       headerRef.current.classList.add("header--sticky");
+  //     } else {
+  //       document.body.style.paddingTop = 0;
+  //       headerRef.current.classList.remove("header--sticky");
+  //     }
+  //   });
+  // },[])
 
   return (
     <React.Fragment>

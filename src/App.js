@@ -13,6 +13,7 @@ const Login = lazy(() => import("./pages/register/Login"));
 const SignUp = lazy(() => import("./pages/register/SignUp"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
 const ContactUs = lazy(() => import("./pages/contact-us/ContactUs"));
+const Faq = lazy(()=>import("./pages/faq/Faq"))
 
 function App() {
   const { showBackdrop, showMegaDropdownBackdrop } = useSelector(
@@ -56,6 +57,7 @@ function App() {
             element={<ProtectedRoute component={Dashboard} />}
           />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/faq" element={<Faq />} />
         </Routes>
       </Suspense>
 

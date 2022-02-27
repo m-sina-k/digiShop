@@ -35,23 +35,23 @@ const Navigation = () => {
   let lastScrollTop;
 
   // slide-up navigation while scrolling down
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      let currentScrollTop = window.pageYOffset;
-      if (window.scrollY > 150) {
-        const nav = navigationRef.current;
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     let currentScrollTop = window.pageYOffset;
+  //     if (window.scrollY > 150) {
+  //       const nav = navigationRef.current;
 
-        if (currentScrollTop > lastScrollTop && nav) {
-          // scrolling down
-          setHideNav(true);
-        } else {
-          // scrollin up
-          setHideNav(false);
-        }
-      }
-      lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-    });
-  }, []);
+  //       if (currentScrollTop > lastScrollTop && nav) {
+  //         // scrolling down
+  //         setHideNav(true);
+  //       } else {
+  //         // scrollin up
+  //         setHideNav(false);
+  //       }
+  //     }
+  //     lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+  //   });
+  // }, []);
 
   return (
     <div
