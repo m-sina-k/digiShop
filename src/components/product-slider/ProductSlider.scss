@@ -19,53 +19,13 @@
     .filter-options {
       display: flex;
       margin-right: auto;
-      &__item {
-        color: $text;
-        position: relative;
-        margin: 0 $gap-xxs;
-        padding: $gap-xxs;
-        background-color: transparent;
-        transition: all 0.3s ease;
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-
-        &::after {
-          height: 2.5px;
-          width: 50%;
-          background-color: $primary-shade;
-          content: "";
-          position: absolute;
-          left: 50%;
-          bottom: -2px;
-          transition: all 0.3s ease;
-          -webkit-transition: all 0.3s ease;
-          -moz-transition: all 0.3s ease;
-          -ms-transition: all 0.3s ease;
-          -o-transition: all 0.3s ease;
-          transform: scale(0);
-          -webkit-transform: scale(0);
-          -moz-transform: scale(0);
-          -ms-transform: scale(0);
-          -o-transform: scale(0);
-          border-radius: 5px;
-          -webkit-border-radius: 5px;
-          -moz-border-radius: 5px;
-          -ms-border-radius: 5px;
-          -o-border-radius: 5px;
-        }
-
-        &--active {
-          color: $black;
-          &::after {
-            transform: scale(1) translateX(-50%);
-            -webkit-transform: scale(1) translateX(-50%);
-            -moz-transform: scale(1) translateX(-50%);
-            -ms-transform: scale(1) translateX(-50%);
-            -o-transform: scale(1) translateX(-50%);
-          }
-        }
+    }
+    .seeMore-link{
+      font-size: $font-sm;
+      color: $blue;
+      margin-right: auto;
+      .icon{
+        margin-right:5px;
       }
     }
   }

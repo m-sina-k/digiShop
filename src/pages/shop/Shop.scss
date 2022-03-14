@@ -1,0 +1,184 @@
+@import "../../style/var";
+
+.shop,
+.brand-single {
+  padding: $gap-lg $gap-sm;
+  .products-container {
+    background-color: $white;
+    padding: 5px 10px;
+    border-radius: $rounded-md;
+    -webkit-border-radius: $rounded-md;
+    -moz-border-radius: $rounded-md;
+    -ms-border-radius: $rounded-md;
+    -o-border-radius: $rounded-md;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  .sort-filter__container {
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    padding: $gap-xs 0 $gap-md;
+    border-bottom: 1px solid $light;
+
+    .sort-options__container {
+      display: flex;
+      flex-wrap: wrap;
+      .filter-options__item {
+        font-size: 14px;
+      }
+    }
+    .heading {
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+
+      &__icon {
+        display: flex;
+        color: $black;
+        font-size: $font-xl;
+        margin-left: $gap-xs;
+      }
+    }
+    .products-count {
+      margin-right: auto;
+    }
+
+    &--mobile{
+      margin-top: $gap-sm;
+    }
+  }
+
+  .filter-menu__button {
+    margin-bottom: $gap-md;
+    padding: $gap-xxs $gap-md;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: $blue;
+    color: $white;
+    border-radius: $rounded-sm;
+    -webkit-border-radius: $rounded-sm;
+    -moz-border-radius: $rounded-sm;
+    -ms-border-radius: $rounded-sm;
+    -o-border-radius: $rounded-sm;
+    display: none;
+  }
+
+  .products-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    .product-card {
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+
+      &:hover {
+        position: relative;
+        z-index: 1;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        transform: unset;
+        -webkit-transform: unset;
+        -moz-transform: unset;
+        -ms-transform: unset;
+        -o-transform: unset;
+      }
+    }
+  }
+
+  .not-found-alert {
+    grid-column: 1 / -1;
+    width: 100%;
+    box-shadow: none;
+    border: 2px solid $light;
+    border-right: inherit;
+    margin-top: $gap-md;
+  }
+}
+
+.shop-skeleton {
+  .sort-filter-skeleton {
+    border-radius: $rounded-md;
+    -webkit-border-radius: $rounded-md;
+    -moz-border-radius: $rounded-md;
+    -ms-border-radius: $rounded-md;
+    -o-border-radius: $rounded-md;
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-bottom: $gap-md;
+    background-color: $skeleton;
+    animation: skeleton 1s infinite alternate;
+    -webkit-animation: skeleton 1s infinite alternate;
+  }
+  .product-grid-skeleton {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    .product-card-skeleton {
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+    }
+  }
+}
+
+@include desktop-sm {
+  .shop,
+  .brand-single {
+    padding: $gap-lg $gap-md;
+    .products-container {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .sort-filter__container {
+      .heading{
+        &__icon{
+          display: none;
+        }
+      }
+      &--desktop {
+        display: none;
+      }
+    }
+    .filter-menu__button {
+      display: flex;
+    }
+  }
+  .shop-skeleton {
+    .sort-filter-skeleton {
+      display: none;
+    }
+    .product-grid-skeleton {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+}
+
+@include tablet-sm {
+  .shop,
+  .brand-single {
+    .products-grid-container {
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+    }
+  }
+}
+
+@include phone-md {
+  .shop,
+  .brand-single {
+    .sort-filter__container {
+      .sort-options__container {
+        .filter-options__item {
+          font-size: $font-xs;
+          padding: 2px;
+          margin: 0 2px;
+        }
+      }
+    }
+  }
+}

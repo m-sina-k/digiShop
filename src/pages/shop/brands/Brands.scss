@@ -1,0 +1,96 @@
+@import "../../../style/var";
+
+.brands {
+  margin: $gap-2xl 0;
+  &__container {
+    padding: $gap-xxs;
+    background-color: $white;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+      rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    border-radius: $rounded-lg;
+    -webkit-border-radius: $rounded-lg;
+    -moz-border-radius: $rounded-lg;
+    -ms-border-radius: $rounded-lg;
+    -o-border-radius: $rounded-lg;
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: center;
+    .icon-container {
+      color: $yellow;
+      margin-left: $gap-xs;
+    }
+  }
+  .brands__row {
+    position: relative;
+    .brand-card {
+      padding: $gap-sm;
+      display: flex;
+      align-items: center;
+      width: 100px;
+      height: 70px;
+      border-radius: $rounded-md;
+      -webkit-border-radius: $rounded-md;
+      -moz-border-radius: $rounded-md;
+      -ms-border-radius: $rounded-md;
+      -o-border-radius: $rounded-md;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+      rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    width: 45px;
+    height: 65px;
+    top: 40%;
+    background-color: $light;
+    color: $text;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    &::after {
+      font-size: $font-2xl;
+    }
+    &:hover {
+      color: $black;
+    }
+  }
+  .swiper-button-prev {
+    right: 0;
+    border-radius: $rounded-lg 0 0 $rounded-lg;
+    -webkit-border-radius: $rounded-lg 0 0 $rounded-lg;
+    -moz-border-radius: $rounded-lg 0 0 $rounded-lg;
+    -ms-border-radius: $rounded-lg 0 0 $rounded-lg;
+    -o-border-radius: $rounded-lg 0 0 $rounded-lg;
+  }
+  .swiper-button-next {
+    left: 0;
+    border-radius: 0 $rounded-lg $rounded-lg 0;
+    -webkit-border-radius: 0 $rounded-lg $rounded-lg 0;
+    -moz-border-radius: 0 $rounded-lg $rounded-lg 0;
+    -ms-border-radius: 0 $rounded-lg $rounded-lg 0;
+    -o-border-radius: 0 $rounded-lg $rounded-lg 0;
+  }
+
+  &-skeleton__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px,1fr));
+    grid-gap: 5px;
+    justify-items: center;
+    padding: $gap-sm;
+
+    .brand-skeleton {
+      width: 70px;
+      height: 65px;
+      border-radius: $rounded-sm;
+      -webkit-border-radius: $rounded-sm;
+      -moz-border-radius: $rounded-sm;
+      -ms-border-radius: $rounded-sm;
+      -o-border-radius: $rounded-sm;
+}
+  }
+}

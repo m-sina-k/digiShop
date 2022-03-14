@@ -11,7 +11,7 @@ const QuestionBox = ({ item, activeQuestion, setActiveQuestion }) => {
   };
 
   return (
-    <article className="question-box" key={item.id}>
+    <article className="question-box">
       <section
         className="question-box__question-container"
         onClick={() => questionClick(item.id)}

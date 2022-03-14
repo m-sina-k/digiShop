@@ -85,9 +85,12 @@ const Faq = () => {
         <div className="row">
           {queryMatchedQuestion.length ? (
             <div className="faq__search-results mb-3 py-2">
-              <h3 className="heading-after faq__search-results__heading">نتایج جستجو</h3>
-              {queryMatchedQuestion.map((item) => (
+              <h3 className="heading-after faq__search-results__heading">
+                نتایج جستجو
+              </h3>
+              {queryMatchedQuestion.map((item, index) => (
                 <QuestionBox
+                  key={index}
                   item={item}
                   activeQuestion={activeQuestion}
                   setActiveQuestion={setActiveQuestion}
@@ -97,8 +100,9 @@ const Faq = () => {
           ) : null}
 
           <div className="faq__container">
-            {questionsList.map((item) => (
+            {questionsList.map((item, index) => (
               <QuestionBox
+                key={index}
                 item={item}
                 activeQuestion={activeQuestion}
                 setActiveQuestion={setActiveQuestion}

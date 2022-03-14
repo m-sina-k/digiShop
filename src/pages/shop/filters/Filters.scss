@@ -1,0 +1,183 @@
+@import "../../../style/var";
+
+.filters {
+  padding: $gap-sm $gap-xs;
+  background-color: $white;
+  border-radius: $rounded-md;
+  -webkit-border-radius: $rounded-md;
+  -moz-border-radius: $rounded-md;
+  -ms-border-radius: $rounded-md;
+  -o-border-radius: $rounded-md;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  &__heading {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      font-size: $font-3xl;
+      margin-left: $gap-xs;
+    }
+  }
+
+  .filter__block {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 250px;
+    padding: $gap-sm 0;
+    margin-bottom: $gap-xs;
+    border-bottom: 2px solid $light;
+
+    .filters-search-input {
+      margin-top: $gap-xxs;
+      width: 100%;
+      border-radius: $rounded-md;
+      -webkit-border-radius: $rounded-md;
+      -moz-border-radius: $rounded-md;
+      -ms-border-radius: $rounded-md;
+      -o-border-radius: $rounded-md;
+      padding: 8px $gap-sm;
+      font-size: $font-sm;
+      background-color: $light;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &__heading {
+      @include flex(space-between);
+      padding-bottom: $gap-xs;
+      max-width: 98%;
+
+      &--expandable {
+        cursor: pointer;
+      }
+    }
+
+    &__body {
+      .price-range__container {
+        margin: 0 auto;
+        max-width: 90%;
+      }
+      .price-inputs__container {
+        &__text {
+          display: flex;
+          align-items: center;
+          margin: $gap-sm 0;
+
+          .price-box {
+            text-align: center;
+            flex: 1;
+            color: $black;
+            margin: 0 $gap-xs;
+            padding: 4px $gap-sm;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            background-color: $light;
+          }
+        }
+      }
+
+      &--expandable {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+        -webkit-transition: max-height 0.4s ease-out;
+        -moz-transition: max-height 0.4s ease-out;
+        -ms-transition: max-height 0.4s ease-out;
+        -o-transition: max-height 0.4s ease-out;
+      }
+    }
+  }
+}
+
+.mobile-filters__container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: $white;
+  padding: $gap-xl;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    .close-icon {
+      font-size: $font-3xl;
+      color: $red;
+      cursor: pointer;
+    }
+  }
+  &--active {
+    opacity: 1;
+    z-index: $z-max;
+    visibility: visible;
+  }
+
+  .mobile-filters {
+    background-color: none;
+    box-shadow: none;
+  }
+}
+
+.clear-filters-button {
+  margin-right: auto;
+  border-radius: $rounded-md;
+  padding: $gap-xxs $gap-sm;
+  -webkit-border-radius: $rounded-md;
+  -moz-border-radius: $rounded-md;
+  -ms-border-radius: $rounded-md;
+  -o-border-radius: $rounded-md;
+  font-weight: bold;
+  background-color: $red;
+  color: $white;
+  &:hover {
+    box-shadow: 0 0 15px $red-light;
+  }
+
+  &--mobile {
+    margin-top: $gap-md;
+  }
+}
+
+.price-filter-skeleton {
+  .range-skeleton,
+  .min-price-skeleton,
+  .max-price-skeleton {
+    width: 100%;
+    border-radius: $rounded-sm;
+    -webkit-border-radius: $rounded-sm;
+    -moz-border-radius: $rounded-sm;
+    -ms-border-radius: $rounded-sm;
+    -o-border-radius: $rounded-sm;
+    background-color: $skeleton;
+    animation: skeleton 1s infinite alternate;
+    -webkit-animation: skeleton 1s infinite alternate;
+    margin: $gap-sm 0;
+  }
+  .range-skeleton {
+    height: 7px;
+  }
+  .min-price-skeleton,
+  .max-price-skeleton {
+    height: 30px;
+  }
+}
+
+@include desktop-sm {
+  .desktop-filters {
+    display: none;
+  }
+}

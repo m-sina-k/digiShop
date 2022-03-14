@@ -1,5 +1,7 @@
 import React from "react";
 import ProductCard from "../product-card/ProductCard";
+import { Link } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
 import "./ProductSlider.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,7 +9,7 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import {BeatLoader} from 'react-spinners'
+import { BeatLoader } from "react-spinners";
 
 const ProductSlider = ({
   products,
@@ -18,6 +20,7 @@ const ProductSlider = ({
   filterOptions,
   activeFilter,
   setActiveFilter,
+  seeMore,
 }) => {
   const changeFilter = (e) => {
     setActiveFilter(e.target.dataset.filter);
@@ -30,7 +33,7 @@ const ProductSlider = ({
       >
         <div className="heading">
           <section className="heading-container">
-            <span className="icon-container">{titleIcon}</span>
+            {titleIcon && <span className="icon-container">{titleIcon}</span>}
             <h5 className="heading__title">{title}</h5>
           </section>
           {filterOptions ? (
@@ -38,7 +41,6 @@ const ProductSlider = ({
               {filterOptions.map((option, index) => (
                 <button
                   key={index}
-                  data-hover={option}
                   className={`filter-options__item ${
                     activeFilter === option
                       ? "filter-options__item--active"
@@ -52,12 +54,18 @@ const ProductSlider = ({
               ))}
             </section>
           ) : null}
+          {seeMore ? (
+            <Link to={seeMore} className="seeMore-link">
+              محصولات بیشتر
+              <IoIosArrowBack className="icon" />
+            </Link>
+          ) : null}
         </div>
         <div className="product-slider__row">
           {loading ? (
-           <div className="loading-container">
-              <BeatLoader color="#f53b57" size={10} margin={5}/>
-           </div>
+            <div className="loading-container">
+              <BeatLoader color="#f53b57" size={10} margin={5} />
+            </div>
           ) : (
             <Swiper
               slidesPerView={4}

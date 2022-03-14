@@ -70,4 +70,39 @@
   }
 }
 
+.product-card-skeleton{
+  border: 1px solid rgba($color: $text, $alpha: 0.1);
+  border-radius: $rounded-md;
+  -webkit-border-radius: $rounded-md;
+  -moz-border-radius: $rounded-md;
+  -ms-border-radius: $rounded-md;
+  -o-border-radius: $rounded-md;
+  transition: all 0.3s ease;
+  background-color: $white;
+  width: 250px;
+  height: 380px;
+  padding: $gap-sm;
 
+  .skeleton-image{
+    width: 100%;
+    height: 280px;
+    margin: 0 auto;
+  }
+  .skeleton-title{
+    width: 65%;
+    height: 15px;
+    margin: $gap-sm 0;
+  }
+  .skeleton-price{
+    width: 35%;
+    height: 15px;
+    margin-right: auto;
+  }
+
+  .skeleton-image,.skeleton-title,.skeleton-price{
+    background-color: $skeleton;
+    animation: skeleton 1s infinite alternate;
+    -webkit-animation: skeleton 1s infinite alternate;
+    display: block;
+  }
+}

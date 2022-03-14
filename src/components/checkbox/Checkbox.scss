@@ -1,0 +1,34 @@
+@import "../../style/var";
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  margin-bottom: $gap-xs;
+  cursor: pointer;
+  padding: 2px $gap-sm;
+  border-radius: $rounded-md;
+  -webkit-border-radius: $rounded-md;
+  -moz-border-radius: $rounded-md;
+  -ms-border-radius: $rounded-md;
+  -o-border-radius: $rounded-md;
+
+  .custom-checkbox {
+    cursor: pointer;
+  }
+
+  .label-text {
+    margin-right: $gap-xs;
+    text-align: left;
+  }
+
+  &--checked {
+    color: $black;
+    background-color: lighten($blue-light, 10%);
+  }
+}

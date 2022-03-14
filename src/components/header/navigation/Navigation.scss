@@ -35,6 +35,10 @@
       cursor: default;
       position: relative;
     }
+
+    &:hover{
+      color: $black;
+    }
   }
 
   #indicator {

@@ -62,20 +62,22 @@ const MobileNavigation = ({
               <Link
                 to={url}
                 className="mobile-navigation__link mobile-navigation__link--mega"
-                onClick={() => toggleMegaDropdown(megaDropdownID)}
               >
                 {text}
-
-                <IoIosArrowDown
-                  className={`dropdown-icon ${
-                    link.megaDropdown.id === activeMegaDropdown
-                      ? "dropdown-icon--rotated"
-                      : ""
-                  }`}
-                />
+                <span className="dropdown-icon__container">
+                  <IoIosArrowDown
+                    onClick={() => toggleMegaDropdown(megaDropdownID)}
+                    className={`dropdown-icon ${
+                      link.megaDropdown.id === activeMegaDropdown
+                        ? "dropdown-icon--rotated"
+                        : ""
+                    }`}
+                  />
+                </span>
               </Link>
 
               <MobileMegaDropdown
+              setShowMobileNavigation={setShowMobileNavigation}
                 isActive={link.megaDropdown.id === activeMegaDropdown}
                 link={link}
               />
@@ -84,17 +86,19 @@ const MobileNavigation = ({
             <Fragment key={id}>
               <Link
                 to={url}
-                className="mobile-navigation__link mobile-navigation__linkmobile-navigation__link--dropdown"
-                onClick={() => toggleDropdown(dropdownID)}
+                className="mobile-navigation__link mobile-navigation__link mobile-navigation__link--dropdown"
               >
                 {text}
-                <IoIosArrowDown
-                  className={`dropdown-icon ${
-                    link.dropdown.id === activeDropdown
-                      ? "dropdown-icon--rotated"
-                      : ""
-                  }`}
-                />
+                <span className="dropdown-icon__container">
+                  <IoIosArrowDown
+                  onClick={() => toggleDropdown(dropdownID)}
+                    className={`dropdown-icon ${
+                      link.dropdown.id === activeDropdown
+                        ? "dropdown-icon--rotated"
+                        : ""
+                    }`}
+                  />
+                </span>
               </Link>
 
               <MobileDropdown

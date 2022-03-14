@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 
-const CategoryLinks = ({ link, isActive }) => {
+const CategoryLinks = ({ link, isActive,setShowMobileNavigation }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const toggleDropdown = (e) => {
-    const currentCategory = e.target.dataset.dropdown;
+    const currentCategory = e.target.parentElement.parentElement.dataset.dropdown;
     
     if (activeDropdown === currentCategory) {
       setActiveDropdown(null);
@@ -29,14 +29,17 @@ const CategoryLinks = ({ link, isActive }) => {
             <h6
               className="category__title"
               data-dropdown={title}
-              onClick={(e) => toggleDropdown(e)}
+              
             >
               {title}
+              <span className="dropdown-icon__container">
               <IoIosArrowDown
+              onClick={(e) => toggleDropdown(e)}
                 className={`dropdown-icon ${
                   item.title === activeDropdown ? "dropdown-icon--rotated" : ""
                 }`}
               />
+              </span>
             </h6>
 
             <ul
@@ -48,7 +51,7 @@ const CategoryLinks = ({ link, isActive }) => {
                 const { id, text, url } = link;
                 return (
                   <li key={id} className="dropdown-item">
-                    <Link to={url} className="dropdown-link">
+                    <Link to={url} className="dropdown-link" onClick={()=>setShowMobileNavigation(false)}>
                       {text}
                     </Link>
                   </li>

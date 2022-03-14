@@ -5,7 +5,6 @@ import { client } from "../../../server/contentful";
 import "./Categories.scss";
 
 const Categories = () => {
-  const categoriesCount = 8;
 
   const formatData = (items) => {
     let tempItems = items.map((item) => {

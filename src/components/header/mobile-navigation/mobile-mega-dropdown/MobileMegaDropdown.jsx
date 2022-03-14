@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { IoIosArrowDown } from "react-icons/io";
 import CategoryLinks from "./CategoryLinks";
 import "./MobileMegaDropdown.scss";
 
-const MobileMegaDropdown = ({ link, isActive }) => {
+const MobileMegaDropdown = ({ link, isActive,setShowMobileNavigation }) => {
   const [activeCategory, setActiveCategory] = useState(null);
 
   const changeCagtegory = (e) => {
-    const currentCategory = e.target.dataset.category;
-
+    e.stopPropagation()
+    e.preventDefault()
+    const currentCategory =
+    e.currentTarget.parentElement.parentElement.dataset.category;
     if (activeCategory === currentCategory) {
       setActiveCategory(null);
     } else {
@@ -21,30 +24,30 @@ const MobileMegaDropdown = ({ link, isActive }) => {
       className={`mobile-navigation__mega-dropdown slide-down--deactive ${
         isActive ? "slide-down--active" : ""
       }`}
-      
     >
       {link.megaDropdown.content.map((link) => {
-        const { id, category } = link;
+        const { id, category,url } = link;
 
         return (
           <React.Fragment key={id}>
-            <section
+            <Link
               className="mobile-navigation__mega-dropdown__item"
               data-category={category}
-              onClick={(e) => changeCagtegory(e)}
+              to={url}
+              onClick={()=>setShowMobileNavigation(false)}
             >
               {category}
-              <IoIosArrowDown
-                className={`dropdown-icon ${
-                  category === activeCategory ? "dropdown-icon--rotated" : ""
-                }`}
-              />
-            </section>
+              <span className="dropdown-icon__container">
+                <IoIosArrowDown
+                  onClick={(e) => changeCagtegory(e)}
+                  className={`dropdown-icon ${
+                    category === activeCategory ? "dropdown-icon--rotated" : ""
+                  }`}
+                />
+              </span>
+            </Link>
 
-            <CategoryLinks
-              isActive={category === activeCategory}
-              link={link}
-            />
+            <CategoryLinks isActive={category === activeCategory} link={link} setShowMobileNavigation={setShowMobileNavigation} />
           </React.Fragment>
         );
       })}

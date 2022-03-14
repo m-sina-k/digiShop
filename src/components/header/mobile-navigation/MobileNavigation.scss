@@ -26,16 +26,41 @@
       cursor: pointer;
     }
   }
-  &__links-container{
+  &__links-container {
     margin-top: $gap-xl;
-    .mobile-navigation__link{
-      @include flex(space-between,center);
-      padding:$gap-sm 0;
+    .mobile-navigation__link {
+      @include flex(space-between, center);
+      padding: $gap-sm 0;
       font-weight: bold;
       border-bottom: 1px solid lightgray;
-      &:last-child{
+
+      &--mega,
+      &--dropdown {
+        cursor: default;
+      }
+
+      &:last-child {
         border-bottom: none;
       }
+    }
+
+    .category__title{
+      cursor: default !important;
+    }
+    .dropdown-icon__container {
+      margin-right: auto;
+      text-align: center;
+      line-height: 25px;
+      width: 25px;
+      height: 25px;
+      border-radius: $rounded-sm;
+      -webkit-border-radius: $rounded-sm;
+      -moz-border-radius: $rounded-sm;
+      -ms-border-radius: $rounded-sm;
+      -o-border-radius: $rounded-sm;
+      background-color: $light;
+      cursor: pointer;
+      color: $black;
     }
   }
   &--active {

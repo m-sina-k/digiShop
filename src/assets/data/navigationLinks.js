@@ -11,7 +11,8 @@ export const navigationLink = [
       content: [
         {
           id: autoID(),
-          category: "موبایل",
+          category: "گوشی موبایل",
+          url: "/shop/phone",
           content: [
             {
               title: "برند ها ",
@@ -19,27 +20,27 @@ export const navigationLink = [
                 {
                   id: autoID(),
                   text: "apple",
-                  url: "#",
+                  url: "/shop/phone/apple",
                 },
                 {
                   id: autoID(),
                   text: "samsung",
-                  url: "#",
+                  url: "/shop/phone/samsung",
                 },
                 {
                   id: autoID(),
                   text: "xiaomi",
-                  url: "#",
+                  url: "/shop/phone/xiaomi",
                 },
                 {
                   id: autoID(),
                   text: "sony",
-                  url: "#",
+                  url: "/shop/phone/sony",
                 },
                 {
                   id: autoID(),
                   text: "huawei",
-                  url: "#",
+                  url: "/shop/phone/huawei",
                 },
               ],
             },
@@ -72,7 +73,8 @@ export const navigationLink = [
         },
         {
           id: autoID(),
-          category: "لپتاپ و کامپیوتر",
+          category: "لپتاپ",
+          url: "/shop/laptop",
           content: [
             {
               title: "برند ها",
@@ -80,27 +82,27 @@ export const navigationLink = [
                 {
                   id: autoID(),
                   text: "asus",
-                  url: "#",
+                  url: "/shop/laptop/asus",
                 },
                 {
                   id: autoID(),
                   text: "microsoft",
-                  url: "#",
+                  url: "/shop/laptop/microsoft",
                 },
                 {
                   id: autoID(),
                   text: "apple",
-                  url: "#",
+                  url: "/shop/laptop/apple",
                 },
                 {
                   id: autoID(),
-                  text: "hp",
-                  url: "#",
+                  text: "huawei",
+                  url: "/shop/laptop/huawei",
                 },
                 {
                   id: autoID(),
-                  text: "acer",
-                  url: "#",
+                  text: "lenovo",
+                  url: "/shop/laptop/lenovo",
                 },
               ],
             },
@@ -133,37 +135,13 @@ export const navigationLink = [
                   url: "#",
                 },
               ],
-            },
-            {
-              title: "قطعات کامپیوتر",
-              links: [
-                {
-                  id: autoID(),
-                  text: "پردازنده",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "رم",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "کارت گرافیک",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "کیس",
-                  url: "#",
-                },
-              ],
-            },
+            }
           ],
         },
         {
           id: autoID(),
-          category: "تبلت و کاتبخوان",
+          category: "تبلت",
+          url: "/shop/tablet",
           content: [
             {
               title: "برند ها",
@@ -171,48 +149,44 @@ export const navigationLink = [
                 {
                   id: autoID(),
                   text: "samsung",
-                  url: "#",
+                  url: "/shop/tablet/samsung",
                 },
                 {
                   id: autoID(),
                   text: "lenovo",
-                  url: "#",
+                  url: "/shop/tablet/lenovo",
                 },
                 {
                   id: autoID(),
                   text: "apple",
-                  url: "#",
+                  url: "/shop/tablet/apple",
                 },
                 {
                   id: autoID(),
                   text: "asus",
-                  url: "#",
+                  url: "/shop/tablet/asus",
                 },
               ],
-            },
-            ,
+            }
+          ],
+        },
+        {
+          id: autoID(),
+          category: "هدست و هدفون",
+          url: "/shop/headset",
+          content: [
             {
-              title: "اسکنر ها",
+              title: "برند ها",
               links: [
                 {
                   id: autoID(),
-                  text: "اسکنر فلت",
-                  url: "#",
+                  text: "beats",
+                  url: "/shop/headset/beats",
                 },
                 {
                   id: autoID(),
-                  text: "اسکنر دستی",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "اسکنر لیزری",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "اسکنر بارکدخوان",
-                  url: "#",
+                  text: "sony",
+                  url: "/shop/headset/sony",
                 },
               ],
             },
@@ -220,75 +194,82 @@ export const navigationLink = [
         },
         {
           id: autoID(),
-          category: "لوازم مالتی مدیا",
+          category: "مانیتور",
+          url: "/shop/monitor",
           content: [
             {
-              title: "هدست و هدفون",
+              title: "برند ها",
               links: [
                 {
                   id: autoID(),
-                  text: "beats",
-                  url: "#",
+                  text: "G plus",
+                  url: "/shop/monitor/G-plus",
                 },
                 {
                   id: autoID(),
-                  text: "jbl",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "sony",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "xiaomi",
-                  url: "#",
+                  text: "huawei",
+                  url: "/shop/monitor/huawei",
                 },
               ],
             },
+          ],
+        },
+        {
+          id: autoID(),
+          category: "ساعت هوشمند",
+          url: "/shop/smart-watch",
+          content: [
             {
-              title: "مانیتور",
+              title: "برند ها",
               links: [
+                {
+                  id: autoID(),
+                  text: "apple",
+                  url: "/shop/smart-watch/apple",
+                },
                 {
                   id: autoID(),
                   text: "samsung",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "lg",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "x.vision",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "hp",
-                  url: "#",
+                  url: "/shop/smart-watch/samsung",
                 },
               ],
             },
+          ],
+        },
+        {
+          id: autoID(),
+          category: "محصولات گیمینگ",
+          url: "/shop/gaming",
+          content: [
             {
-              title: "دوربین عکاسی",
+              title: "برند ها",
               links: [
                 {
                   id: autoID(),
-                  text: "canon",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
-                  text: "nickon",
-                  url: "#",
-                },
-                {
-                  id: autoID(),
                   text: "sony",
-                  url: "#",
+                  url: "/shop/gaming/sony",
+                },
+                {
+                  id: autoID(),
+                  text: "microsoft",
+                  url: "/shop/gaming/microsoft",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: autoID(),
+          category: "دوربین عکاسی",
+          url: "/shop/camera",
+          content: [
+            {
+              title: "برند ها",
+              links: [
+                {
+                  id: autoID(),
+                  text: "nikon",
+                  url: "/shop/camera/nikon",
                 },
               ],
             },
@@ -296,6 +277,13 @@ export const navigationLink = [
         },
       ],
     },
+  },
+  {
+    id: autoID(),
+    text: "فروشگاه",
+    url: "/shop",
+    dropdown: null,
+    megaDropdown: null,
   },
   {
     id: autoID(),
@@ -308,13 +296,6 @@ export const navigationLink = [
     id: autoID(),
     text: "سوالات متداول",
     url: "/faq",
-    dropdown: null,
-    megaDropdown: null,
-  },
-  {
-    id: autoID(),
-    text: "درباره ما",
-    url: "#",
     dropdown: null,
     megaDropdown: null,
   },

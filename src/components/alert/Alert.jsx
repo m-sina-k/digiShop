@@ -29,6 +29,7 @@ const Alert = ({
           <GrFormClose className="close-icon" onClick={(e) => removeAlert(e)} />
         </span>
       ) : null}
+      <section className="alert__heading">
       <span className="alert__icon-container">
         {variant === "success" ? (
           <BsFillCheckCircleFill className="alert-icon alert-icon--success" />
@@ -40,10 +41,12 @@ const Alert = ({
           <AiFillCloseCircle className="alert-icon alert-icon--error" />
         )}
       </span>
-      <section className="alert__text-container">
-        <h6 className="alert__title">{title}</h6>
-        <p className="alert__message">{text}</p>
+      <h4 className="alert__title">{title}</h4>
       </section>
+     
+        
+        <p className="alert__message">{text}</p>
+     
       {callBack ? (
         <button className="alert__button" onClick={callBack}>
           {callBackText}

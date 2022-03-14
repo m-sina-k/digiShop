@@ -1,4 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
+import { client } from "../../server/contentful";
+import { formatImages } from "../../helpers/formatImages";
 import { ErrorBoundary } from "react-error-boundary";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../features/slices/productsSlice";
@@ -8,9 +10,11 @@ import { MdOutlineSell, MdOutlineFiberNew } from "react-icons/md";
 
 import Services from "../../components/services/Services";
 import ErrorFallback from "../../components/ErrorFallback";
-const ProductSlider = lazy(()=>import("../../components/product-slider/ProductSlider"));
-const SliderBanners = lazy(()=>import("./slider-banners/SliderBanners"));
-const Categories = lazy(()=>import("./categories/Categories"));
+const ProductSlider = lazy(() =>
+  import("../../components/product-slider/ProductSlider")
+);
+const SliderBanners = lazy(() => import("./slider-banners/SliderBanners"));
+const Categories = lazy(() => import("./categories/Categories"));
 const Banners = lazy(() => import("./banners/Banners"));
 
 const Home = () => {
@@ -30,6 +34,9 @@ const Home = () => {
   const filterOptions = ["گوشی موبایل", "لپتاپ"];
   const [activeFilter, setActiveFilter] = useState(filterOptions[0]);
 
+  const [bannersLoading, setBannersLoading] = useState(false);
+  const [bannerImages, setBannerImages] = useState([]);
+
   useEffect(() => {
     if (!loading) {
       setFilteredProducts(
@@ -39,6 +46,25 @@ const Home = () => {
       );
     }
   }, [activeFilter, loading]);
+
+  useEffect(() => {
+    const fetchBannerImages = async () => {
+      setBannersLoading(true);
+      try {
+        const response = await client.getEntries({
+          content_type: "images",
+          "fields.type": "home-banner",
+        });
+        const data = formatImages(response.items);
+        setBannerImages(data);
+        setBannersLoading(false);
+      } catch (err) {
+        console.log(err);
+        setBannersLoading(false);
+      }
+    };
+    fetchBannerImages();
+  }, []);
 
   return (
     <main className="main-container">
@@ -71,7 +97,7 @@ const Home = () => {
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Suspense fallback={null}>
           <ProductSlider
-            products={featuredProducts}
+            products={featuredProducts.slice(0, 7)}
             title="محصولات پرفروش"
             loading={loading}
             titleIcon={<WiStars className="heading-icon heading-icon--gold" />}
@@ -81,14 +107,17 @@ const Home = () => {
 
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Suspense fallback={null}>
-          <Banners />
+          <Banners
+            images={[bannerImages[0], bannerImages[1]]}
+            loading={bannersLoading}
+          />
         </Suspense>
       </ErrorBoundary>
 
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Suspense fallback={null}>
           <ProductSlider
-            products={filteredProducts}
+            products={filteredProducts.slice(0, 7)}
             title="جدید ترین ها"
             loading={loading}
             filterOptions={filterOptions}

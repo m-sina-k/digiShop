@@ -1,0 +1,92 @@
+@import "../../style/var";
+
+.slider {
+  margin: $gap-lg auto;
+  &__container {
+    padding: 0;
+    overflow: hidden;
+    border-radius: $rounded-lg;
+    -webkit-border-radius: $rounded-lg;
+    -moz-border-radius: $rounded-lg;
+    -ms-border-radius: $rounded-lg;
+    -o-border-radius: $rounded-lg;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 45px;
+    height: 45px;
+    color: rgba($color: $light, $alpha: 0.8);
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    &::after {
+      font-size: $font-2xl;
+    }
+  }
+  .swiper-button-prev {
+    transform: translateX(-7px);
+    -webkit-transform: translateX(-7px);
+    -moz-transform: translateX(-7px);
+    -ms-transform: translateX(-7px);
+    -o-transform: translateX(-7px);
+    &:hover {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+      color: $white;
+    }
+  }
+  .swiper-button-next {
+    transform: translateX(7px);
+    -webkit-transform: translateX(7px);
+    -moz-transform: translateX(7px);
+    -ms-transform: translateX(7px);
+    -o-transform: translateX(7px);
+    &:hover {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+      color: $white;
+    }
+  }
+  .swiper-pagination-bullet {
+    background-color: $white;
+  }
+
+  .slider-skeleton{
+    border-radius: $rounded-lg;
+    -webkit-border-radius: $rounded-lg;
+    -moz-border-radius: $rounded-lg;
+    -ms-border-radius: $rounded-lg;
+    -o-border-radius: $rounded-lg;
+   
+      height: 340px;
+  }
+}
+
+@include tablet-lg {
+  .slider {
+    max-width: 100%;
+    margin: 0;
+
+    &__container {
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      height: 150px;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
+  }
+}
