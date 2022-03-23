@@ -1,0 +1,109 @@
+@import "../../style/var";
+
+.single-product {
+  padding: $gap-lg $gap-sm;
+  background-color: $white;
+
+  &__breadcrumbs {
+    display: inline-block;
+    margin-bottom: $gap-lg;
+    padding: 5px $gap-md;
+
+    .breadcrumb-link {
+      padding: 0 3px;
+      text-align: center;
+      &:hover {
+        text-decoration: underline;
+        color: $blue;
+      }
+      &::after {
+        content: "/";
+        display: inline-block;
+        margin: 0 3px;
+      }
+      &:last-child {
+        &::after {
+          content: "";
+        }
+      }
+    }
+  }
+
+  .product-container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .mobile-add-to-cart {
+    border-radius: $rounded-xl $rounded-xl 0 0;
+    -webkit-border-radius: $rounded-xl $rounded-xl 0 0;
+    -moz-border-radius: $rounded-xl $rounded-xl 0 0;
+    -ms-border-radius: $rounded-xl $rounded-xl 0 0;
+    -o-border-radius: $rounded-xl $rounded-xl 0 0;
+    box-shadow: 0 0 15px $shadow;
+    padding: $gap-md $gap-sm;
+    z-index: $z-max;
+    position: fixed;
+    width: 100%;
+    background-color: $light;
+    border-top: 1px solid $shadow;
+    bottom: 0;
+    left: 0;
+    display: none;
+
+    .product__name {
+      font-size: $font-sm;
+      margin-bottom: $gap-sm;
+      max-width: 30 0px;
+    }
+
+    .product__price {
+      color: $black;
+    }
+
+    &-close-button {
+      @include flex();
+      position: absolute;
+      top: 9px;
+      left: 9px;
+      width: 20px;
+      height: 20px;
+      background-color: $red;
+      color: $white;
+      cursor: pointer;
+      font-size: $font-sm;
+      border-radius: $rounded-full;
+      -webkit-border-radius: $rounded-full;
+      -moz-border-radius: $rounded-full;
+      -ms-border-radius: $rounded-full;
+      -o-border-radius: $rounded-full;
+    }
+
+    &-button {
+      padding: $gap-xs $gap-md;
+      margin-right: auto;
+      background-color: $primary;
+      color: $white;
+      font-size: $font-sm;
+      border-radius: $rounded-sm;
+      -webkit-border-radius: $rounded-sm;
+      -moz-border-radius: $rounded-sm;
+      -ms-border-radius: $rounded-sm;
+      -o-border-radius: $rounded-sm;
+    }
+  }
+}
+
+@include tablet-sm {
+  .single-product {
+    &__breadcrumbs {
+      .breadcrumb-link {
+        font-size: $font-sm;
+      }
+    }
+
+    .mobile-add-to-cart{
+      display: block;
+    }
+  }
+}

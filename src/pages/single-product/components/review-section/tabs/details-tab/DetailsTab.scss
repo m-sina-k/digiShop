@@ -1,0 +1,56 @@
+@import "../../../../../../style/var";
+
+.details-tab {
+  .product__name {
+    display: block;
+  }
+
+  .details__container {
+    margin: $gap-md 0;
+    .detail__item {
+      display: grid;
+      grid-template-columns: 1.5fr 8.5fr;
+      grid-gap: 10px;
+      margin-bottom: 10px;
+      &:last-of-type{
+        .detail__item--value{
+          border-bottom: none;
+        }
+      }
+
+      &--key,
+      &--value {
+          color: $black;
+        padding: $gap-sm;
+        
+      }
+      
+      &--value{
+        border-bottom: 2px solid $light;
+        
+      }
+    }
+  }
+}
+
+@include tablet-lg{
+  .details-tab{
+    .details__container{
+      .detail__item{
+        grid-template-columns: 2.5fr 7.5fr;
+        grid-gap: 5px;
+        font-size: $font-sm;
+      }
+    }
+  }
+}
+
+@include phone-md{
+  .details-tab{
+    .details__container{
+      .detail__item{
+        font-size: 12px;
+      }
+    }
+  }
+}

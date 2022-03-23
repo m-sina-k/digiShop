@@ -21,6 +21,7 @@ const ProductSlider = ({
   activeFilter,
   setActiveFilter,
   seeMore,
+  fullWidth,
 }) => {
   const changeFilter = (e) => {
     setActiveFilter(e.target.dataset.filter);
@@ -29,7 +30,9 @@ const ProductSlider = ({
   return (
     <div className="product-slider">
       <div
-        className={`container py-2 px-2 px-md-0 ${additionalClass} ? additionalClass : ''`}
+        className={`${
+          fullWidth ? "container-fluid" : "container"
+        } py-2 px-2 px-md-0 ${additionalClass} ? ${additionalClass} : ''`}
       >
         <div className="heading">
           <section className="heading-container">
@@ -72,7 +75,6 @@ const ProductSlider = ({
               spaceBetween={15}
               modules={[Navigation]}
               navigation
-              loop
               className="swiper-container py-2"
               breakpoints={{
                 120: {
@@ -98,11 +100,10 @@ const ProductSlider = ({
                 },
               }}
             >
-              {products.map((product, index) => {
+              {products.map((product) => {
                 return (
-                  <SwiperSlide key={index + 1} className="swiper-slide">
+                  <SwiperSlide key={product.id} className="swiper-slide">
                     <ProductCard
-                      key={index}
                       product={product}
                       activeFilter={activeFilter}
                     />

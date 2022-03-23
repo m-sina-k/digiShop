@@ -57,7 +57,7 @@ const Categories = () => {
                 </div>
               ))
             : categories.map((item) => (
-                <Link to={item.url} key={item.id} className="category-item">
+              <Link to={item.url} key={item.id} className="category-item">
                   <figure className="category__image-container mb-2">
                     <img
                       src={item.image}

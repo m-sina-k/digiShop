@@ -1,0 +1,90 @@
+@import "../../../../../style/var";
+
+.image-gallery {
+  min-width: 65%;
+  z-index: $z-max;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: $white;
+  padding: $gap-xs $gap-lg;
+  border-radius: $rounded-md;
+  -webkit-border-radius: $rounded-md;
+  -moz-border-radius: $rounded-md;
+  -ms-border-radius: $rounded-md;
+  -o-border-radius: $rounded-md;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+
+  &__heading {
+    margin-top: $gap-xs;
+    @include flex(space-between, baseline);
+    border-bottom: 2px solid $light;
+
+    .close-icon {
+      font-size: $font-2xl;
+      cursor: pointer;
+      color: $red;
+    }
+  }
+
+  .images__container {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    grid-gap: 10px;
+
+    .current-image__container {
+      border-left: 2px solid $light;
+      position: relative;
+
+      .gallery-control__btn {
+        @include flex();
+        position: absolute;
+        top: 42%;
+        width: 45px;
+        height: 45px;
+        border-radius: $rounded-md;
+        -webkit-border-radius: $rounded-md;
+        -moz-border-radius: $rounded-md;
+        -ms-border-radius: $rounded-md;
+        -o-border-radius: $rounded-md;
+        font-size: $font-2xl;
+        cursor: pointer;
+        background-color: $light;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+        &--next {
+          left: 89%;
+        }
+        &--prev {
+          right: 89%;
+        }
+      }
+    }
+
+    .gallery__other-images__container {
+      margin-top: $gap-sm;
+      
+      .thumb-image {
+        width: 75px;
+        height: 75px;
+        margin: 3px;
+        cursor: pointer;
+        border: 2px solid $light;
+        border-radius: $rounded-sm;
+        -webkit-border-radius: $rounded-sm;
+        -moz-border-radius: $rounded-sm;
+        -ms-border-radius: $rounded-sm;
+        -o-border-radius: $rounded-sm;
+
+        &--active {
+          border: 2px solid $blue;
+        }
+      }
+    }
+  }
+}

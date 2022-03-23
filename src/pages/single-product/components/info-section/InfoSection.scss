@@ -1,0 +1,97 @@
+@import "../../../../style/var";
+
+.info-section {
+  padding: $gap-lg $gap-xs;
+
+  // product brand
+  .product__brand-container {
+    display: inline-block;
+    margin-bottom: $gap-md;
+  }
+
+  .product__detail-heading {
+    margin-bottom: $gap-sm;
+  }
+
+  //   product name , official name & rate
+  .product__name-container {
+    .product__official-name {
+      margin-top: $gap-sm;
+      display: block;
+    }
+
+    .product__category-container {
+      .product__detail-heading {
+        display: inline-block;
+      }
+      margin: $gap-sm 0;
+      .product__category {
+        font-size: $font-sm;
+        color: $black;
+        padding: 3px $gap-sm;
+        margin: 0 5px;
+        background-color: $light;
+        border-radius: $rounded-sm;
+        -webkit-border-radius: $rounded-sm;
+        -moz-border-radius: $rounded-sm;
+        -ms-border-radius: $rounded-sm;
+        -o-border-radius: $rounded-sm;
+      }
+    }
+    .product__rate {
+      display: inline-block;
+      color: $black;
+      .star-icon {
+        margin-right: 5px;
+        font-size: $font-sm;
+        color: $yellow;
+      }
+    }
+  }
+
+  //  product color
+  .product__colors-container {
+    margin: $gap-sm 0;
+    .product__color-item {
+      position: relative;
+      width: 25px;
+      height: 25px;
+      border-radius: $rounded-full;
+      -webkit-border-radius: $rounded-full;
+      -moz-border-radius: $rounded-full;
+      -ms-border-radius: $rounded-full;
+      -o-border-radius: $rounded-full;
+      margin: 0 5px;
+      display: inline-block;
+      cursor: pointer;
+      border: 1px solid $black;
+
+      &:nth-child(2) {
+        margin-right: 0;
+      }
+
+      &--active {
+        border: 3px solid $blue;
+        padding: 5px;
+        transform: scale(1.35);
+        -webkit-transform: scale(1.35);
+        -moz-transform: scale(1.35);
+        -ms-transform: scale(1.35);
+        -o-transform: scale(1.35);
+
+        &::after {
+          content: "";
+          background: url("../../../../assets/images/utilities/check.png") no-repeat
+            center center;
+          background-size: cover;
+          position: absolute;
+          top: 2.5px;
+          left: 2.5px;
+          bottom: 2.5px;
+          right: 2.5px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

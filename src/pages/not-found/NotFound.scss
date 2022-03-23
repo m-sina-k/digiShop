@@ -1,0 +1,27 @@
+@import '../../style/var';
+
+.not-found{
+    @include flex(center,center,column);
+    padding: $gap-lg $gap-sm;
+
+    .error-image__container{
+        margin-bottom: $gap-md;
+        .error-image{
+            width: 125px;
+        }
+    }
+
+    .error-text__container{
+        .error-text{
+            font-size: $font-lg;
+            color: $black;
+            font-weight: bold;
+            text-align: center;
+        }
+        .button-container{
+            display: flex;
+            justify-content: space-between;
+            margin-top: $gap-md;
+        }
+    }
+}

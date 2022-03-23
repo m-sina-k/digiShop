@@ -6,10 +6,10 @@ import Home from "./pages/home/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
-import Loading from "./components/loading/Loading";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PageLoading from "./components/page-loading/PageLoading";
+import NotFound from "./pages/not-found/NotFound.jsx";
 const Login = lazy(() => import("./pages/register/Login"));
 const SignUp = lazy(() => import("./pages/register/SignUp"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
@@ -25,15 +25,18 @@ const CategoryBrand = lazy(() =>
 const BrandSingle = lazy(() =>
   import("./pages/shop/brands/brand-single/BrandSingle")
 );
+const SingleProduct = lazy(() =>
+  import("./pages/single-product/SingleProduct.jsx")
+);
 
 function App() {
-  const { showBackdrop, showMegaDropdownBackdrop } = useSelector(
-    (state) => state.uiState
-  );
+  const { showBackdrop, showMegaDropdownBackdrop, lockBodyScroll } =
+    useSelector((state) => state.uiState);
+
+  document.body.style.overflow = lockBodyScroll ? "hidden" : "visible";
 
   return (
     <React.Fragment>
-
       <ToastContainer
         position="top-center"
         autoClose={3500}
@@ -61,7 +64,8 @@ function App() {
 
       <Suspense fallback={<PageLoading />}>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+          <Route exact path="/" index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route
@@ -74,6 +78,10 @@ function App() {
           <Route path="/shop/:category" element={<ShopCategory />} />
           <Route path="/shop/:category/:brand" element={<CategoryBrand />} />
           <Route path="/shop/brands/:brand" element={<BrandSingle />} />
+            <Route
+              path="/product/:productId/:productName/"
+              element={<SingleProduct />}
+            />
         </Routes>
       </Suspense>
 

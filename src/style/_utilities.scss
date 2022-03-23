@@ -219,16 +219,17 @@
     -ms-transition: background-color 0.4s ease;
     -o-transition: background-color 0.4s ease;
 
-    &:disabled {
-      background-color: $light;
-      color: $black;
-      cursor: not-allowed;
-    }
 
     &:hover:not(&:disabled) {
       background-color: $primary;
     }
   }
+}
+
+button:disabled {
+  background-color: $light !important;
+  color: $black !important;
+  cursor: not-allowed !important;
 }
 
 .switch-button {
@@ -345,8 +346,10 @@
   pointer-events: none;
 }
 
+
 @keyframes skeleton {
   to {
     opacity: 0.5;
   }
 }
+

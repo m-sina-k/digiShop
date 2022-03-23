@@ -1,0 +1,81 @@
+@import "../../../../style/var";
+
+.review-section {
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  &__header {
+    background-color: $light;
+    display: flex;
+    align-items: center;
+
+    .review-section__tab-button {
+      font-size: $font-lg;
+      padding: $gap-sm $gap-md;
+      border-left: 2px solid rgba($color: #000000, $alpha: 0.1);
+      cursor: pointer;
+      overflow: hidden;
+
+      .tab-button__icon {
+        font-size: $font-2xl;
+        margin-left: $gap-xs;
+      }
+
+      &--active {
+        background-color: $white;
+        color: $black;
+        font-weight: bold;
+        border-top: 3.5px solid $primary-shade;
+
+        .tab-button__icon {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .active-tab__container {
+    padding: $gap-xl $gap-md;
+    border-radius: 0 0 $gap-md $gap-md;
+    -webkit-border-radius: 0 0 $gap-md $gap-md;
+    -moz-border-radius: 0 0 $gap-md $gap-md;
+    -ms-border-radius: 0 0 $gap-md $gap-md;
+    -o-border-radius: 0 0 $gap-md $gap-md;
+    overflow: hidden;
+
+    .read-more-button{
+      background: transparent;
+      color: $blue;
+      margin-right: $gap-xs;
+    }
+  }
+}
+
+@include phone-md {
+  .review-section{
+    &__header{
+      .review-section__tab-button{
+        font-size: $font-md;
+        .tab-button__icon{
+          font-size: $font-xl;
+        }
+      }
+    }
+  }
+}
+
+@include phone-sm{
+  .review-section{
+    &__header{
+      .review-section__tab-button{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .tab-button__icon{
+          margin-right: 0;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}

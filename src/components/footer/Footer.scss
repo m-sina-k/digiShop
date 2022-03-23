@@ -1,61 +1,25 @@
 @import "../../style/var";
 
-.footer {
-  margin-top: $gap-xl;
-  padding-top: $gap-2xl;
-  background-color: #1f1f21;
-  color: $white;
+  .footer {
+    padding-top: $gap-2xl;
+    background-color: #1f1f21;
+    color: $white;
 
-  // footer links start
-  &__links {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5px;
+    // footer links start
+    &__links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 5px;
 
-    .footer__link-list {
-      .list__heading {
-        margin-bottom: $gap-sm;
-      }
-
-      .list__item {
-        margin-bottom: $gap-xxs;
-
-        .list__link {
-          color: $text;
-          transition: color 0.3s ease;
-          -webkit-transition: color 0.3s ease;
-          -moz-transition: color 0.3s ease;
-          -ms-transition: color 0.3s ease;
-          -o-transition: color 0.3s ease;
-
-          &:hover {
-            color: $white;
-          }
+      .footer__link-list {
+        .list__heading {
+          margin-bottom: $gap-sm;
         }
-      }
-    }
-  }
 
-  // footer social media  start
-  &__social {
-    .social-media {
-      border-bottom: 2px solid $text;
-      padding-bottom: $gap-sm;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      &__heading {
-        color: $white;
-        margin-left: $gap-sm;
-      }
+        .list__item {
+          margin-bottom: $gap-xxs;
 
-      &__list {
-        display: flex;
-        .social-media__item {
-          margin: 0 $gap-sm;
-          font-size: $font-xl;
-
-          .social-media__link {
+          .list__link {
             color: $text;
             transition: color 0.3s ease;
             -webkit-transition: color 0.3s ease;
@@ -70,109 +34,145 @@
         }
       }
     }
-  }
 
-  &__newsletter {
-    padding-top: $gap-sm;
+    // footer social media  start
+    &__social {
+      .social-media {
+        border-bottom: 2px solid $text;
+        padding-bottom: $gap-sm;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &__heading {
+          color: $white;
+          margin-left: $gap-sm;
+        }
 
-    .newsletter__text {
-      .newsletter__title {
-        color: $white;
-        margin-bottom: $gap-sm;
-      }
-    }
+        &__list {
+          display: flex;
+          .social-media__item {
+            margin: 0 $gap-sm;
+            font-size: $font-xl;
 
-    .newsletter__form {
-      position: relative;
-      margin-top: $gap-md;
+            .social-media__link {
+              color: $text;
+              transition: color 0.3s ease;
+              -webkit-transition: color 0.3s ease;
+              -moz-transition: color 0.3s ease;
+              -ms-transition: color 0.3s ease;
+              -o-transition: color 0.3s ease;
 
-      #newsletter-input {
-        width: 100%;
-        border-radius: $rounded-md;
-        -webkit-border-radius: $rounded-md;
-        -moz-border-radius: $rounded-md;
-        -ms-border-radius: $rounded-md;
-        -o-border-radius: $rounded-md;
-        padding: $gap-md $gap-sm;
-      }
-
-      #newsletter__submit-button {
-        position: absolute;
-        top: 8px;
-        left: 10px;
-        border-radius: $rounded-sm;
-        -webkit-border-radius: $rounded-sm;
-        -moz-border-radius: $rounded-sm;
-        -ms-border-radius: $rounded-sm;
-        -o-border-radius: $rounded-sm;
-        padding: $gap-xs $gap-md;
-        background-color: $blue;
-        box-shadow: 0 0 15px darken($blue, 8%);
-        color: $white;
-        transition: background-color 0.3s ease;
-        -webkit-transition: background-color 0.3s ease;
-        -moz-transition: background-color 0.3s ease;
-        -ms-transition: background-color 0.3s ease;
-        -o-transition: background-color 0.3s ease;
-
-        &:hover{
-          background-color: darken($blue, 10%);
+              &:hover {
+                color: $white;
+              }
+            }
+          }
         }
       }
     }
-  }
 
-  #back-to-top-button {
-    display: inline-flex;
-    align-items: center;
-    margin-top: $gap-md;
-    border-radius: $rounded-md;
-    -webkit-border-radius: $rounded-md;
-    -moz-border-radius: $rounded-md;
-    -ms-border-radius: $rounded-md;
-    -o-border-radius: $rounded-md;
-    padding: $gap-xs $gap-lg;
-    text-align: center;
-    background-color: transparent;
-    border: 1.5px solid $blue;
-    transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    color: $blue;
-    font-weight: bold;
+    &__newsletter {
+      padding-top: $gap-sm;
 
-    .top-icon {
-      display: flex;
-      margin-right: $gap-sm;
-      transition: transform 0.3s ease;
-      -webkit-transition: transform 0.3s ease;
-      -moz-transition: transform 0.3s ease;
-      -ms-transition: transform 0.3s ease;
-      -o-transition: transform 0.3s ease;
-    }
+      .newsletter__text {
+        .newsletter__title {
+          color: $white;
+          margin-bottom: $gap-sm;
+        }
+      }
 
-    &:hover {
-      background-color: $blue;
-      color: $black;
+      .newsletter__form {
+        position: relative;
+        margin-top: $gap-md;
 
-      .top-icon {
-        transform: translateY(-3.5px);
-        -webkit-transform: translateY(-3.5px);
-        -moz-transform: translateY(-3.5px);
-        -ms-transform: translateY(-3.5px);
-        -o-transform: translateY(-3.5px);
+        #newsletter-input {
+          width: 100%;
+          border-radius: $rounded-md;
+          -webkit-border-radius: $rounded-md;
+          -moz-border-radius: $rounded-md;
+          -ms-border-radius: $rounded-md;
+          -o-border-radius: $rounded-md;
+          padding: $gap-md $gap-sm;
+        }
+
+        #newsletter__submit-button {
+          position: absolute;
+          top: 8px;
+          left: 10px;
+          border-radius: $rounded-sm;
+          -webkit-border-radius: $rounded-sm;
+          -moz-border-radius: $rounded-sm;
+          -ms-border-radius: $rounded-sm;
+          -o-border-radius: $rounded-sm;
+          padding: $gap-xs $gap-md;
+          background-color: $blue;
+          box-shadow: 0 0 15px darken($blue, 8%);
+          color: $white;
+          transition: background-color 0.3s ease;
+          -webkit-transition: background-color 0.3s ease;
+          -moz-transition: background-color 0.3s ease;
+          -ms-transition: background-color 0.3s ease;
+          -o-transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: darken($blue, 10%);
+          }
+        }
       }
     }
+
+    #back-to-top-button {
+      display: inline-flex;
+      align-items: center;
+      margin-top: $gap-md;
+      border-radius: $rounded-md;
+      -webkit-border-radius: $rounded-md;
+      -moz-border-radius: $rounded-md;
+      -ms-border-radius: $rounded-md;
+      -o-border-radius: $rounded-md;
+      padding: $gap-xs $gap-lg;
+      text-align: center;
+      background-color: transparent;
+      border: 1.5px solid $blue;
+      transition: all 0.3s ease;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      color: $blue;
+      font-weight: bold;
+
+      .top-icon {
+        display: flex;
+        margin-right: $gap-sm;
+        transition: transform 0.3s ease;
+        -webkit-transition: transform 0.3s ease;
+        -moz-transition: transform 0.3s ease;
+        -ms-transition: transform 0.3s ease;
+        -o-transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        background-color: $blue;
+        color: $black;
+
+        .top-icon {
+          transform: translateY(-3.5px);
+          -webkit-transform: translateY(-3.5px);
+          -moz-transform: translateY(-3.5px);
+          -ms-transform: translateY(-3.5px);
+          -o-transform: translateY(-3.5px);
+        }
+      }
+    }
+
+    &__copy-right {
+      padding: $gap-md 0;
+      text-align: center;
+      border-top: 1px solid $text;
+    }
   }
 
-  &__copy-right {
-    padding: $gap-md 0;
-    text-align: center;
-    border-top: 1px solid $text;
-  }
-}
 
 @include desktop-sm {
   .footer {

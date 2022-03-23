@@ -66,6 +66,7 @@ const Home = () => {
     fetchBannerImages();
   }, []);
 
+
   return (
     <main className="main-container">
       <ErrorBoundary FallbackComponent={ErrorFallback}>

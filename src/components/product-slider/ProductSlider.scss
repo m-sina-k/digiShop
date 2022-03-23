@@ -3,7 +3,8 @@
 .product-slider {
   margin: $gap-2xl 0;
 
-  .container {
+  .container,
+  .container-fluid {
     padding: $gap-xxs;
     background-color: $white;
     box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
@@ -14,18 +15,21 @@
     -ms-border-radius: $rounded-lg;
     -o-border-radius: $rounded-lg;
   }
+  .container-fluid {
+    // box-shadow: none;
+  }
 
   .heading {
     .filter-options {
       display: flex;
       margin-right: auto;
     }
-    .seeMore-link{
+    .seeMore-link {
       font-size: $font-sm;
       color: $blue;
       margin-right: auto;
-      .icon{
-        margin-right:5px;
+      .icon {
+        margin-right: 5px;
       }
     }
   }
@@ -57,7 +61,7 @@
     }
   }
   .swiper-button-prev {
-    right: 0px;
+    right: 0 !important;
     border-radius: $rounded-lg 0 0 $rounded-lg;
     -webkit-border-radius: $rounded-lg 0 0 $rounded-lg;
     -moz-border-radius: $rounded-lg 0 0 $rounded-lg;
@@ -65,12 +69,16 @@
     -o-border-radius: $rounded-lg 0 0 $rounded-lg;
   }
   .swiper-button-next {
-    left: 0;
+    left: 0 !important;
     border-radius: 0 $rounded-lg $rounded-lg 0;
     -webkit-border-radius: 0 $rounded-lg $rounded-lg 0;
     -moz-border-radius: 0 $rounded-lg $rounded-lg 0;
     -ms-border-radius: 0 $rounded-lg $rounded-lg 0;
     -o-border-radius: 0 $rounded-lg $rounded-lg 0;
+  }
+  .swiper-button-disabled{
+    pointer-events: all;
+    cursor: not-allowed;
   }
 
   &--sale {
@@ -81,5 +89,9 @@
     .heading__title {
       color: $white-shade;
     }
+  }
+
+  &--border {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset !important;
   }
 }

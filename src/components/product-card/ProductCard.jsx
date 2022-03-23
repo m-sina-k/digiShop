@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import "./ProductCard.scss";
 
 const ProductCard = ({ product, activeFilter }) => {
-  const { localName, price, images, discount, priceBeforeDiscount } = product;
+  const { localName, price, images, discount, priceBeforeDiscount,id } = product;
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -15,6 +16,7 @@ const ProductCard = ({ product, activeFilter }) => {
         transition={{ duration: 0.1, delay: 0.05 }}
         className="product-card"
       >
+        <Link to={`/product/${id}/${localName}/`}>
         <figure className="product__image-container">
           <img src={images[0]} alt="product-image" className="product__image" />
           {discount ? (
@@ -32,6 +34,7 @@ const ProductCard = ({ product, activeFilter }) => {
             <h6 className="product__price">{price.toLocaleString()} تومان </h6>
           </section>
         </section>
+        </Link>
       </motion.article>
     </AnimatePresence>
   );
