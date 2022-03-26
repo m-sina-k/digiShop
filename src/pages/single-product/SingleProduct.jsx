@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { client } from "../../server/contentful";
 import { MdClose } from "react-icons/md";
@@ -15,7 +15,6 @@ import "./SingleProduct.scss";
 
 const SingleProduct = () => {
   document.body.style.backgroundColor = "white"
-  const { pathname } = useLocation();
   const { productId, productName } = useParams();
   document.title = productName;
 

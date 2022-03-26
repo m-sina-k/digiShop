@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../../components/loading/Loading";
 import Alert from "../../components/alert/Alert";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../auth/firebase";
@@ -10,11 +10,12 @@ import { setUser, saveUserToken } from "../../features/slices/authSlice";
 import "./registerForm.scss";
 
 const Login = () => {
-document.title = 'دیجی شاپ | ورود'
+  document.title = "دیجی شاپ | ورود";
 
   const { userToken } = useSelector((state) => state.authState);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const dispatch = useDispatch();
 
@@ -28,6 +29,10 @@ document.title = 'دیجی شاپ | ورود'
 
   const [serverError, setServerError] = useState(null);
 
+  if (userToken) {
+    navigate("/");
+  }
+
   const loginFormSubmit = (e) => {
     e.preventDefault();
     signInUser(email, password);
@@ -40,7 +45,11 @@ document.title = 'دیجی شاپ | ورود'
     return signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         setLoading(false);
-        navigate("/");
+        if (location.state.from) {
+          navigate(location.state.from.pathname);
+        } else {
+          navigate("/");
+        }
       })
       .catch((error) => {
         setLoading(false);
@@ -80,83 +89,84 @@ document.title = 'دیجی شاپ | ورود'
   return (
     <div className="login">
       {loading && <Loading />}
-      {userToken ? (
-        navigate("/")
-      ) : (
-        <div className="contaier register-container">
-          {
-            <Alert
-              variant="warning"
-              text="برای اتصال به Firebase باید از vpn استفاده کنید."
-              title="هشدار"
-              canClose={true}
-            />
-          }
 
-          {serverError ? (
-            <Alert variant="error" text={serverError} title="خطا" />
-          ) : null}
-          <div className="form-container">
-            <h4 className="form-title">ورود به حساب کاربری</h4>
+      <div className="contaier register-container">
+        {
+          <Alert
+            variant="warning"
+            text="برای اتصال به Firebase باید از vpn استفاده کنید."
+            title="هشدار"
+            canClose={true}
+          />
+        }
 
-            <form
-              action="#"
-              method="post"
-              className="form"
-              onSubmit={(e) => loginFormSubmit(e)}
+        {serverError ? (
+          <Alert variant="error" text={serverError} title="خطا" />
+        ) : null}
+        <div className="form-container">
+          <h4 className="form-title">ورود به حساب کاربری</h4>
+
+          <form
+            action="#"
+            method="post"
+            className="form"
+            onSubmit={(e) => loginFormSubmit(e)}
+          >
+            <section className="form-group">
+              <label htmlFor="login__email-input">ایمیل : </label>
+              <input
+                type="text"
+                name="login__email-input"
+                className="form-input"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </section>
+
+            <section className="form-group form-group--password">
+              <label htmlFor="login__password-input">رمز عبور : </label>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="login__password-input"
+                className="form-input"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span
+                className="show-password-button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <AiOutlineEyeInvisible className="eye-icon" />
+                ) : (
+                  <AiOutlineEye className="eye-icon" />
+                )}
+              </span>
+            </section>
+
+            <button
+              id="login__submit-button"
+              className="form-submit"
+              type="submit"
             >
-              <section className="form-group">
-                <label htmlFor="login__email-input">ایمیل : </label>
-                <input
-                  type="text"
-                  name="login__email-input"
-                  className="form-input"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </section>
+              ورود
+            </button>
+          </form>
 
-              <section className="form-group form-group--password">
-                <label htmlFor="login__password-input">رمز عبور : </label>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="login__password-input"
-                  className="form-input"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <span
-                  className="show-password-button"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? (
-                    <AiOutlineEyeInvisible className="eye-icon" />
-                  ) : (
-                    <AiOutlineEye className="eye-icon" />
-                  )}
-                </span>
-              </section>
-
-              <button id="login__submit-button" className="form-submit" type="submit">
-                ورود
-              </button>
-            </form>
-
-            <div className="form__links-container">
-              <span>
-                حساب کاربری ندارید ؟
-                <Link to="/sign-up" className="form__link">
-                  ساخت حساب کاربری
-                </Link>
-              </span>
-              <span>
-                رمز عبور خود را فراموش کرده اید؟
-                <Link to="#" className="form__link">
-                  بازیابی رمز عبور
-                </Link>
-              </span>
-            </div>
+          <div className="form__links-container">
+            <span>
+              حساب کاربری ندارید ؟
+              <Link to="/sign-up" className="form__link">
+                ساخت حساب کاربری
+              </Link>
+            </span>
+            <span>
+              رمز عبور خود را فراموش کرده اید؟
+              <Link to="#" className="form__link">
+                بازیابی رمز عبور
+              </Link>
+            </span>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };

@@ -1,27 +1,40 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowBackdrop } from "../../../../../../features/slices/uiSlice";
 import AddComment from "./AddComment";
 import "./CommentsTab.scss";
 
 const CommentsTab = ({ productName }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { userToken } = useSelector((state) => state.authState);
   const [showAddCommentPopup, setShowAddCommentPopup] = useState(false);
-  
-  const openAddComment = ()=>{
-    setShowAddCommentPopup(true)
-    dispatch(setShowBackdrop(true));
-  }
 
-  const closeAddComment = ()=>{
-    setShowAddCommentPopup(false)
+  const openAddComment = () => {
+    setShowAddCommentPopup(true);
+    dispatch(setShowBackdrop(true));
+  };
+
+  const closeAddComment = () => {
+    setShowAddCommentPopup(false);
     dispatch(setShowBackdrop(false));
-  }
+  };
+
+  const redirectToLoginPage = () => {
+    navigate("/login", {
+      state: {
+        from: location,
+      },
+    });
+  };
+
   return (
     <div className="comments-tab">
-      {showAddCommentPopup && <AddComment close={closeAddComment} productName={productName} />}
+      {showAddCommentPopup && (
+        <AddComment close={closeAddComment} productName={productName} />
+      )}
 
       {/* current user comment cta */}
       <div className="comment-tab__cta-container">
@@ -44,9 +57,12 @@ const CommentsTab = ({ productName }) => {
             <p className="comment-tab__cta-text">
               برای ثبت دیدگاه ابتدا وارد حساب کاربری خود شوید.
             </p>
-            <Link to="/login" className="comments-tab__cta-button">
+            <button
+              onClick={redirectToLoginPage}
+              className="comments-tab__cta-button"
+            >
               ورود به حساب
-            </Link>
+            </button>
           </div>
         )}
       </div>
