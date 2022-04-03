@@ -12,11 +12,14 @@ import "./TopHeader.scss";
 
 const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
   const { userToken } = useSelector((state) => state.authState);
+  const { cartItems } = useSelector((state) => state.cartState);
   const [showDashboardDropdown, setShowDashboardDropdown] = useState(false);
   const closeDropdown = () => {
     setShowDashboardDropdown(false);
   };
   const ref = useDetectClickOutside({ onTriggered: closeDropdown });
+
+  const countCartItems = ()=> cartItems.reduce((a, c) => (a += c.qty), 0)
 
   return (
     <div className="top-header">
@@ -49,29 +52,26 @@ const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
             </section>
             <Link to="/cart" className="widget-button cart-button">
               <BsCart2 className="cart-icon widget-button__icon" />
-              <span className="cart-button__amount">0</span>
+              <span className="cart-button__amount">{countCartItems()}</span>
             </Link>
 
             {userToken ? (
-              <button className="widget-button login-button login-button--dashboard" ref={ref}>
-                <span onClick={()=>setShowDashboardDropdown(!showDashboardDropdown)}>
+              <button
+                className="widget-button login-button login-button--dashboard"
+                ref={ref}
+              >
+                <span
+                  onClick={() =>
+                    setShowDashboardDropdown(!showDashboardDropdown)
+                  }
+                >
                   <BiUser className="login-icon widget-button__icon" />
                 </span>
 
-                
                 <DashboardDropdown
-                      setShowDashboardDropdown={setShowDashboardDropdown}
-                      showDashboardDropdown={showDashboardDropdown}
-                    />
-                
-
-                  {/* {showDashboardDropdown && (
-                    <DashboardDropdown
-                      setShowDashboardDropdown={setShowDashboardDropdown}
-                      showDashboardDropdown={showDashboardDropdown}
-                    />
-                  )} */}
-                  
+                  setShowDashboardDropdown={setShowDashboardDropdown}
+                  showDashboardDropdown={showDashboardDropdown}
+                />
               </button>
             ) : (
               <Link to="/login" className="widget-button login-button">

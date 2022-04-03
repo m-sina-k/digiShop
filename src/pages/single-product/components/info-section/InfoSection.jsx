@@ -1,21 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import './InfoSection.scss'
 
-const InfoSection = ({ product }) => {
-  const { localName, officialName, rate, properties, colors } = product;
-  const [color, setColor] = useState(colors ? colors.colorList[0].title : null);
-
-  const changeColor = (color) => {
-    setColor(color.title);
-  };
-
-  // reset color if product changed
-  React.useEffect(() => {
-    setColor(colors ? colors.colorList[0].title : null);
-  }, [product]);
-
+const InfoSection = ({ product,selectedColor,setSelectedColor }) => {
+  const { localName, officialName, rate, properties,colors } = product;
+  
   return (
     <div className="col-12 col-md-7">
       <div className="info-section">
@@ -52,16 +42,16 @@ const InfoSection = ({ product }) => {
         </section>
 
         {/* product colors */}
-        {colors && (
+        {selectedColor.title && (
           <section className="product__colors-container">
-            <h6 className="product__detail-heading">رنگ : {color}</h6>
-            {color &&
+            <h6 className="product__detail-heading">رنگ : {selectedColor.title}</h6>
+            {
               colors.colorList.map((item) => (
                 <span
                   className={`product__color-item ${
-                    color === item.title ? "product__color-item--active" : ""
+                    selectedColor.title === item.title ? "product__color-item--active" : ""
                   }`}
-                  onClick={() => changeColor(item)}
+                  onClick={() => setSelectedColor({title:item.title,hex:item.hex})}
                   key={item.id}
                   style={{ backgroundColor: item.hex }}
                 ></span>

@@ -12,6 +12,7 @@ import _ from "lodash";
 
 const CategoryBrand = () => {
   const { brand, category } = useParams();
+  document.title = 'دیجی شاپ | فروشگاه'
   const dispatch = useDispatch();
   const { filterState } = useSelector((state) => state);
 

@@ -6,10 +6,8 @@ import Home from "./pages/home/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Footer from "./components/footer/Footer";
 import { useSelector } from "react-redux";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import PageLoading from "./components/page-loading/PageLoading";
-import NotFound from "./pages/not-found/NotFound.jsx";
+import BlankPage from "./pages/blank-page/BlankPage";
 const Login = lazy(() => import("./pages/register/Login"));
 const SignUp = lazy(() => import("./pages/register/SignUp"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
@@ -28,6 +26,7 @@ const BrandSingle = lazy(() =>
 const SingleProduct = lazy(() =>
   import("./pages/single-product/SingleProduct.jsx")
 );
+const Cart = lazy(() => import("./pages/cart/Cart.jsx"));
 
 function App() {
   const { showBackdrop, showMegaDropdownBackdrop, lockBodyScroll } =
@@ -37,19 +36,6 @@ function App() {
 
   return (
     <React.Fragment>
-      <ToastContainer
-        position="top-center"
-        autoClose={3500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-
       <Backdrop
         additionalClass={
           showMegaDropdownBackdrop
@@ -64,7 +50,15 @@ function App() {
 
       <Suspense fallback={<PageLoading />}>
         <Routes>
-          <Route path="*" element={<NotFound />} />
+          <Route
+            path="*"
+            element={
+              <BlankPage
+                alt="404 - not found"
+                text="صفحه ای که به دنبال آن هستید وجود ندارد!"
+              />
+            }
+          />
           <Route exact path="/" index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<SignUp />} />
@@ -78,10 +72,11 @@ function App() {
           <Route path="/shop/:category" element={<ShopCategory />} />
           <Route path="/shop/:category/:brand" element={<CategoryBrand />} />
           <Route path="/shop/brands/:brand" element={<BrandSingle />} />
-            <Route
-              path="/product/:productId/:productName/"
-              element={<SingleProduct />}
-            />
+          <Route
+            path="/product/:productId/:productName/"
+            element={<SingleProduct />}
+          />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </Suspense>
 

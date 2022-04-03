@@ -9,7 +9,7 @@ const DescTab = ({ description }) => {
       <h5 className="desc-tab__heading heading-after">معرفی کالا</h5>
 
       <p className="product__description">
-        {showMore ? description : description.slice(0, 750) + " ... "}
+        {showMore ? description : description.slice(0, description.length / 2) + " ... "}
         <button
           className="read-more-button"
           onClick={() => setShowMore(!showMore)}

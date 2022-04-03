@@ -97,15 +97,15 @@
         position: relative;
         &__amount {
           text-align: center;
-          background-color: $yellow;
-          color: $black;
-          font-size: 10px;
-          width: 16px;
-          height: 16px;
-          line-height: 18px;
+          background-color: $primary;
+          color: $white;
+          font-size: 13px;
+          width: 19px;
+          height: 19px;
+          line-height: 23px;
           position: absolute;
-          top: -3px;
-          right: -3px;
+          top: -6px;
+          right: -6px;
           border-radius: 3px;
           -webkit-border-radius: 3px;
           -moz-border-radius: 3px;

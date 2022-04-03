@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import { BsBoxSeam, BsShieldCheck } from "react-icons/bs";
-import './BuyBox.scss'
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../../../../features/slices/cartSlice";
+import "./BuyBox.scss";
 
-const BuyBox = ({ product }) => {
-  const [guarantee, setGuarantee] = useState(
-    product.guarantee ? product.guarantee.guranteeList[0].title : null
-  );
+const BuyBox = ({
+  product,
+  selectedGuarantee,
+  setSelectedGuarantee,
+  addItemToCart,
+  removeItemFromCart,
+  itemInCart,
+}) => {
+  const dispatch = useDispatch();
 
   return (
     <div className="col-12 col-md-5 mx-auto">
@@ -38,15 +46,14 @@ const BuyBox = ({ product }) => {
               product.guarantee.guranteeList.map((item) => (
                 <span
                   className={`buy-box__block__option ${
-                    guarantee === item.title
+                    selectedGuarantee === item.title
                       ? "buy-box__block__option--active"
                       : ""
                   }`}
                   key={item.id}
-                  onClick={() => setGuarantee(item.title)}
+                  onClick={() => setSelectedGuarantee(item.title)}
                 >
                   {item.title}
-                  
                 </span>
               ))
             ) : (
@@ -71,7 +78,30 @@ const BuyBox = ({ product }) => {
             <strong className="price">
               {product.price.toLocaleString()} تومان
             </strong>
-            <button className="add-to-cart-button">افزودن به سبد خرید</button>
+            {itemInCart ? (
+              <section className="item-in-cart">
+                <p className="item-in-cart__text">.
+                  این کالا در
+                  <Link to="/cart" className="ref-link">
+                    سبد خرید
+                  </Link>
+                 شما موجود است
+                </p>
+                <button
+                className="remove-from-cart-button"
+                onClick={() => removeItemFromCart(product.id)}
+              >
+                حذف از سبد خرید
+              </button>
+              </section>
+            ) : (
+              <button
+                className="add-to-cart-button"
+                onClick={() => addItemToCart(product)}
+              >
+                افزودن به سبد خرید
+              </button>
+            )}
           </div>
         </div>
       </div>

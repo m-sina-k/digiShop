@@ -2,6 +2,7 @@ import React from "react";
 import "./Checkbox.scss";
 
 const Checkbox = ({ label, name, checked, callback }) => {
+
   return (
     <label
       className={`checkbox-container ${

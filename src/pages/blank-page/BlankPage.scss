@@ -1,18 +1,18 @@
 @import '../../style/var';
 
-.not-found{
+.blank-page{
     @include flex(center,center,column);
     padding: $gap-lg $gap-sm;
 
-    .error-image__container{
+    .image__container{
         margin-bottom: $gap-md;
-        .error-image{
+        .image{
             width: 125px;
         }
     }
 
-    .error-text__container{
-        .error-text{
+    .text__container{
+        .text{
             font-size: $font-lg;
             color: $black;
             font-weight: bold;

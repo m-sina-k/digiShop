@@ -12,16 +12,10 @@ import Shop from "../../Shop";
 
 const BrandSingle = () => {
   const { brand } = useParams();
+  document.title = `${brand} | دیجی شاپ `;
   const { filterState } = useSelector((state) => state);
-  const {
-    minPrice,
-    maxPrice,
-    rate,
-    searchInput,
-    sale,
-    featured,
-    sort,
-  } = filterState;
+  const { minPrice, maxPrice, rate, searchInput, sale, featured, sort } =
+    filterState;
   const dispatch = useDispatch();
   const [initialFilters, setinitialFilters] = useState(initialState);
   const [loading, setLoading] = useState(false);
@@ -107,7 +101,6 @@ const BrandSingle = () => {
     const filtersDeactive = _.isEqual(initialFilters, filterState);
     setFiltered(filtersDeactive);
   }, [filterState, initialFilters]);
-
 
   return (
     <Shop

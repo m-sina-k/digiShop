@@ -1,0 +1,105 @@
+@import "../../../../style/var";
+
+.checkout-box {
+    position: sticky;
+    top: $gap-sm;
+    height: max-content;
+    .items-total {
+      @include flex(space-between, center);
+      padding: 0 0 $gap-md;
+      border-bottom: 1.5px solid $skeleton;
+
+      &__price {
+        color: $black;
+        font-weight: bold;
+      }
+    }
+
+    .cart-total {
+      @include flex(space-between, center);
+      padding: $gap-md 0;
+      font-weight: bold;
+      color: $black;
+
+      &__text {
+        color: $black;
+      }
+
+     
+    }
+
+    #checkout-button {
+      background-color: $primary;
+      color: $white;
+      padding: $gap-xs $gap-md;
+      text-align: center;
+      width: 100%;
+      font-weight: bold;
+      margin: $gap-md 0;
+      border-radius: $rounded-sm;
+      -webkit-border-radius: $rounded-sm;
+      -moz-border-radius: $rounded-sm;
+      -ms-border-radius: $rounded-sm;
+      -o-border-radius: $rounded-sm;
+      transition: all 0.4s ease;
+      -webkit-transition: all 0.4s ease;
+      -moz-transition: all 0.4s ease;
+      -ms-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+
+      .arrow-icon {
+        font-size: $font-xl;
+        margin-right: $gap-xxs;
+        transition: all 0.4s ease;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        -ms-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+      }
+
+      &:hover {
+        background-color: $primary-shade;
+        text-shadow: 0 0 5px $shadow;
+
+        .arrow-icon {
+          transform: translateX(-8px);
+          -webkit-transform: translateX(-8px);
+          -moz-transform: translateX(-8px);
+          -ms-transform: translateX(-8px);
+          -o-transform: translateX(-8px);
+        }
+      }
+    }
+  }
+
+  @include desktop-sm {
+    .cart {
+      &__grid-container {
+        grid-template-columns: 1fr;
+  
+        .checkout-box {
+          .shipping-text,
+          .reserv-warning-text {
+            font-size: $font-sm;
+          }
+          #checkout-button {
+            padding: $gap-sm $gap-xl;
+            width: max-content;
+          }
+        }
+      }
+    }
+  }
+  
+  @include phone-md {
+    .cart {
+      &__grid-container {
+  
+        .checkout-box {
+          #checkout-button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }

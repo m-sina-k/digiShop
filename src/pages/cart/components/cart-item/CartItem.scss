@@ -1,0 +1,127 @@
+@import "../../../../style/var";
+
+.cart-item {
+  padding: $gap-md 0;
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+  grid-column-gap: 15px;
+  border-bottom: 1.5px solid $skeleton;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .product__info {
+    .product__name {
+      margin-bottom: $gap-md;
+    }
+
+    .product__property {
+      display: flex;
+      align-items: center;
+      margin: $gap-xs 0;
+      font-size: $font-sm;
+
+      &--icon {
+        margin-left: $gap-xs;
+        width: 18px;
+        height: 18px;
+        border-radius: $rounded-full;
+        -webkit-border-radius: $rounded-full;
+        -moz-border-radius: $rounded-full;
+        -ms-border-radius: $rounded-full;
+        -o-border-radius: $rounded-full;
+      }
+
+      &--discount {
+        color: $green;
+      }
+    }
+  }
+
+  .product__options {
+    display: flex;
+    align-items: center;
+    margin-top: $gap-md;
+
+    .product__quantity-container {
+      width: max-content;
+      margin-left: $gap-lg;
+
+      .product__quantity {
+        display: flex;
+        border: 1.5px solid $skeleton;
+        border-radius: $rounded-sm;
+        -webkit-border-radius: $rounded-sm;
+        -moz-border-radius: $rounded-sm;
+        -ms-border-radius: $rounded-sm;
+        -o-border-radius: $rounded-sm;
+        height: 40px;
+        overflow: hidden;
+
+        .qty-count-container {
+          @include flex(center, center, column);
+
+          color: $black;
+          padding: 0 $gap-lg;
+          cursor: default;
+
+          .qty-count {
+            font-size: $font-sm;
+          }
+
+          .limit-text {
+            color: $red;
+            font-size: $font-xs;
+          }
+        }
+
+        .qty-button {
+          @include flex();
+          min-width: 35px;
+          background-color: $light;
+
+          &--increase,
+          &--decrease {
+            font-size: $font-sm;
+            color: $black;
+          }
+
+          &--increase {
+            &:disabled {
+              cursor: not-allowed;
+              color: silver !important;
+            }
+          }
+
+          &--remove {
+            background-color: $red-light;
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+  .product__price {
+    padding: $gap-md 0;
+    color: $black;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+@include phone-md {
+  .cart {
+    &__grid-container {
+      .cart-items__container {
+        .cart-item {
+          grid-template-columns: 3fr 6fr;
+
+          .product__options {
+            grid-template-columns: 1fr;
+          }
+        }
+      }
+    }
+  }
+}
