@@ -1,7 +1,9 @@
 @import "../../style/var";
 
 .cart {
-  padding: $gap-xl $gap-sm;
+  padding: $gap-xl 0;
+  display: flex;
+  justify-content: center;
 
   &__heading {
     display: flex;
@@ -59,9 +61,18 @@
         align-self: flex-end;
         font-weight: bold;
         font-size: $font-sm;
+       
       }
     }
   }
 }
 
 
+@include desktop-sm {
+  .cart {
+    padding: $gap-xl $gap-lg;
+    &__grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+}

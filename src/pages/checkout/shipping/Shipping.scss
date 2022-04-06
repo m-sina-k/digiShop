@@ -1,0 +1,26 @@
+@import "../../../style/var";
+
+.shipping {
+  padding: $gap-xl 0;
+  display: flex;
+  justify-content: center;
+
+  &__grid-container{
+    margin-top: $gap-md;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-gap: 10px;
+    padding: 0;
+
+    .shipping__grid-block {
+      padding: $gap-md;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      background-color: $white;
+      border-radius: $rounded-md;
+      -webkit-border-radius: $rounded-md;
+      -moz-border-radius: $rounded-md;
+      -ms-border-radius: $rounded-md;
+      -o-border-radius: $rounded-md;
+    }
+  }
+}

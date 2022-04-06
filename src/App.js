@@ -27,6 +27,7 @@ const SingleProduct = lazy(() =>
   import("./pages/single-product/SingleProduct.jsx")
 );
 const Cart = lazy(() => import("./pages/cart/Cart.jsx"));
+const Shipping = lazy(() => import("./pages/checkout/shipping/Shipping"));
 
 function App() {
   const { showBackdrop, showMegaDropdownBackdrop, lockBodyScroll } =
@@ -46,7 +47,7 @@ function App() {
         }
       />
 
-      <Header />
+    <Header />
 
       <Suspense fallback={<PageLoading />}>
         <Routes>
@@ -77,6 +78,10 @@ function App() {
             element={<SingleProduct />}
           />
           <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/checkout/shipping"
+            element={<ProtectedRoute component={Shipping} />}
+          />
         </Routes>
       </Suspense>
 

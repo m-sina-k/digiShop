@@ -6,6 +6,8 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../auth/firebase";
 import { useSelector } from "react-redux";
+
+import logo from '../../assets/images/logo.png'
 import "./registerForm.scss";
 
 const SignUp = () => {
@@ -106,6 +108,8 @@ document.title="دیجی شاپ | ساخت حساب"
     }
   };
 
+ 
+
   return (
     <div className="sign-up">
       {loading && <Loading />}
@@ -129,6 +133,9 @@ document.title="دیجی شاپ | ساخت حساب"
           ) : null}
 
           <div className="form-container">
+          <Link to='/' className="mb-3">
+            <img src={logo} alt="لوگو" />
+          </Link>
             <h4 className="form-title">ساخت حساب کاربری</h4>
 
             <form

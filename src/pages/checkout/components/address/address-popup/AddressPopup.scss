@@ -1,0 +1,128 @@
+@import "../../../../../style/var";
+
+.address-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  max-width: 95%;
+  background-color: $white;
+  border-radius: $rounded-md;
+  -webkit-border-radius: $rounded-md;
+  -moz-border-radius: $rounded-md;
+  -ms-border-radius: $rounded-md;
+  -o-border-radius: $rounded-md;
+  padding: 0 $gap-lg $gap-lg;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  z-index: $z-max;
+
+  &__heading {
+    @include flex(space-between, center);
+    padding: $gap-md 0;
+    border-bottom: 1.5px solid $light;
+    background-color: $white;
+
+    .close-button {
+      color: $red;
+      font-size: $font-2xl;
+      cursor: pointer;
+    }
+  }
+
+  &__add-address {
+    padding: $gap-md 0;
+    border-bottom: 1px solid $skeleton;
+    cursor: pointer;
+
+    .icon-container {
+      font-size: $font-2xl;
+      margin-left: $gap-sm;
+    }
+  }
+  &__address-list {
+    max-height: 75vh;
+    overflow: auto;
+  }
+
+  &__form {
+    padding: $gap-md 0;
+    max-height: 75vh;
+    overflow: auto;
+
+    .form-input {
+      direction: rtl !important;
+    }
+
+    #address-input {
+      height: 60px;
+      overflow: auto;
+    }
+
+    .form__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 10px;
+    }
+
+    .error-container {
+      color: $red;
+      .error-message {
+        color: $red;
+        margin-bottom: $gap-xs;
+      }
+
+      .error-tips__container {
+        .error-tip {
+          font-size: $font-sm;
+          display: flex;
+          align-items: center;
+
+          &::before {
+            content: "-";
+            display: inline-block;
+            margin-left: $gap-xxs;
+          }
+        }
+      }
+    }
+  }
+
+  .address-control {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $gap-xs;
+    max-width: 95%;
+
+    &__btn {
+      background-color: transparent;
+
+      &--edit {
+        color: $blue;
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+
+      &--delete {
+        color: $red;
+        
+        width: 35px;
+        height: 35px;
+        border-radius: $rounded-full;
+        -webkit-border-radius: $rounded-full;
+        -moz-border-radius: $rounded-full;
+        -ms-border-radius: $rounded-full;
+        -o-border-radius: $rounded-full;
+
+        &:hover {
+        background-color: $red-light;
+        }
+      }
+    }
+  }
+}

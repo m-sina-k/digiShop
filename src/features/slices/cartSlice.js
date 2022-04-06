@@ -45,6 +45,11 @@ const cartSlice = createSlice({
       state.cartItems = [];
       localStorage.removeItem("cartItems");
     },
+
+    updateCart:(state)=>{
+      state.cartItems = JSON.parse(localStorage.getItem("cartItems"))
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+    }
   },
 });
 
@@ -54,5 +59,6 @@ export const {
   increaseQty,
   decreaseQty,
   emptyCart,
+  updateCart
 } = cartSlice.actions;
 export default cartSlice.reducer;

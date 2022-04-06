@@ -75,7 +75,6 @@
   @include desktop-sm {
     .cart {
       &__grid-container {
-        grid-template-columns: 1fr;
   
         .checkout-box {
           .shipping-text,

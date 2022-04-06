@@ -19,7 +19,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <div className="container-fluid">
+      <div className="col-12 col-lg-10">
         {cartItems.length ? (
           <div className="row">
             <section className="cart__heading">
@@ -35,6 +35,7 @@ const Cart = () => {
                 >
                   خالی کردن سبد
                 </button>
+                <hr />
                 {cartItems.map((item, index) => (
                   <CartItem product={item} key={index} />
                 ))}

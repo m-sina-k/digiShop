@@ -7,6 +7,8 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../auth/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser, saveUserToken } from "../../features/slices/authSlice";
+
+import logo from '../../assets/images/logo.png'
 import "./registerForm.scss";
 
 const Login = () => {
@@ -86,6 +88,8 @@ const Login = () => {
     };
   }, []);
 
+
+
   return (
     <div className="login">
       {loading && <Loading />}
@@ -104,6 +108,9 @@ const Login = () => {
           <Alert variant="error" text={serverError} title="خطا" />
         ) : null}
         <div className="form-container">
+          <Link to='/' className="mb-3">
+            <img src={logo} alt="لوگو" />
+          </Link>
           <h4 className="form-title">ورود به حساب کاربری</h4>
 
           <form
