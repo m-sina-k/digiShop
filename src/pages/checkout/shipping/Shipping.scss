@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
 
-  &__grid-container{
+  &__grid-container {
     margin-top: $gap-md;
     display: grid;
     grid-template-columns: 7fr 3fr;
@@ -21,6 +21,20 @@
       -moz-border-radius: $rounded-md;
       -ms-border-radius: $rounded-md;
       -o-border-radius: $rounded-md;
+    }
+  }
+}
+
+@include desktop-sm {
+  .shipping {
+    padding: $gap-lg;
+
+    &__grid-container {
+      grid-template-columns: 1fr;
+
+      .shipping__grid-block {
+        min-width: 0;
+      }
     }
   }
 }

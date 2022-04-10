@@ -1,0 +1,87 @@
+@import "../../../../style/var";
+
+.day-picker {
+  &__heading {
+    display: flex;
+    align-items: center;
+
+    .icon-container {
+      font-size: $font-xl;
+      margin-left: $gap-xs;
+      color: $primary;
+    }
+  }
+
+  &__body {
+    border: 2px solid $skeleton;
+    border-radius: $rounded-md;
+    -webkit-border-radius: $rounded-md;
+    -moz-border-radius: $rounded-md;
+    -ms-border-radius: $rounded-md;
+    -o-border-radius: $rounded-md;
+    margin-top: $gap-sm;
+    padding: $gap-sm $gap-sm 0;
+
+    .day-container {
+      display: flex;
+      border-bottom: 2px solid $skeleton;
+      max-width: 98%;
+      overflow-x: auto;
+      &__item {
+        padding: $gap-sm;
+        text-align: center;
+        margin-left: $gap-sm;
+        cursor: pointer;
+        .day-name {
+          display: block;
+          margin-bottom: $gap-xs;
+        }
+        .day-date {
+          font-weight: bold;
+          font-size: $font-xl;
+        }
+
+        &--active {
+          border-bottom: 5px solid $blue;
+          .day-name {
+            color: $blue;
+          }
+          .day-date {
+            color: $black;
+          }
+        }
+      }
+    }
+
+    .time-container {
+      padding: $gap-sm 0;
+    }
+  }
+  .delivery-time-info {
+    margin-top: $gap-md;
+    p {
+      color: $black;
+      margin-bottom: $gap-sm;
+    }
+  }
+}
+
+@include tablet-sm {
+  .day-picker {
+    &__body {
+      .day-container {
+        &__item {
+          padding: $gap-xs;
+          margin-left: $gap-xs;
+
+          .day-name {
+            font-size: $font-sm;
+          }
+          .day-date {
+            font-size: $font-md;
+          }
+        }
+      }
+    }
+  }
+}

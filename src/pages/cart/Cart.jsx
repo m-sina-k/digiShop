@@ -28,7 +28,7 @@ const Cart = () => {
             </section>
             <div className="cart__grid-container">
               {/* cart items section */}
-              <div className="cart-items__container  cart__grid-block">
+              <div className="cart-items__container cart__grid-block">
                 <button
                   className="empty-cart-button"
                   onClick={() => dispatch(emptyCart())}
@@ -41,6 +41,7 @@ const Cart = () => {
                 ))}
               </div>
               <CheckoutBox
+                type="cart"
                 cartItems={cartItems}
                 countCartItems={countCartItems}
               />

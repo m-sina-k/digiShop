@@ -1,22 +1,36 @@
 import React from "react";
 import "./Checkbox.scss";
 
-const Checkbox = ({ label, name, checked, callback }) => {
-
+const Checkbox = ({
+  label,
+  name,
+  checked,
+  callback,
+  additionalClass,
+  additionalContent,
+}) => {
   return (
     <label
       className={`checkbox-container ${
-        checked ? "checkbox-container--checked" : ""
+        checked && !additionalClass && "checkbox-container--checked"
+      } ${
+        additionalClass && checked
+          ? `${additionalClass} ${additionalClass}--checked`
+          : additionalClass
       }`}
     >
+      
       <input
         type="radio"
-        className="custom-checkbox"
+        className="custom-checkbox d-inline-block"
         name={name}
         checked={checked}
         onChange={callback}
       />
-      <span className="label-text">{label}</span>
+      <p className="label-text">
+        <span className="test">{label}</span>
+      </p>
+        {additionalContent && <small className="additional-content">{additionalContent}</small>}
     </label>
   );
 };

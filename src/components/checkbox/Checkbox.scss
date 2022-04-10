@@ -25,10 +25,51 @@
   .label-text {
     margin-right: $gap-xs;
     text-align: left;
+    display: inline-block;
+  }
+  .additional-content {
+    margin-right: auto;
   }
 
   &--checked {
     color: $black;
     background-color: lighten($blue-light, 10%);
+  }
+
+  &--time-picker {
+    margin-bottom: 0;
+    width: 100%;
+    border-bottom: 2px solid $light;
+    display: flex;
+    padding: $gap-md $gap-xs;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &--checked {
+      color: $black;
+      .label-text{
+        color: $black;
+      }
+    }
+  }
+}
+
+@include tablet-sm{
+  .checkbox-container{
+    &--time-picker{
+      .label-text{
+        font-size: $font-sm;
+      }
+      small{
+        font-size: $font-xs;
+      }
+    }
   }
 }

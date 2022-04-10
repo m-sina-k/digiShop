@@ -8,6 +8,7 @@ import AddressPopup from "./address-popup/AddressPopup";
 import AddressOption from "./address-popup/AddressOption";
 
 import { GrAddCircle } from "react-icons/gr";
+import { BiCurrentLocation } from "react-icons/bi";
 import "./Address.scss";
 
 const Address = () => {
@@ -48,7 +49,13 @@ const Address = () => {
           setCurrentAddress={setCurrentAddress}
         />
       )}
-      <h6 className="address-section__title">آدرس تحویل سفارش</h6>
+      <div className="address-section__heading">
+        <span className="icon-container">
+          <BiCurrentLocation />
+        </span>
+        <h6 className="title">آدرس تحویل سفارش</h6>
+      </div>
+     
 
       {currentAddress ? (
         <div className="address-container">

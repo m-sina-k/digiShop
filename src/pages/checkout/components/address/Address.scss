@@ -1,6 +1,18 @@
 @import "../../../../style/var";
 
 .address-section {
+
+&__heading{
+  display: flex;
+  align-items: center;
+
+  .icon-container{
+    font-size: $font-3xl;
+      color: $primary;
+      margin-left: $gap-xs;
+  }
+}
+
   .add-new-address-button {
     @include flex(center, center, column);
     display: inline-flex;

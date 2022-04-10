@@ -29,7 +29,7 @@ const ChangeAddress = ({
             <AddressOption
               key={index}
               address={item}
-              isActive={currentAddress.id === item.id}
+              isActive={currentAddress.id === item.id || addressList.length === 1}
               additionalClass="address-option--popup"
               currentAddress={currentAddress}
               setCurrentAddress={setCurrentAddress}
