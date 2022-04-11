@@ -16,7 +16,7 @@ const CartItems = () => {
       </div>
 
       <div className="cart-items__list">
-        {cartItems.map((item) => (
+        {cartItems && cartItems.map((item) => (
           <section className="cart-item" key={item.id}>
             <img
               src={item.image}

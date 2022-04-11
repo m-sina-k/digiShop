@@ -4,6 +4,7 @@ import uiSlice from "./slices/uiSlice";
 import productsSlice from "./slices/productsSlice";
 import shopFilterSlice from "./slices/shopFilterSlice";
 import cartSlice from "./slices/cartSlice";
+import submitOrderSlice from "./slices/submitOrderSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     productsState: productsSlice,
     filterState: shopFilterSlice,
     cartState: cartSlice,
+    orderState:submitOrderSlice
   }
 });

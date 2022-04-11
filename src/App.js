@@ -28,6 +28,7 @@ const SingleProduct = lazy(() =>
 );
 const Cart = lazy(() => import("./pages/cart/Cart.jsx"));
 const Shipping = lazy(() => import("./pages/checkout/shipping/Shipping"));
+const Payment = lazy(() => import("./pages/checkout/payment/Payment"));
 
 function App() {
   const { showBackdrop, showMegaDropdownBackdrop, lockBodyScroll } =
@@ -81,6 +82,10 @@ function App() {
           <Route
             path="/checkout/shipping"
             element={<ProtectedRoute component={Shipping} />}
+          />
+          <Route
+            path="/checkout/payment"
+            element={<ProtectedRoute component={Payment} />}
           />
         </Routes>
       </Suspense>

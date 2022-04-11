@@ -11,16 +11,10 @@ import { GrAddCircle } from "react-icons/gr";
 import { BiCurrentLocation } from "react-icons/bi";
 import "./Address.scss";
 
-const Address = () => {
+const Address = ({currentAddress,addressList,setAddressList,setCurrentAddress}) => {
   const dispatch = useDispatch();
 
-  const [addressList, setAddressList] = useState(
-    JSON.parse(localStorage.getItem("addressList")) || []
-  );
-
-  const [currentAddress, setCurrentAddress] = useState(
-    addressList ? addressList[0] : null
-  );
+  
   const [showAddressPopup, setShowAddressPopup] = useState(false);
 
   // state for rendering popup content : add-address | edit-address | change-address

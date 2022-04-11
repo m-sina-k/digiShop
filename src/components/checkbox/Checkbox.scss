@@ -26,6 +26,11 @@
     margin-right: $gap-xs;
     text-align: left;
     display: inline-block;
+
+    .icon-container {
+      font-size: $font-2xl;
+      margin-left: $gap-sm;
+    }
   }
   .additional-content {
     margin-right: auto;
@@ -36,38 +41,43 @@
     background-color: lighten($blue-light, 10%);
   }
 
-  &--time-picker {
+  &--full-width {
+    border-radius: $rounded-sm;
+    -webkit-border-radius: $rounded-sm;
+    -moz-border-radius: $rounded-sm;
+    -ms-border-radius: $rounded-sm;
+    -o-border-radius: $rounded-sm;
+  
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     margin-bottom: 0;
     width: 100%;
     border-bottom: 2px solid $light;
     display: flex;
     padding: $gap-md $gap-xs;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
+   
 
     &:last-child {
       border-bottom: none;
     }
 
     &--checked {
+      background-color: $light;
       color: $black;
-      .label-text{
+      .label-text {
         color: $black;
       }
     }
   }
 }
 
-@include tablet-sm{
-  .checkbox-container{
-    &--time-picker{
-      .label-text{
+@include tablet-sm {
+  .checkbox-container {
+    &--time-picker {
+      .label-text {
         font-size: $font-sm;
       }
-      small{
+      small {
         font-size: $font-xs;
       }
     }

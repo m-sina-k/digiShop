@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { updateCart } from "../../../../features/slices/cartSlice";
 
 import { FiArrowLeftCircle } from "react-icons/fi";
@@ -10,12 +10,13 @@ const CheckoutBox = ({
   cartItems,
   countCartItems,
   type,
-  deliveryInfo,
+  state,
   scrollToDayPicker,
+  payment,
+  validated,
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 
   const itemsPriceBeforeDiscount = cartItems.reduce((a, c) => {
     const itemPrice = c.priceBeforeDiscount ? c.priceBeforeDiscount : c.price;
@@ -29,9 +30,23 @@ const CheckoutBox = ({
     itemsPriceBeforeDiscount
   ).toFixed(1);
 
+  const goToCart = () => {
+    dispatch(updateCart());
+    navigate("/cart");
+  };
+
   const goToShipping = () => {
     dispatch(updateCart());
     navigate("/checkout/shipping");
+  };
+
+  const goToPayment = () => {
+    dispatch(updateCart());
+    if (cartItems.length) {
+      navigate("/checkout/payment");
+    } else {
+      goToCart();
+    }
   };
 
   const renderCheckoutBox = () => {
@@ -72,7 +87,10 @@ const CheckoutBox = ({
                 هزینه‌ی ارسال در ادامه بر اساس آدرس، زمان و نحوه‌ی ارسال انتخابی
                 شما‌ محاسبه و به این مبلغ اضافه خواهد شد.
               </p>
-              <button className="checkout-button checkout-button--primary" onClick={goToShipping}>
+              <button
+                className="checkout-button checkout-button--primary"
+                onClick={goToShipping}
+              >
                 مرحله بعدی
                 <FiArrowLeftCircle className="arrow-icon" />
               </button>
@@ -98,16 +116,15 @@ const CheckoutBox = ({
               <section className="cart-info">
                 <p className="cart-info__text">هزینه ارسال : </p>
                 <span className="cart-info__price">
-                  {deliveryInfo.deliveryPrice
-                    ? deliveryInfo.deliveryPrice.toLocaleString() + " تومان "
+                  {state.deliveryPrice
+                    ? state.deliveryPrice.toLocaleString() + " تومان "
                     : "تعیین نشده"}{" "}
                 </span>
               </section>
               <section className="cart-info">
                 <p className="cart-info__text">قابل پرداخت : </p>
                 <span className="cart-info__price">
-                  {(itemsPrice + deliveryInfo.deliveryPrice).toLocaleString()}{" "}
-                  تومان
+                  {(itemsPrice + state.deliveryPrice).toLocaleString()} تومان
                 </span>
               </section>
 
@@ -115,17 +132,18 @@ const CheckoutBox = ({
                 هزینه ارسال براساس آدرس، زمان تحویل، وزن و حجم مرسوله شما محاسبه
                 شده است.
               </p>
-              {deliveryInfo.selectedTime ? (
-                <Link to="/checkout/payment" className="checkout-button checkout-button--primary">
-                  مرحله بعدی
-                  <FiArrowLeftCircle className="arrow-icon" />
-                </Link>
+              {payment ? (
+                <button className="checkout-button checkout-button--primary">
+                  ثبت سفارش
+                </button>
               ) : (
                 <button
-                  className="checkout-button checkout-button--secondary"
-                  onClick={scrollToDayPicker}
+                  onClick={goToPayment}
+                  className="checkout-button checkout-button--primary"
+                  disabled={!validated}
                 >
-                  انتخاب زمان ارسال
+                  مرحله بعدی
+                  <FiArrowLeftCircle className="arrow-icon" />
                 </button>
               )}
             </section>

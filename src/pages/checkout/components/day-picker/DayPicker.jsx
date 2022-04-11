@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  setDeliveryDay,
+  setDeliveryPrice,
+  setDeliveryTime,
+  setMonth,
+} from "../../../../features/slices/submitOrderSlice";
 import Checkbox from "../../../../components/checkbox/Checkbox";
 import { deliveryTimes } from "../../../../assets/data/deliveryTimes";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,7 +15,8 @@ import "moment/locale/fa";
 import { FaRegClock } from "react-icons/fa";
 import "./DayPicker.scss";
 
-const DayPicker = ({ deliveryInfo, setDeleveryInfo, dayPickerRef }) => {
+const DayPicker = ({ state, dayPickerRef }) => {
+  const dispatch = useDispatch();
   const [activeDay, setActiveDay] = useState(0);
   const upcomingDays = [];
   const DAYS_COUNT = 5;
@@ -22,9 +30,19 @@ const DayPicker = ({ deliveryInfo, setDeleveryInfo, dayPickerRef }) => {
         date: today.format("jD"),
         name: today.format("dddd"),
       });
+      const month = new Intl.DateTimeFormat("fa", { month: "short" }).format(
+        today
+      );
+      dispatch(setMonth(month));
     }
   };
   getUpcomingDays();
+
+  const setDateAndTime = (time) => {
+    dispatch(setDeliveryTime(time));
+    dispatch(setDeliveryPrice(SHIPPING_PRICE));
+    dispatch(setDeliveryDay(upcomingDays[activeDay]));
+  };
 
   return (
     <div className="day-picker" ref={dayPickerRef}>
@@ -66,16 +84,10 @@ const DayPicker = ({ deliveryInfo, setDeleveryInfo, dayPickerRef }) => {
                 item.times.map((item) => (
                   <Checkbox
                     key={item.id}
-                    checked={deliveryInfo.selectedTime?.id === item.id}
+                    checked={state.deliveryTime?.id === item.id}
                     label={` از ساعت ${item.timeStart}  تا ${item.timeEnd}`}
-                    callback={() =>
-                      setDeleveryInfo({
-                        deliveryPrice: SHIPPING_PRICE,
-                        selectedTime: item,
-                        selectedDay: upcomingDays[activeDay],
-                      })
-                    }
-                    additionalClass="checkbox-container--time-picker"
+                    callback={() => setDateAndTime(item)}
+                    additionalClass="checkbox-container--full-width"
                     additionalContent={`هزینه ارسال:${SHIPPING_PRICE.toLocaleString()}تومان`}
                   />
                 ))
@@ -84,15 +96,14 @@ const DayPicker = ({ deliveryInfo, setDeleveryInfo, dayPickerRef }) => {
         </AnimatePresence>
       </div>
       <section className="delivery-time-info">
-        {deliveryInfo.selectedTime && (
+        {state.deliveryTime && (
           <div>
             <p className="delivery-date">
-              زمان ارسال : {deliveryInfo.selectedDay.name} -{" "}
-              {deliveryInfo.selectedTime.timeStart} تا{" "}
-              {deliveryInfo.selectedTime.timeEnd}
+              زمان ارسال : {state.deliveryDay.name} -{" "}
+              {state.deliveryTime.timeStart} تا {state.deliveryTime.timeEnd}
             </p>
             <p className="delivery-price">
-              هزینه ارسال : {deliveryInfo.deliveryPrice.toLocaleString()} تومان
+              هزینه ارسال : {state.deliveryPrice.toLocaleString()} تومان
             </p>
           </div>
         )}

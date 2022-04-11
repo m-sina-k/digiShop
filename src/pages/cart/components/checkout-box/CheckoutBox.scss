@@ -4,7 +4,14 @@
   position: sticky;
   top: $gap-sm;
   height: max-content;
-  
+  padding: $gap-md;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      background-color: $white;
+      border-radius: $rounded-md;
+      -webkit-border-radius: $rounded-md;
+      -moz-border-radius: $rounded-md;
+      -ms-border-radius: $rounded-md;
+      -o-border-radius: $rounded-md;
 
   .items-total {
     @include flex(space-between, center);
@@ -59,7 +66,7 @@
       background-color: $primary;
       color: $white;
 
-      &:hover {
+      &:hover:not(.checkout-button--primary:disabled) {
         background-color: $primary-shade;
         text-shadow: 0 0 5px $shadow;
   

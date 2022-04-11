@@ -1,0 +1,89 @@
+@import "../../../style/var";
+
+.payment {
+  padding: $gap-xl 0;
+  display: flex;
+  justify-content: center;
+
+  &__grid-container {
+    margin-top: $gap-md;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-gap: 10px;
+    padding: 0;
+
+    .payment__grid-block {
+      padding: $gap-md;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      background-color: $white;
+      border-radius: $rounded-md;
+      -webkit-border-radius: $rounded-md;
+      -moz-border-radius: $rounded-md;
+      -ms-border-radius: $rounded-md;
+      -o-border-radius: $rounded-md;
+
+      .block-heading {
+        display: flex;
+        align-items: center;
+        margin-bottom: $gap-sm;
+
+        .icon-container {
+          font-size: $font-xl;
+          margin-left: $gap-xs;
+          color: $primary;
+        }
+      }
+
+      .discount-code {
+        &__form {
+          max-width: 350px;
+          position: relative;
+          .discount-input {
+            width: 100%;
+            border-radius: $rounded-md;
+            -webkit-border-radius: $rounded-md;
+            -moz-border-radius: $rounded-md;
+            -ms-border-radius: $rounded-md;
+            -o-border-radius: $rounded-md;
+            background-color: $light;
+            padding: $gap-xs $gap-md;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+              rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+          }
+
+          .discount-submit {
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            background-color: $primary;
+            color: $white;
+            padding: $gap-xxs $gap-md;
+            border-radius: $rounded-sm;
+            -webkit-border-radius: $rounded-sm;
+            -moz-border-radius: $rounded-sm;
+            -ms-border-radius: $rounded-sm;
+            -o-border-radius: $rounded-sm;
+
+            &:hover{
+              background-color: $primary-shade;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include desktop-sm {
+  .payment {
+    padding: $gap-lg;
+
+    &__grid-container {
+      grid-template-columns: 1fr;
+
+      .payment__grid-block {
+        // min-width: 0;
+      }
+    }
+  }
+}

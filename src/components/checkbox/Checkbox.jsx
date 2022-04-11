@@ -4,6 +4,7 @@ import "./Checkbox.scss";
 const Checkbox = ({
   label,
   name,
+  icon,
   checked,
   callback,
   additionalClass,
@@ -28,9 +29,12 @@ const Checkbox = ({
         onChange={callback}
       />
       <p className="label-text">
-        <span className="test">{label}</span>
+        <span>
+          <span className="icon-container">{icon}</span>
+          {label}
+        </span>
       </p>
-        {additionalContent && <small className="additional-content">{additionalContent}</small>}
+      {additionalContent && <small className="additional-content">{additionalContent}</small>}
     </label>
   );
 };
