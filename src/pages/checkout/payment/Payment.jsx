@@ -10,16 +10,20 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { FaCoins } from "react-icons/fa";
 import { ImPriceTags } from "react-icons/im";
 import "./Payment.scss";
+import OrderSubmited from "./../components/order-submited/OrderSubmited";
 
 const Payment = () => {
   const navigate = useNavigate();
   const state = useSelector((state) => state.orderState);
   const cartItems = JSON.parse(localStorage.getItem("cartItems"));
+  const [orderSubmited, setOrderSubmited] = useState(false);
 
   return (
     <div className="payment">
       {!state.deliveryTime ? (
         navigate("/checkout/shipping")
+      ) : orderSubmited ? (
+        <OrderSubmited />
       ) : (
         <div className="col-12 col-lg-10">
           <div className="row">
@@ -37,6 +41,7 @@ const Payment = () => {
                 cartItems={cartItems}
                 state={state}
                 payment={true}
+                setOrderSubmited={setOrderSubmited}
               />
             </div>
           </div>

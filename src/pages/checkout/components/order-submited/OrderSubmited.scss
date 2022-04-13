@@ -1,0 +1,21 @@
+@import '../../../../style/var';
+
+.order-submited{
+    @include flex(center,center,column);
+    max-width: 400px;
+    margin: $gap-lg auto 0;
+
+    .image-container{
+        max-width: 70%;
+    }
+
+    .text{
+        margin-bottom: $gap-md;
+    }
+
+    .link-container{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+}

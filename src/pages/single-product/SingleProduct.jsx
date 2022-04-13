@@ -141,11 +141,18 @@ const SingleProduct = () => {
         });
       }
 
-      setItemInCart(
-        cartItems.find((item) => item.id === product.id) ? true : false
-      );
+      if (cartItems) {
+        setItemInCart(
+          cartItems.find((item) => item.id === product.id) ? true : false
+        );
+      }
     }
   }, [product]);
+
+  // reset body backColor
+  useEffect(() => {
+    return () => (document.body.style.backgroundColor = null);
+  }, []);
 
   const generateRandomLimit = () => Math.floor(Math.random() * (4 - 1)) + 1;
 

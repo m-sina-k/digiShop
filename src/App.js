@@ -26,6 +26,9 @@ const BrandSingle = lazy(() =>
 const SingleProduct = lazy(() =>
   import("./pages/single-product/SingleProduct.jsx")
 );
+const OrderTracking = lazy(() =>
+  import("./pages/order-tracking/OrderTracking")
+);
 const Cart = lazy(() => import("./pages/cart/Cart.jsx"));
 const Shipping = lazy(() => import("./pages/checkout/shipping/Shipping"));
 const Payment = lazy(() => import("./pages/checkout/payment/Payment"));
@@ -48,7 +51,7 @@ function App() {
         }
       />
 
-    <Header />
+      <Header />
 
       <Suspense fallback={<PageLoading />}>
         <Routes>
@@ -86,6 +89,10 @@ function App() {
           <Route
             path="/checkout/payment"
             element={<ProtectedRoute component={Payment} />}
+          />
+          <Route
+            path="/order-tracking"
+            element={<ProtectedRoute component={OrderTracking} />}
           />
         </Routes>
       </Suspense>

@@ -288,7 +288,7 @@ export const navigationLink = [
   {
     id: autoID(),
     text: "پیگیری سفارش",
-    url: "#",
+    url: "/order-tracking",
     dropdown: null,
     megaDropdown: null,
   },

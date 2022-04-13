@@ -5,7 +5,7 @@ const initialState = {
   showMegaDropdownBackdrop: false,
   lockBodyScroll: false,
   // routes to hide header and footer
-  exceptionRoutes : ["/login", "/sign-up", "/checkout/shipping"],
+  exceptionRoutes : ["/login", "/sign-up", "/checkout/shipping","/checkout/payment"],
 };
 
 const uiSlice = createSlice({

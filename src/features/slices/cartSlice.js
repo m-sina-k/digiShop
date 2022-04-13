@@ -12,9 +12,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, { payload }) => {
       // update cart changes before adding new item
-      state.cartItems = localStorage.getItem("cartItems")
-        ? JSON.parse(localStorage.getItem("cartItems"))
-        : [];
+      state.cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
       state.cartItems = [...state.cartItems, { ...payload, qty: 1 }];
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
@@ -46,10 +44,10 @@ const cartSlice = createSlice({
       localStorage.removeItem("cartItems");
     },
 
-    updateCart:(state)=>{
-      state.cartItems = JSON.parse(localStorage.getItem("cartItems"))
+    updateCart: (state) => {
+      state.cartItems = JSON.parse(localStorage.getItem("cartItems"));
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-    }
+    },
   },
 });
 
@@ -59,6 +57,6 @@ export const {
   increaseQty,
   decreaseQty,
   emptyCart,
-  updateCart
+  updateCart,
 } = cartSlice.actions;
 export default cartSlice.reducer;

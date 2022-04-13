@@ -52,7 +52,7 @@ const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
             </section>
             <Link to="/cart" className="widget-button cart-button">
               <BsCart2 className="cart-icon widget-button__icon" />
-              <span className="cart-button__amount">{countCartItems()}</span>
+              <span className="cart-button__amount">{cartItems ? countCartItems() : 0}</span>
             </Link>
 
             {userToken ? (

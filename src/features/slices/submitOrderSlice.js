@@ -22,9 +22,15 @@ const submitOrderReducer = createSlice({
         },
         setMonth:(state,{payload})=>{
             state.month = payload;
+        },
+        resetState:(state)=>{
+            state.deliveryDay = null;
+            state.deliveryPrice = null;
+            state.deliveryTime = null;
+            state.month = null
         }
     }
 })
 
 export default submitOrderReducer.reducer;
-export const {setDeliveryDay,setDeliveryTime,setDeliveryPrice,setMonth} = submitOrderReducer.actions
+export const {setDeliveryDay,setDeliveryTime,setDeliveryPrice,setMonth,resetState} = submitOrderReducer.actions

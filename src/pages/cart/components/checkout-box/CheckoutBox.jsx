@@ -1,7 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { updateCart } from "../../../../features/slices/cartSlice";
+import { emptyCart, updateCart } from "../../../../features/slices/cartSlice";
+import BlankPage from "../../../blank-page/BlankPage";
 
 import { FiArrowLeftCircle } from "react-icons/fi";
 import "./CheckoutBox.scss";
@@ -11,9 +12,9 @@ const CheckoutBox = ({
   countCartItems,
   type,
   state,
-  scrollToDayPicker,
   payment,
   validated,
+  setOrderSubmited,
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -47,6 +48,16 @@ const CheckoutBox = ({
     } else {
       goToCart();
     }
+  };
+
+  const submitOrder = () => {
+    let orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
+  
+    const orderInfo = { cartItems, deliveryInfo: state };
+    orderHistory = [...orderHistory, orderInfo];
+    localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
+    dispatch(emptyCart());
+    setOrderSubmited(true);
   };
 
   const renderCheckoutBox = () => {
@@ -133,7 +144,10 @@ const CheckoutBox = ({
                 شده است.
               </p>
               {payment ? (
-                <button className="checkout-button checkout-button--primary">
+                <button
+                  className="checkout-button checkout-button--primary"
+                  onClick={submitOrder}
+                >
                   ثبت سفارش
                 </button>
               ) : (
