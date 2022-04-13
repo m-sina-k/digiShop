@@ -32,6 +32,7 @@ const OrderTracking = lazy(() =>
 const Cart = lazy(() => import("./pages/cart/Cart.jsx"));
 const Shipping = lazy(() => import("./pages/checkout/shipping/Shipping"));
 const Payment = lazy(() => import("./pages/checkout/payment/Payment"));
+const SearchResult = lazy(() => import("./pages/search-result/SearchResult"));
 
 function App() {
   const { showBackdrop, showMegaDropdownBackdrop, lockBodyScroll } =
@@ -94,6 +95,7 @@ function App() {
             path="/order-tracking"
             element={<ProtectedRoute component={OrderTracking} />}
           />
+          <Route path="/search/:searchQuery" element={<SearchResult />} />
         </Routes>
       </Suspense>
 

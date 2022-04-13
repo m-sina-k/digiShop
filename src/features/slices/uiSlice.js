@@ -4,6 +4,7 @@ const initialState = {
   showBackdrop: false,
   showMegaDropdownBackdrop: false,
   lockBodyScroll: false,
+  searchQuery:'',
   // routes to hide header and footer
   exceptionRoutes : ["/login", "/sign-up", "/checkout/shipping","/checkout/payment"],
 };
@@ -21,10 +22,13 @@ const uiSlice = createSlice({
     },
     lockBodyScroll:(state,{payload})=>{
       state.lockBodyScroll = payload;
+    },
+    setSearchQuery:(state,{payload}) =>{
+      state.searchQuery = payload;
     }
   },
 });
 
-export const { setShowBackdrop, setShowMegaDropdownBackdrop,lockBodyScroll } = uiSlice.actions;
+export const { setShowBackdrop, setShowMegaDropdownBackdrop,lockBodyScroll,setSearchQuery } = uiSlice.actions;
 
 export default uiSlice.reducer;

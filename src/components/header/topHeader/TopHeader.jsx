@@ -1,25 +1,33 @@
 import React, { useState } from "react";
 import { useDetectClickOutside } from "react-detect-click-outside";
+import { setSearchQuery } from "../../../features/slices/uiSlice";
 import { Link } from "react-router-dom";
 import { BiSearch, BiUser } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import { MdMenu } from "react-icons/md";
 import { HiOutlineLogin } from "react-icons/hi";
 import logo from "../../../assets/images/logo.png";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import DashboardDropdown from "./DashboardDropdown";
 import "./TopHeader.scss";
 
 const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
+  const dispatch = useDispatch()
   const { userToken } = useSelector((state) => state.authState);
   const { cartItems } = useSelector((state) => state.cartState);
+  const { searchQuery } = useSelector((state) => state.uiState);
   const [showDashboardDropdown, setShowDashboardDropdown] = useState(false);
   const closeDropdown = () => {
     setShowDashboardDropdown(false);
   };
   const ref = useDetectClickOutside({ onTriggered: closeDropdown });
 
-  const countCartItems = ()=> cartItems.reduce((a, c) => (a += c.qty), 0)
+  const countCartItems = () => cartItems.reduce((a, c) => (a += c.qty), 0);
+
+  const search = (e) => {
+    e.preventDefault()
+    if (searchQuery) window.location = `/search/${searchQuery}`;
+  };
 
   return (
     <div className="top-header">
@@ -30,14 +38,24 @@ const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
           </Link>
 
           <div className="searchbar-container">
-            <form action="#" method="get" className="searchbar-form">
+            <form
+              action="#"
+              method="get"
+              className="searchbar-form"
+              onSubmit={(e) =>search(e)}
+            >
               <input
                 type="search"
                 name="header-search-input"
                 id="search-input"
                 placeholder="جستجو کنید..."
+                value={searchQuery}
+                onChange={(e) => dispatch(setSearchQuery(e.target.value))}
               />
-              <button type="submit" className="searchbar-button">
+              <button
+                type="submit"
+                className="searchbar-button"
+              >
                 <BiSearch className="search-icon" />
               </button>
             </form>
@@ -52,7 +70,9 @@ const TopHeader = ({ setShowMobileSearchbar, setShowMobileNavigation }) => {
             </section>
             <Link to="/cart" className="widget-button cart-button">
               <BsCart2 className="cart-icon widget-button__icon" />
-              <span className="cart-button__amount">{cartItems ? countCartItems() : 0}</span>
+              <span className="cart-button__amount">
+                {cartItems ? countCartItems() : 0}
+              </span>
             </Link>
 
             {userToken ? (
