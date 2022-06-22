@@ -24,10 +24,10 @@ const Slider = ({ images, loading }) => {
             loop
             lazy
             effect="fade"
-            // autoplay={{
-            //   delay: 1500,
-            //   disableOnInteraction: true,
-            // }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: true,
+            }}
           >
             {images.map((item) => (
               <SwiperSlide key={item.id}>

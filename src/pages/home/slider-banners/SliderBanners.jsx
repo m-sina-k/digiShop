@@ -54,10 +54,10 @@ const [loading,setLoading] = useState(false)
               loop
               lazy
               effect="fade"
-              // autoplay={{
-              //   delay: 1500,
-              //   disableOnInteraction: true,
-              // }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: true,
+              }}
             >
               {sliderImages.map((item) => (
                 <SwiperSlide key={item.id}>

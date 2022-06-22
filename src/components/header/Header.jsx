@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef,useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import TopHeader from "./topHeader/TopHeader";
@@ -16,19 +16,19 @@ const Header = () => {
   const headerRef = useRef();
 
   // fixing header if user scroll's
-  // useEffect(()=>{
-  //   window.addEventListener("scroll", () => {
+  useEffect(()=>{
+    window.addEventListener("scroll", () => {
 
-  //     if (window.scrollY > 0 && headerRef.current) {
-  //       const headerHeight = headerRef.current.offsetHeight;
-  //       document.body.style.paddingTop = headerHeight + "px";
-  //       headerRef.current.classList.add("header--sticky");
-  //     } else {
-  //       document.body.style.paddingTop = 0;
-  //       headerRef.current.classList.remove("header--sticky");
-  //     }
-  //   });
-  // },[])
+      if (window.scrollY > 0 && headerRef.current) {
+        const headerHeight = headerRef.current.offsetHeight;
+        document.body.style.paddingTop = headerHeight + "px";
+        headerRef.current.classList.add("header--sticky");
+      } else {
+        document.body.style.paddingTop = 0;
+        headerRef.current.classList.remove("header--sticky");
+      }
+    });
+  },[])
 
   
 

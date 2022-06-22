@@ -1,6 +1,9 @@
 # DigiShop
 an online shop to browse, review and buy electronic devices.
 
+![landing page](./src/assets/images/screenshots/landing-page.png)
+![shop page](./src/assets/images/screenshots/shop-page.png)
+
 ---
 
 ## Description
