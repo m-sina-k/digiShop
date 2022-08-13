@@ -1,6 +1,8 @@
 # DigiShop
 an online shop to browse, review and buy electronic devices.
 
+[live demo](https://62f7570ed35b2b74557f8af4--glistening-quokka-275732.netlify.app/).
+
 ![landing page](./src/assets/images/screenshots/landing-page.png)
 ![shop page](./src/assets/images/screenshots/shop-page.png)
 
